@@ -1,7 +1,16 @@
-This repository tries to create a chatbot.
-Is necessary to passes the .xlsx file as a input, where this file contains the data.
-Is possible to create a data.txt file, where is necessary to passes a possible "conversation" between user and chabot.
+This repository aims to develop a chatbot. 
+
+It is used Langchain. The operation of Langchain is:
+
+
+
+
+
+It is necessary to input the .xlsx file, which contains the relevant data. 
+
+The ideia is to create a data.txt file "conversation" examples between the user and the chatbot. For example:
 "User: Hello
 Chabot: Hello! How can i help you?
 User: What is the capital of Portugal?
 Chatbot: The capital of Portugal is Lisbon"
+
