@@ -1,4 +1,6 @@
-This repository aims to develop a chatbot. 
+This repository aims to develop a chatbot.
+
+Currently, the language used for communication between the user and the bot must be in English. 
 
 It is used Langchain. The operation of Langchain is:
 
