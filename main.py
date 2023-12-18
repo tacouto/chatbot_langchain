@@ -11,6 +11,12 @@ import csv
 import pandas as pd
 
 def xlsx_to_csv(xlsx_file, csv_file):
+    '''
+        This function converts the .xlsx file to a .csv file.
+        Input1: .xlsx file path
+        Input2: .csv file path (Path to save the .csv file)
+        Output: .csv file store in path Input2
+    '''
     # Carrega o arquivo Excel
     df = pd.read_excel(xlsx_file)
 
@@ -18,9 +24,16 @@ def xlsx_to_csv(xlsx_file, csv_file):
     df.to_csv(csv_file, index=False)
     print(f"Conversion completed. Check '{csv_file_path}' for the result.")
 
-import csv
 
 def csv_to_txt(input_file, output_file):
+    '''
+        Converts the csv file to a txt file where multiple conversation are
+        created for the differents services and responsibles, contacts, emails and department managers.
+
+        Input1: .csv file path
+        Input2: .txt file path (Path to save the .txt file)
+        Output: data.txt file store in path Input2
+    '''
     with open(input_file, 'r', newline='', encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file)
         next(csv_reader)  # Skip header row
@@ -45,6 +58,17 @@ def csv_to_txt(input_file, output_file):
     print(f"Conversion completed. Check '{output_file}' for the result.")
 
 def chat_bot(HUGGING_FACE_KEY, txt_file_path):
+    '''
+        This function is where the chatbot is created, for that to happen is used LangChain.
+        Is necessary a HUGGING FACE KEY.
+        In the end of this function is create a while loop to maintain always the "conversation" 
+        between user and bot.
+        If user types "exit", the conversation is stopped.
+        At this moment, the language between user and bot needs to be in English.
+        Input1: HUGGING FACE KEY
+        Input2: data.txt file path
+        output: Conversation between User and Bot
+    '''
     os.environ["HUGGINGFACEHUB_API_TOKEN"] = HUGGING_FACE_KEY
 
     # Carregar o arquivo de texto
