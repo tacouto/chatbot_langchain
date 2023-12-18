@@ -5,4 +5,3 @@ Is possible to create a data.txt file, where is necessary to passes a possible "
 Chabot: Hello! How can i help you?
 User: What is the capital of Portugal?
 Chatbot: The capital of Portugal is Lisbon"
- 
