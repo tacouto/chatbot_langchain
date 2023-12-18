@@ -17,10 +17,8 @@ def xlsx_to_csv(xlsx_file, csv_file):
         Input2: .csv file path (Path to save the .csv file)
         Output: .csv file store in path Input2
     '''
-    # Carrega o arquivo Excel
     df = pd.read_excel(xlsx_file)
 
-    # Salva o DataFrame como um arquivo CSV
     df.to_csv(csv_file, index=False)
     print(f"Conversion completed. Check '{csv_file_path}' for the result.")
 
@@ -90,7 +88,7 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
     embeddings = HuggingFaceEmbeddings()
     db = FAISS.from_documents(docs, embeddings)
 
-    # Treinamento do modelo de perguntas e respostas
+    # Treinar modelo de perguntas e respostas
     llm = langchain.llms.HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature": 0.8, "max_length": 512})
     # llm = langchain.llms.HuggingFaceHub(repo_id="facebook/bart-large", model_kwargs={"temperature": 0.8, "max_length": 512})
     chain = load_qa_chain(llm, chain_type="stuff")
@@ -108,7 +106,7 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
             print("Have a nice day!")
             break
 
-        # Adicionar a nova entrada ao histórico da conversa
+        # Adicionar a nova entrada ao histórico da conversa (Não funcina..)
         conversation_history.append({"role": "user", "content": query})
 
         # Pesquisar documentos relevantes
