@@ -9,6 +9,9 @@ from langchain.vectorstores import FAISS
 from langchain.document_loaders import UnstructuredExcelLoader
 import csv
 import pandas as pd
+import unicodedata
+from io import StringIO
+import math
 
 def xlsx_to_csv(xlsx_file, csv_file):
     '''
@@ -18,10 +21,23 @@ def xlsx_to_csv(xlsx_file, csv_file):
         Output: .csv file store in path Input2
     '''
     df = pd.read_excel(xlsx_file)
+    # Substituir valores nulos por uma string vazia
+    df = df.fillna('empty')
 
     df.to_csv(csv_file, index=False)
     print(f"Conversion completed. Check '{csv_file_path}' for the result.")
 
+
+def normalize_string(input_str):
+    # Tentativa de "normalizar" os nomes. Luís -> Luis. João -> Joao. André -> Andre
+    normalized_str = unicodedata.normalize('NFKD', input_str).encode('ascii', 'ignore').decode('utf-8') 
+    return normalized_str
+
+
+def normalize_phone_number(phone_number):
+    # Remove espaços e outros caracteres não numéricos
+    normalized_number = ''.join(char for char in phone_number if char.isdigit())
+    return normalized_number
 
 def csv_to_txt(input_file, output_file):
     '''
@@ -30,7 +46,7 @@ def csv_to_txt(input_file, output_file):
 
         Input1: .csv file path
         Input2: .txt file path (Path to save the .txt file)
-        Output: data.txt file store in path Input2
+        Output1: data.txt file store in path Input2
     '''
     with open(input_file, 'r', newline='', encoding='utf-8') as csv_file:
         csv_reader = csv.reader(csv_file)
@@ -38,20 +54,41 @@ def csv_to_txt(input_file, output_file):
         with open(output_file, 'w', encoding='utf-8') as txt_file:
             for row in csv_reader:
                 service, service_responsible, contact, mail, dept_manager, general_number = row
-                txt_file.write(f"User: Hi, how are you?\n")
-                txt_file.write(f"Bot: I'm doing well, thank you! How can I assist you today?\n")
-                txt_file.write(f"User: Can you tell me the contact of {service_responsible}?\n")
-                txt_file.write(f"Bot: {service_responsible}'s contact number is '{contact}'.\n")
-                txt_file.write(f"User: Can you tell me the responsible for the service {service}?\n")
-                txt_file.write(f"Bot: The responsible for the service is {service_responsible}\n")
-                txt_file.write(f"User: What is the email of {service_responsible}?\n")
-                txt_file.write(f"Bot: The email is {mail}.\n")
-                txt_file.write(f"User: Who is the department manager of the {service} service?\n")
-                txt_file.write(f"Bot: The department manager is {dept_manager}.\n")
-                txt_file.write(f"User: What is the general number?\n")
-                txt_file.write(f"Bot: The general number is '{general_number}'.\n")
-                txt_file.write(f"User: Thank you for the information!\n")
-                txt_file.write(f"Bot: You're welcome! Feel free to ask.\n\n")
+                
+                if service_responsible == 'empty' or dept_manager == 'empty' or mail == 'empty':  # Adaptar codigo para dept_manager e mail
+                    txt_file.write(f"User: Hi, how are you?\n")
+                    txt_file.write(f"Bot: I'm doing well, thank you! How can I assist you today?\n")
+                    txt_file.write(f"User: Can you tell me the contact for the {normalize_string(service)} responsible?\n")
+                    txt_file.write(f"Bot: There is no responsible person although contact number is '{normalize_phone_number(contact)}'.\n")
+                    txt_file.write(f"User: Can you tell me the responsible for the service {normalize_string(service)}?\n")
+                    txt_file.write(f"Bot: There is no responsible for the service {normalize_string(service)}\n")
+                    txt_file.write(f"User: What is the email for {normalize_string(service)} service?\n")
+                    txt_file.write(f"Bot: The email is {normalize_string(mail)}.\n")
+                    txt_file.write(f"User: Who is the department manager of the {normalize_string(service)} service?\n")
+                    txt_file.write(f"Bot: The department manager is {normalize_string(dept_manager)}.\n")
+                    txt_file.write(f"User: What is the general number?\n")
+                    txt_file.write(f"Bot: The general number is '{normalize_phone_number(general_number)}'.\n")
+                    txt_file.write(f"User: What is the phone number for the {normalize_string(service)}?\n")
+                    txt_file.write(f"Bot: There is no responsible. Contact {normalize_string(general_number)}.\n")
+                    txt_file.write(f"User: Thank you for the information!\n")
+                    txt_file.write(f"Bot: You're welcome! Feel free to ask.\n\n")
+                else:
+                    txt_file.write(f"User: Hi, how are you?\n")
+                    txt_file.write(f"Bot: I'm doing well, thank you! How can I assist you today?\n")
+                    txt_file.write(f"User: Can you tell me the contact of {normalize_string(service_responsible)}?\n")
+                    txt_file.write(f"Bot: {normalize_string(service_responsible)} contact number is '{normalize_phone_number(contact)}'.\n")
+                    txt_file.write(f"User: Can you tell me the responsible for the service {normalize_string(service)}?\n")
+                    txt_file.write(f"Bot: The responsible for the service is {normalize_string(service_responsible)}\n")
+                    txt_file.write(f"User: What is the email of {normalize_string(service_responsible)}?\n")
+                    txt_file.write(f"Bot: The email is {normalize_string(mail)}.\n")
+                    txt_file.write(f"User: Who is the department manager of the {normalize_string(service)} service?\n")
+                    txt_file.write(f"Bot: The department manager is {normalize_string(dept_manager)}.\n")
+                    txt_file.write(f"User: What is the general number?\n")
+                    txt_file.write(f"Bot: The general number is '{normalize_phone_number(general_number)}'.\n")
+                    txt_file.write(f"User: What is the phone number of the {normalize_string(service_responsible)}?\n")
+                    txt_file.write(f"Bot: The phone number of {normalize_string(service_responsible)}.\n")
+                    txt_file.write(f"User: Thank you for the information!\n")
+                    txt_file.write(f"Bot: You're welcome! Feel free to ask.\n\n")
 
     print(f"Conversion completed. Check '{output_file}' for the result.")
 
@@ -65,6 +102,7 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
         At this moment, the language between user and bot needs to be in English.
         Input1: HUGGING FACE KEY
         Input2: data.txt file path
+        Input3: Chunk size appropriate to the problem
         output: Conversation between User and Bot
     '''
     os.environ["HUGGINGFACEHUB_API_TOKEN"] = HUGGING_FACE_KEY
@@ -81,7 +119,8 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
     #     return wrapped_text
 
     # Divisão do texto
-    text_splitter = CharacterTextSplitter(chunk_size=1000, chunk_overlap=0)
+    text_splitter = CharacterTextSplitter(chunk_size = 0, chunk_overlap=0)
+    document = TextLoader(txt_file).load()
     docs = text_splitter.split_documents(document)
 
     # Embeddings
