@@ -35,15 +35,32 @@ def normalize_string(input_str):
     return normalized_str
 
 
-def normalize_phone_number(phone_number):
+# def normalize_phone_number(phone_number):
+#     '''
+#         Contact numbers stay together.
+#         Example:
+#         Input -> 911 222 333
+#         Output -> 911222333
+#     '''
+#     normalized_number = ''.join(char for char in phone_number if char.isdigit())
+#     return normalized_number
+
+def normalize_phone_number(number):
     '''
         Contact numbers stay together.
         Example:
         Input -> 911 222 333
         Output -> 911222333
     '''
-    normalized_number = ''.join(char for char in phone_number if char.isdigit())
-    return normalized_number
+    if str(number).startswith('9'):
+        return int(number.replace(' ', ''))
+
+    if str(number).startswith('2'):
+        return int(round(float(number.replace(' ', ''))))
+
+    if number == 'empty':
+        return "empty"
+
 
 def csv_to_txt(input_file, output_file):
     '''
@@ -60,12 +77,13 @@ def csv_to_txt(input_file, output_file):
         with open(output_file, 'w', encoding='utf-8') as txt_file:
             for row in csv_reader:
                 service, service_responsible, contact, mail, dept_manager, general_number = row
-                
                 if service_responsible == 'empty' or dept_manager == 'empty' or mail == 'empty':  # Adaptar codigo para dept_manager e mail
                     txt_file.write(f"User: Hi, how are you?\n")
-                    txt_file.write(f"Bot: I'm doing well, thank you! How can I assist you today?\n")
+                    txt_file.write(f"Bot: Hi! How can I help you?\n")
+                    txt_file.write(f"User: ISQ presents any service of {normalize_string(service)}?\n")
+                    txt_file.write(f"Bot: Yes! The responsible is {normalize_string(service_responsible)}.\n")
                     txt_file.write(f"User: Can you tell me the contact for the {normalize_string(service)} responsible?\n")
-                    txt_file.write(f"Bot: There is no responsible person although contact number is '{normalize_phone_number(contact)}'.\n")
+                    txt_file.write(f"Bot: There is no responsible person although contact {normalize_phone_number(contact)}.\n")
                     txt_file.write(f"User: Can you tell me the responsible for the service {normalize_string(service)}?\n")
                     txt_file.write(f"Bot: There is no responsible for the service {normalize_string(service)}\n")
                     txt_file.write(f"User: What is the email for {normalize_string(service)} service?\n")
@@ -73,16 +91,18 @@ def csv_to_txt(input_file, output_file):
                     txt_file.write(f"User: Who is the department manager of the {normalize_string(service)} service?\n")
                     txt_file.write(f"Bot: The department manager is {normalize_string(dept_manager)}.\n")
                     txt_file.write(f"User: What is the general number?\n")
-                    txt_file.write(f"Bot: The general number is '{normalize_phone_number(general_number)}'.\n")
+                    txt_file.write(f"Bot: The general number is {normalize_phone_number(contact)}.\n")
                     txt_file.write(f"User: What is the phone number for the {normalize_string(service)}?\n")
-                    txt_file.write(f"Bot: There is no responsible. Contact {normalize_string(general_number)}.\n")
-                    txt_file.write(f"User: Thank you for the information!\n")
-                    txt_file.write(f"Bot: You're welcome! Feel free to ask.\n\n")
+                    txt_file.write(f"Bot: There is no responsible. Contact {normalize_phone_number(contact)}.\n")
+                    txt_file.write(f"User: Thank you!\n")
+                    txt_file.write(f"Bot: You're welcome!.\n\n")
                 else:
                     txt_file.write(f"User: Hi, how are you?\n")
-                    txt_file.write(f"Bot: I'm doing well, thank you! How can I assist you today?\n")
-                    txt_file.write(f"User: Can you tell me the contact of {normalize_string(service_responsible)}?\n")
-                    txt_file.write(f"Bot: {normalize_string(service_responsible)} contact number is '{normalize_phone_number(contact)}'.\n")
+                    txt_file.write(f"Bot: Bot: Hi! How can I help you?\n")
+                    txt_file.write(f"User: ISQ presents any service of {normalize_string(service)}?\n")
+                    txt_file.write(f"Bot: Yes! The responsible is {normalize_string(service_responsible)}.\n")
+                    txt_file.write(f"User: Can you tell me the personal contact of {normalize_string(service_responsible)}?\n")
+                    txt_file.write(f"Bot: {normalize_string(service_responsible)} personal contact number is {normalize_phone_number(contact)}.\n")
                     txt_file.write(f"User: Can you tell me the responsible for the service {normalize_string(service)}?\n")
                     txt_file.write(f"Bot: The responsible for the service is {normalize_string(service_responsible)}\n")
                     txt_file.write(f"User: What is the email of {normalize_string(service_responsible)}?\n")
@@ -90,11 +110,11 @@ def csv_to_txt(input_file, output_file):
                     txt_file.write(f"User: Who is the department manager of the {normalize_string(service)} service?\n")
                     txt_file.write(f"Bot: The department manager is {normalize_string(dept_manager)}.\n")
                     txt_file.write(f"User: What is the general number?\n")
-                    txt_file.write(f"Bot: The general number is '{normalize_phone_number(general_number)}'.\n")
+                    txt_file.write(f"Bot: The general number is {normalize_phone_number(contact)}.\n")
                     txt_file.write(f"User: What is the phone number of the {normalize_string(service_responsible)}?\n")
                     txt_file.write(f"Bot: The phone number of {normalize_string(service_responsible)}.\n")
-                    txt_file.write(f"User: Thank you for the information!\n")
-                    txt_file.write(f"Bot: You're welcome! Feel free to ask.\n\n")
+                    txt_file.write(f"User: Thank you!\n")
+                    txt_file.write(f"Bot: You're welcome!\n\n")
 
     print(f"Conversion completed. Check '{output_file}' for the result.")
 
