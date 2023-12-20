@@ -12,6 +12,7 @@ import pandas as pd
 import unicodedata
 from io import StringIO
 import math
+from langchain.memory import ConversationBufferMemory
 
 def xlsx_to_csv(xlsx_file, csv_file):
     '''
@@ -35,7 +36,12 @@ def normalize_string(input_str):
 
 
 def normalize_phone_number(phone_number):
-    # Remove espaços e outros caracteres não numéricos
+    '''
+        Contact numbers stay together.
+        Example:
+        Input -> 911 222 333
+        Output -> 911222333
+    '''
     normalized_number = ''.join(char for char in phone_number if char.isdigit())
     return normalized_number
 
@@ -132,10 +138,12 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
     # llm = langchain.llms.HuggingFaceHub(repo_id="facebook/bart-large", model_kwargs={"temperature": 0.8, "max_length": 512})
     chain = load_qa_chain(llm, chain_type="stuff")
 
+    memory = ConversationBufferMemory()
+
     # Loop do chatbot
     print("Welcome to chatbot!")
     query = ""
-    conversation_history = []
+    # conversation_history = []
 
     while True:
         print("User:")
@@ -146,7 +154,13 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
             break
 
         # Adicionar a nova entrada ao histórico da conversa (Não funcina..)
-        conversation_history.append({"role": "user", "content": query})
+        # conversation_history.append({"role": "user", "content": query})
+
+        # Ler informações da memória
+        chat_history = memory.chat_memory
+
+        # Adicionar a nova entrada ao histórico da conversa
+        chat_history.add_user_message(query)
 
         # Pesquisar documentos relevantes
         docs = db.similarity_search(query)
@@ -154,6 +168,9 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
         # Executar o modelo de perguntas e respostas
         bot_response = chain.run(input_documents=docs, question=query)
         print(f"Chatbot: {bot_response}")
+
+        # Escrever informações na memória
+        chat_history.add_ai_message(bot_response)
 
 
 if __name__ == "__main__":
