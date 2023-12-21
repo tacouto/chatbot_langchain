@@ -145,18 +145,31 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
     #     return wrapped_text
 
     # Divisão do texto
-    text_splitter = CharacterTextSplitter(chunk_size = 0, chunk_overlap=0)
-    document = TextLoader(txt_file).load()
-    docs = text_splitter.split_documents(document)
+    text_splitter = CharacterTextSplitter(chunk_size = 0, chunk_overlap=0) # Serve para dividir o texto em documentos menores
+    # document = TextLoader(txt_file).load()
+    docs = text_splitter.split_documents(document) # Serve para dividir o document em documentos menores
 
     # Embeddings
-    embeddings = HuggingFaceEmbeddings()
-    db = FAISS.from_documents(docs, embeddings)
+    embeddings = HuggingFaceEmbeddings()  # É responsável por gerar embeddings usando modelos pré-treinados do Hugging Face
+    db = FAISS.from_documents(docs, embeddings)  # É criado uma base de dados FAISS a partir dos embeddings dos documentos.
+
+    # Embeddings -> Embeddings são representações numéricas de dados, como palavras, frases ou documentos inteiros, 
+                #   que capturam informações semânticas e contextuais sobre esses dados.
+    # FAISS -> A base de dados FAISS é uma estrutura eficiente para armazenar e pesquisar vetores de alta dimensionalidade.
 
     # Treinar modelo de perguntas e respostas
     llm = langchain.llms.HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature": 0.8, "max_length": 512})
     # llm = langchain.llms.HuggingFaceHub(repo_id="facebook/bart-large", model_kwargs={"temperature": 0.8, "max_length": 512})
     chain = load_qa_chain(llm, chain_type="stuff")
+
+    # É criado um objeto llm (Language Learning Model) usando o Hugging Face Hub
+    # Os model_kwargs são argumentos adicionais que podem ser passados para o modelo, como a temperatura e o comprimento máximo das respostas geradas.
+    # Chama-se a função load_qa_chain para criar uma cadeia de perguntas e respostas.
+    # O uso de "stuff" indica que a cadeia é usada para lidar com perguntas e respostas gerais, sem uma especificidade definida. Existem outras:
+    # -> "tech": usado para perguntas e respostas relacionadas a tecnologia e ciência da computação.
+    # -> "medical": usado para perguntas e respostas relacionadas a informações médicas e de saúde.
+    # -> "legal": usado para perguntas e respostas relacionadas a questões legais e jurídicas.
+    # -> "finance": usado para perguntas e respostas relacionadas a finanças e investimentos.
 
     memory = ConversationBufferMemory()
 
