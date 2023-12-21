@@ -164,6 +164,8 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
 
     # É criado um objeto llm (Language Learning Model) usando o Hugging Face Hub
     # Os model_kwargs são argumentos adicionais que podem ser passados para o modelo, como a temperatura e o comprimento máximo das respostas geradas.
+            #  A temperatura controla a aleatoriedade das respostas geradas. Se for 1.0, as respostas tendem a ser mais aleatorias.
+                                                                        #    Se for 0.1, as respostas tendem a ser mais diretas.
     # Chama-se a função load_qa_chain para criar uma cadeia de perguntas e respostas.
     # O uso de "stuff" indica que a cadeia é usada para lidar com perguntas e respostas gerais, sem uma especificidade definida. Existem outras:
     # -> "tech": usado para perguntas e respostas relacionadas a tecnologia e ciência da computação.
