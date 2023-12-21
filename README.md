@@ -1,6 +1,12 @@
 This repository aims to develop a chatbot.
 
-Currently, the language used for communication between the user and the bot must be in English. 
+Currently, the language used for communication between the user and the bot must be in English.
+
+The ideia is to create a data.txt file "conversation" examples between the user and the chatbot. For example:
+"User: Hello
+Chabot: Hello! How can i help you?
+User: What is the capital of Portugal?
+Chatbot: The capital of Portugal is Lisbon"
 
 It is used Langchain (https://python.langchain.com/docs/get_started/installation)
 
@@ -40,10 +46,5 @@ O Langchain utiliza técnicas de aprendizado de máquina, mais especificamente m
 
 Uma LLM (Large Language Model) é um modelo de linguagem de grande escala. É um tipo de modelo de aprendizado de máquina treinado em uma enorme quantidade de texto para aprender a estrutura e os padrões da linguagem. Esses modelos são capazes de gerar texto coerente e realizar tarefas de processamento de linguagem natural, como tradução, resumo de texto, geração de respostas, entre outras. Eles são treinados em grandes conjuntos de dados, como a internet, para capturar a diversidade e complexidade da linguagem humana. As LLMs são usadas em várias aplicações de processamento de linguagem natural devido à sua capacidade de compreender e gerar texto de forma semelhante aos humanos.
 
-Uma LLM (Large Language Model) é uma rede neural, mais especificamente um tipo de modelo de linguagem baseado em redes neurais. Esses modelos são construídos com arquiteturas de redes neurais profundas, como redes neurais recorrentes (RNNs) ou transformers. Eles são treinados em grandes conjuntos de dados textuais usando técnicas de aprendizado supervisionado para aprender a prever a próxima palavra em uma sequência de texto. Essa capacidade de previsão permite que a LLM gere texto coerente e realize tarefas de processamento de linguagem natural. Portanto, uma LLM é uma rede neural e não uma random forest.s
-The ideia is to create a data.txt file "conversation" examples between the user and the chatbot. For example:
-"User: Hello
-Chabot: Hello! How can i help you?
-User: What is the capital of Portugal?
-Chatbot: The capital of Portugal is Lisbon"
+Uma LLM (Large Language Model) é uma rede neural, mais especificamente um tipo de modelo de linguagem baseado em redes neurais. Esses modelos são construídos com arquiteturas de redes neurais profundas, como redes neurais recorrentes (RNNs) ou transformers. Eles são treinados em grandes conjuntos de dados textuais usando técnicas de aprendizado supervisionado para aprender a prever a próxima palavra em uma sequência de texto. Essa capacidade de previsão permite que a LLM gere texto coerente e realize tarefas de processamento de linguagem natural. Portanto, uma LLM é uma rede neural e não uma random forest.
 
