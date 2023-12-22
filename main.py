@@ -210,11 +210,16 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
 
 if __name__ == "__main__":
 
-    data_xlsx_path = "/home/dev/git/chatbot/chatbot_langchain/servicosISQ_tudo.xlsx"
-    csv_file_path = "/home/dev/git/chatbot/chatbot_langchain/servicosISQ_tudo.csv"
+    # data_xlsx_path = "/home/dev/git/chatbot/chatbot_langchain/servicosISQ_tudo.xlsx"
+    data_xlsx_path = '/home/dev/chatbot_langchain-1/servicosISQ_tudo.xlsx'
+    # csv_file_path = "/home/dev/git/chatbot/chatbot_langchain/servicosISQ_tudo.csv"
+    csv_file_path = '/home/dev/chatbot_langchain-1/servicosISQ_tudo.csv'
+
     xlsx_to_csv(data_xlsx_path, csv_file_path)
 
-    txt_file = "/home/dev/git/chatbot/chatbot_langchain/data.txt"
+    # txt_file = "/home/dev/git/chatbot/chatbot_langchain/data.txt"
+    txt_file = '/home/dev/chatbot_langchain-1/data.txt'
+
     csv_to_txt(csv_file_path, txt_file)
 
     HUGGING_FACE_KEY = "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"
