@@ -9,12 +9,18 @@ from langchain.vectorstores import FAISS
 from langchain.document_loaders import UnstructuredExcelLoader
 from langchain.chains import ConversationalRetrievalChain
 from langchain.embeddings import HuggingFaceInstructEmbeddings
+from langchain.vectorstores import Chroma
 import csv
 import pandas as pd
 import unicodedata
 from io import StringIO
 import math
 from langchain.memory import ConversationBufferMemory
+from langchain.prompts import (
+    ChatPromptTemplate,
+    HumanMessagePromptTemplate,
+    SystemMessagePromptTemplate,
+)
 
 def xlsx_to_csv(xlsx_file, csv_file):
     '''
@@ -135,9 +141,16 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
     '''
     os.environ["HUGGINGFACEHUB_API_TOKEN"] = HUGGING_FACE_KEY
 
-    # Carregar o arquivo de texto
-    loader = TextLoader(txt_file_path)
-    document = loader.load()
+    
+    system_message_prompt = SystemMessagePromptTemplate.from_template(
+        "Your name is Roboto, you are a nice virtual assistant. The context is:\n{context}"
+    )
+    human_message_prompt = HumanMessagePromptTemplate.from_template(
+        "{question}"
+    )
+    # # Carregar o arquivo de texto
+    # loader = TextLoader(txt_file_path)
+    # document = loader.load()
 
     # # Preprocessamento
     # def wrap_text_preserve_newlines(text, width=110):
@@ -148,38 +161,50 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
 
     # Divisão do texto
     # text_splitter = CharacterTextSplitter(chunk_size = 0, chunk_overlap=0) # Serve para dividir o texto em documentos menores
-    text_splitter = CharacterTextSplitter(
-        separator="\n",
-        chunk_size=1000,
-        chunk_overlap=200,
-        length_function=len
-    )
+    loader = TextLoader("./data.txt")
+    documents = loader.load()
+    text_splitter = CharacterTextSplitter(chunk_size=300, chunk_overlap=0)
+    documents = text_splitter.split_documents(documents)
+    # text_splitter = CharacterTextSplitter(
+    #     separator="\n",
+    #     chunk_size=1000,
+    #     chunk_overlap=200,
+    #     length_function=len
+    # )
     # document = TextLoader(txt_file).load()
-    # docs = text_splitter.split_documents(document) # Serve para dividir o document em documentos menores
-    docs = text_splitter.split_text(document)
+    # docs = text_splitter.split_documents(documents) # Serve para dividir o document em documentos menores
+    # docs = text_splitter.split_text(document)
 
     # Embeddings
-    # embeddings = HuggingFaceEmbeddings()  # É responsável por gerar embeddings usando modelos pré-treinados do Hugging Face
+    embeddings = HuggingFaceEmbeddings()  # É responsável por gerar embeddings usando modelos pré-treinados do Hugging Face
     # db = FAISS.from_documents(docs, embeddings)  # É criado uma base de dados FAISS a partir dos embeddings dos documentos.
-    embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
-    db = FAISS.from_texts(texts=docs, embedding=embeddings)
-
+    # embeddings = HuggingFaceInstructEmbeddings(model_name="hkunlp/instructor-xl")
+    # db = FAISS.from_texts(texts=docs, embedding=embeddings)
     # Embeddings -> Embeddings são representações numéricas de dados, como palavras, frases ou documentos inteiros, 
                 #   que capturam informações semânticas e contextuais sobre esses dados.
     # FAISS -> A base de dados FAISS é uma estrutura eficiente para armazenar e pesquisar vetores de alta dimensionalidade.
+    vectorstore = Chroma.from_documents(documents, embeddings)
+    memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
 
     # Treinar modelo de perguntas e respostas
     llm = langchain.llms.HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature": 0.8, "max_length": 512})
     # llm = langchain.llms.HuggingFaceHub(repo_id="facebook/bart-large", model_kwargs={"temperature": 0.8, "max_length": 512})~
 
-    memory = ConversationBufferMemory(
-        memory_key='chat_history', return_messages=True)
-
     chain = ConversationalRetrievalChain.from_llm(
         llm=llm,
-        retriever=db.as_retriever(),
-        memory=memory
+        retriever=vectorstore.as_retriever(),
+        memory=ConversationBufferMemory(
+            memory_key="chat_history",
+            return_messages=True,
+        ),
+        combine_docs_chain_kwargs={
+            "prompt": ChatPromptTemplate.from_messages([
+                system_message_prompt,
+                human_message_prompt,
+            ]),
+        },
     )
+
     # chain = load_qa_chain(llm, chain_type="stuff")
 
 
@@ -205,12 +230,12 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
         print("User:")
         query = input()
 
-        # if query == 'exit':
-        #     print("Have a nice day!")
-        #     break
+        if query == 'exit':
+            print("Have a nice day!")
+            break
 
-        # # Adicionar a nova entrada ao histórico da conversa (Não funcina..)
-        # # conversation_history.append({"role": "user", "content": query})
+        # Adicionar a nova entrada ao histórico da conversa (Não funcina..)
+        # conversation_history.append({"role": "user", "content": query})
 
         # # Pesquisar documentos relevantes
         # docs = db.similarity_search(query)

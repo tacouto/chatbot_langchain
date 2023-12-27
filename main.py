@@ -12,7 +12,9 @@ import pandas as pd
 import unicodedata
 from io import StringIO
 import math
+from langchain.vectorstores import Chroma
 from langchain.memory import ConversationBufferMemory
+from langchain.chains import ConversationalRetrievalChain
 
 def xlsx_to_csv(xlsx_file, csv_file):
     '''
@@ -151,16 +153,30 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
 
     # Embeddings
     embeddings = HuggingFaceEmbeddings()  # É responsável por gerar embeddings usando modelos pré-treinados do Hugging Face
-    db = FAISS.from_documents(docs, embeddings)  # É criado uma base de dados FAISS a partir dos embeddings dos documentos.
+    # db = FAISS.from_documents(docs, embeddings)  # É criado uma base de dados FAISS a partir dos embeddings dos documentos.
 
+    vectorstore = Chroma.from_documents(docs, embeddings)
+    memory = ConversationBufferMemory(memory_key="chat_history", return_messages=True)
     # Embeddings -> Embeddings são representações numéricas de dados, como palavras, frases ou documentos inteiros, 
                 #   que capturam informações semânticas e contextuais sobre esses dados.
     # FAISS -> A base de dados FAISS é uma estrutura eficiente para armazenar e pesquisar vetores de alta dimensionalidade.
 
     # Treinar modelo de perguntas e respostas
-    llm = langchain.llms.HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature": 0.8, "max_length": 512})
+    llm = langchain.llms.HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature": 0.5, "max_length": 512})
     # llm = langchain.llms.HuggingFaceHub(repo_id="facebook/bart-large", model_kwargs={"temperature": 0.8, "max_length": 512})
-    chain = load_qa_chain(llm, chain_type="stuff")
+    # chain = load_qa_chain(llm, chain_type="stuff")
+    memory = ConversationBufferMemory(
+    memory_key='chat_history', return_messages=True)
+    chat_history = [document]
+
+    chain = ConversationalRetrievalChain.from_llm(
+        llm=llm,
+        retriever=vectorstore.as_retriever(),
+        memory=ConversationBufferMemory(
+            memory_key="chat_history",
+            return_messages=True,
+        )
+    )
 
     # É criado um objeto llm (Language Learning Model) usando o Hugging Face Hub
     # Os model_kwargs são argumentos adicionais que podem ser passados para o modelo, como a temperatura e o comprimento máximo das respostas geradas.
@@ -188,37 +204,39 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
             print("Have a nice day!")
             break
 
-        # Adicionar a nova entrada ao histórico da conversa (Não funcina..)
-        # conversation_history.append({"role": "user", "content": query})
+        # # Adicionar a nova entrada ao histórico da conversa (Não funcina..)
+        # # conversation_history.append({"role": "user", "content": query})
 
-        # Ler informações da memória
-        chat_history = memory.chat_memory
+        # # Ler informações da memória
+        # chat_history = memory.chat_memory
 
-        # Adicionar a nova entrada ao histórico da conversa
-        chat_history.add_user_message(query)
+        # # Adicionar a nova entrada ao histórico da conversa
+        # chat_history.add_user_message(query)
 
-        # Pesquisar documentos relevantes
-        docs = db.similarity_search(query)
+        # # Pesquisar documentos relevantes
+        # docs = db.similarity_search(query)
 
-        # Executar o modelo de perguntas e respostas
-        bot_response = chain.run(input_documents=docs, question=query)
-        print(f"Chatbot: {bot_response}")
+        # # Executar o modelo de perguntas e respostas
+        # bot_response = chain.run(input_documents=docs, question=query)
+        # print(f"Chatbot: {bot_response}")
 
-        # Escrever informações na memória
-        chat_history.add_ai_message(bot_response)
+        # # Escrever informações na memória
+        # chat_history.add_ai_message(bot_response)
+        result = chain({"question": query, "chat_history": chat_history})
+        print(result["answer"])
 
 
 if __name__ == "__main__":
 
-    # data_xlsx_path = "/home/dev/git/chatbot/chatbot_langchain/servicosISQ_tudo.xlsx"
-    data_xlsx_path = '/home/dev/chatbot_langchain-1/servicosISQ_tudo.xlsx'
-    # csv_file_path = "/home/dev/git/chatbot/chatbot_langchain/servicosISQ_tudo.csv"
-    csv_file_path = '/home/dev/chatbot_langchain-1/servicosISQ_tudo.csv'
+    data_xlsx_path = "/home/dev/git/chatbot/chatbot_langchain/servicosISQ_tudo.xlsx"
+    # data_xlsx_path = '/home/dev/chatbot_langchain-1/servicosISQ_tudo.xlsx'
+    csv_file_path = "/home/dev/git/chatbot/chatbot_langchain/servicosISQ_tudo.csv"
+    # csv_file_path = '/home/dev/chatbot_langchain-1/servicosISQ_tudo.csv'
 
     xlsx_to_csv(data_xlsx_path, csv_file_path)
 
-    # txt_file = "/home/dev/git/chatbot/chatbot_langchain/data.txt"
-    txt_file = '/home/dev/chatbot_langchain-1/data.txt'
+    txt_file = "/home/dev/git/chatbot/chatbot_langchain/data.txt"
+    # txt_file = '/home/dev/chatbot_langchain-1/data.txt'
 
     csv_to_txt(csv_file_path, txt_file)
 
