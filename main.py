@@ -118,6 +118,21 @@ def csv_to_txt(input_file, output_file):
 
     print(f"Conversion completed. Check '{output_file}' for the result.")
 
+
+class ConversationBufferMemory:
+    def __init__(self):
+        self.chat_memory = []
+
+    def add_user_message(self, message):
+        self.chat_memory.append({"role": "user", "content": message})
+
+    def add_ai_message(self, message):
+        self.chat_memory.append({"role": "bot", "content": message})
+
+    def get_full_conversation(self):
+        return self.chat_memory
+
+
 def chat_bot(HUGGING_FACE_KEY, txt_file_path):
     '''
         This function is where the chatbot is created, for that to happen is used LangChain.
@@ -192,10 +207,11 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
         # conversation_history.append({"role": "user", "content": query})
 
         # Ler informações da memória
-        chat_history = memory.chat_memory
+        # chat_history = memory.chat_memory
+        memory.add_user_message(query)
 
         # Adicionar a nova entrada ao histórico da conversa
-        chat_history.add_user_message(query)
+        # chat_history.add_user_message(query)
 
         # Pesquisar documentos relevantes
         docs = db.similarity_search(query)
@@ -205,17 +221,29 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
         print(f"Chatbot: {bot_response}")
 
         # Escrever informações na memória
-        chat_history.add_ai_message(bot_response)
+        memory.add_ai_message(bot_response)
+
+    print("Full Conversation History:")
+    for entry in memory.get_full_conversation():
+        print(f"{entry['role']}: {entry['content']}")
 
 
 if __name__ == "__main__":
+    # Define o caminho do arquivo Excel
+    data_xlsx_path = "/home/dev/chatbot_langchain-1/servicosISQ_tudo.xlsx"
 
-    data_xlsx_path = "/home/dev/git/chatbot/chatbot_langchain/servicosISQ_tudo.xlsx"
-    csv_file_path = "/home/dev/git/chatbot/chatbot_langchain/servicosISQ_tudo.csv"
+    # Define o caminho do arquivo CSV
+    csv_file_path = "/home/dev/chatbot_langchain-1/servicosISQ_tudo.csv"
+
+    # Converte o arquivo Excel para CSV
     xlsx_to_csv(data_xlsx_path, csv_file_path)
 
-    txt_file = "/home/dev/git/chatbot/chatbot_langchain/data.txt"
+    # Converte o arquivo CSV para o formato de texto
+    txt_file = "/home/dev/chatbot_langchain-1/data.txt"
     csv_to_txt(csv_file_path, txt_file)
 
+    # Chave do Hugging Face
     HUGGING_FACE_KEY = "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"
+
+    # Inicia o chatbot
     chat_bot(HUGGING_FACE_KEY, txt_file)
