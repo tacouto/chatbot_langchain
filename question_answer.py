@@ -6,6 +6,7 @@ def generate_questions(excel_path):
     com base no excel de serviços do ISQ'''
 
     df = pd.read_excel(excel_path)
+    # qa_list = []
 
     # Iterar sobre as linhas do Excel e gerar perguntas
     for index, row in df.iterrows():
@@ -39,6 +40,13 @@ def generate_questions(excel_path):
         answer_6 = f"Yes, the {service} service is currently available. For more information, contact {responsible} at {phone} or {email}."
         yield question_6, answer_6
 
+        # Guardar numa lista
+        # qa_list.append((question_1, answer_1))
+        # qa_list.append((question_2, answer_2))
+        # qa_list.append((question_3, answer_3))
+        # qa_list.append((question_4, answer_4))
+        # qa_list.append((question_5, answer_5))
+        # qa_list.append((question_6, answer_6))
 
 excel_path = "/home/dev/chatbot_langchain-1/servicosISQ_tudo.xlsx"
 
