@@ -21,7 +21,7 @@ def find_responsible(name, excel_path):
 
     if not services_set:
         return {'message': 'Persone not found in ISQ file'}
-    
+
     responsavel_info = {
         'Responsible': name,
         'Phone': phone,
