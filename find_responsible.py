@@ -4,23 +4,25 @@ import pandas as pd
 
 
 def find_responsible(name, excel_path):
+    '''Function to retrieve all services associated
+    with a specified responsible person.'''
+
     df = pd.read_excel(excel_path)
     services_set = set()
     max_similarity = 0
-    best_match = None
 
     for index, row in df.iterrows():
         real_name = normalize_string(row['Responsável de serviço'])
         similarity = fuzz.token_sort_ratio(name, real_name)
 
-        # Determinar uma correspondência
+        # Find match
         if similarity > 80 and similarity > max_similarity:
             services_set.add(row['SERVIÇO'])
             phone = row['Telefone']
             email = row['Email de contacto']
 
     if not services_set:
-        return {'message': 'Persone not found in ISQ file'}
+        return {'message': 'Person not found in ISQ file'}
 
     responsavel_info = {
         'Responsible': name,
@@ -32,16 +34,17 @@ def find_responsible(name, excel_path):
     return responsavel_info
 
 
-# Exemplo de uso
+# Exemple
 excel_path = "/home/dev/chatbot_langchain-1/servicosISQ_tudo.xlsx"
-responsavel = "Luís Ferreira"
+responsable = "Luís Ferreira"
 invalid = 'Patricia'
-resultado = find_responsible(responsavel, excel_path)
 
-if 'message' in resultado:
-    print(resultado['message'])
+result = find_responsible(responsable, excel_path)
+
+if 'message' in result:
+    print(result['message'])
 else:
-    print(f"Responsible: {resultado['Responsible']}, "
-          f"Phone Contact: {resultado['Phone']}, "
-          f"Email: {resultado['Email']}, "
-          f"Service(s): {resultado['Services']}")
+    print(f"Responsible: {result['Responsible']}, "
+          f"Phone Contact: {result['Phone']}, "
+          f"Email: {result['Email']}, "
+          f"Service(s): {result['Services']}")
