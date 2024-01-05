@@ -41,36 +41,6 @@ def normalize_string(input_str):
     return normalized_str
 
 
-# def normalize_phone_number(phone_number):
-#     '''
-#         Contact numbers stay together.
-#         Example:
-#         Input -> 911 222 333
-#         Output -> 911222333
-#     '''
-#     normalized_number = ''.join(char for char in phone_number if char.isdigit())
-#     return normalized_number
-
-
-def find_responsible(name, df):
-    max_similarity = 0
-    best_match = None
-
-    for index, row in df.iterrows():
-        real_name = normalize_string(row['Responsável de serviço'])
-        similarity = fuzz.token_sort_ratio(name, real_name)
-
-        # Determinar uma correspondência
-        if similarity > 80 and similarity > max_similarity:
-            max_similarity = similarity
-            best_match = row['Responsável de serviço'], row['Telefone'], row['Email de contacto']
-
-    if best_match:
-        return best_match
-    else:
-        return "empty", "empty", "empty"
-
-
 def normalize_phone_number(number):
     '''
         Contact numbers stay together.
@@ -186,21 +156,29 @@ def chat_bot(HUGGING_FACE_KEY, txt_file_path):
     #     return wrapped_text
 
     # Divisão do texto
-    text_splitter = CharacterTextSplitter(chunk_size = 0, chunk_overlap=0) # Serve para dividir o texto em documentos menores
+    # Serve para dividir o texto em documentos menores
+    text_splitter = CharacterTextSplitter(chunk_size=0,
+                                          chunk_overlap=0)
     # document = TextLoader(txt_file).load()
-    docs = text_splitter.split_documents(document) # Serve para dividir o document em documentos menores
+    # Serve para dividir o document em documentos menores
+    docs = text_splitter.split_documents(document)
 
     # Embeddings
-    embeddings = HuggingFaceEmbeddings()  # É responsável por gerar embeddings usando modelos pré-treinados do Hugging Face
-    db = FAISS.from_documents(docs, embeddings)  # É criado uma base de dados FAISS a partir dos embeddings dos documentos.
+    # Gera embeddings usando modelos pré-treinados do Hugging Face
+    embeddings = HuggingFaceEmbeddings()
+    # Cria uma base de dados FAISS a partir dos embeddings dos documentos.
+    db = FAISS.from_documents(docs, embeddings)
 
-    # Embeddings -> Embeddings são representações numéricas de dados, como palavras, frases ou documentos inteiros, 
-                #   que capturam informações semânticas e contextuais sobre esses dados.
-    # FAISS -> A base de dados FAISS é uma estrutura eficiente para armazenar e pesquisar vetores de alta dimensionalidade.
+    # Embeddings -> representações numéricas de dados, como palavras, frases
+        # ou documentos inteiros, que capturam informações semânticas
+        # e contextuais sobre esses dados.
+    # FAISS -> A base de dados de estrutura eficiente para armazenar
+        # e pesquisar vetores de alta dimensionalidade.
 
     # Treinar modelo de perguntas e respostas
-    llm = langchain.llms.HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature": 0.8, "max_length": 512})
-    # llm = langchain.llms.HuggingFaceHub(repo_id="facebook/bart-large", model_kwargs={"temperature": 0.8, "max_length": 512})
+    llm = langchain.llms.HuggingFaceHub(repo_id="google/flan-t5-xxl",  # "facebook/bart-large  # noqa E541
+                                        model_kwargs={"temperature": 0.8,
+                                                      "max_length": 512})
     chain = load_qa_chain(llm, chain_type="stuff")
 
     # É criado um objeto llm (Language Learning Model) usando o Hugging Face Hub
