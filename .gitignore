@@ -1,1 +1,8 @@
 venv
+lm_cache
+lm-evaluation-harness-PTBR
+*.txt
+qlora-cabrita
+errfile
+main2.py
+run.sh

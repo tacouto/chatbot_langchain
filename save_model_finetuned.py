@@ -74,7 +74,7 @@ CUTOFF_LEN = 512
 from datasets import load_dataset
 
 # dataset = load_dataset("json", data_files="cabrita-dataset-52k.json")
-dataset = load_dataset("json", data_files="custom_dataset.json")
+dataset = load_dataset("json", data_files="custom_dataset_with_inputs.json")
 # dataset = load_dataset("json", data_files="custom_dataset_with_context.json")
 # dataset = load_dataset("json", data_files="dataset_inputs.json")
 
@@ -169,12 +169,20 @@ set_seed(42)
 # LEARNING_RATE = 1e-4
 # WARMUP_STEPS = 500
 #### falcon_refined1 #####
-EPOCHS = 10
+# EPOCHS = 10
+# # EPOCHS = 1
+# GRADIENT_ACCUMULATION_STEPS = 2
+# MICRO_BATCH_SIZE = 4 
+# LEARNING_RATE = 1e-5
+# WARMUP_STEPS = 500
+#####################
+EPOCHS = 6
 # EPOCHS = 1
 GRADIENT_ACCUMULATION_STEPS = 2
 MICRO_BATCH_SIZE = 4 
-LEARNING_RATE = 1e-5
+LEARNING_RATE = 1.85e-4
 WARMUP_STEPS = 500
+
 
 trainer = Seq2SeqTrainer(
     model=model,
@@ -191,11 +199,10 @@ trainer = Seq2SeqTrainer(
         output_dir="qlora-cabrita",
         save_total_limit=3,
         gradient_checkpointing=True,
-        # generation_config = GenerationConfig(temperature=0)
-        generation_config = GenerationConfig(temperature=0.7)
+        generation_config = GenerationConfig(temperature=0)
     )
 )
 model.config.use_cache = False
 trainer.train(resume_from_checkpoint=False)
 
-model.save_pretrained("models/falcon_refined2")
+model.save_pretrained("models/falcon_refined3")
