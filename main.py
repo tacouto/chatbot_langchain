@@ -1,249 +1,96 @@
-from langchain.document_loaders import TextLoader
-import textwrap
-import os
-from langchain.chains.question_answering import load_qa_chain
-import langchain
-from langchain.text_splitter import CharacterTextSplitter
-from langchain.embeddings import HuggingFaceEmbeddings
-from langchain.vectorstores import FAISS
-from langchain.document_loaders import UnstructuredExcelLoader
-import csv
-import pandas as pd
-import unicodedata
-from io import StringIO
-import math
-from langchain.memory import ConversationBufferMemory
+from peft import PeftModel
+# from transformers import LLaMATokenizer, LLaMAForCausalLM, GenerationConfig
+from transformers import GenerationConfig
+from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
+import torch
 
-def xlsx_to_csv(xlsx_file, csv_file):
-    '''
-        This function converts the .xlsx file to a .csv file.
-        Input1: .xlsx file path
-        Input2: .csv file path (Path to save the .csv file)
-        Output: .csv file store in path Input2
-    '''
-    df = pd.read_excel(xlsx_file)
-    # Substituir valores nulos por uma string vazia
-    df = df.fillna('empty')
+# tokenizer = LLaMATokenizer.from_pretrained("decapoda-research/llama-7b-hf")
+# tokenizer = LLaMATokenizer.from_pretrained("luodian/llama-7b-hf")
+# model = LLaMAForCausalLM.from_pretrained(
+#     # "decapoda-research/llama-7b-hf",
+#     "luodian/llama-7b-hf",
+#     load_in_8bit=True,
+#     device_map="auto",
+# )
 
-    df.to_csv(csv_file, index=False)
-    print(f"Conversion completed. Check '{csv_file_path}' for the result.")
+def chat_bot(model_name, fine_tuned):
 
 
-def normalize_string(input_str):
-    # Tentativa de "normalizar" os nomes. Luís -> Luis. João -> Joao. André -> Andre
-    normalized_str = unicodedata.normalize('NFKD', input_str).encode('ascii', 'ignore').decode('utf-8') 
-    return normalized_str
+    nf4_config = BitsAndBytesConfig(
+        load_in_4bit=True,
+        bnb_4bit_quant_type="nf4",
+        bnb_4bit_use_double_quant=True,
+        bnb_4bit_compute_dtype=torch.float16  # Linha adicionada
+    )
+
+    model = AutoModelForCausalLM.from_pretrained(model_name,
+                                                device_map = "auto",
+                                                quantization_config=nf4_config)
+                                                #  trust_remote_code=True)
 
 
-# def normalize_phone_number(phone_number):
-#     '''
-#         Contact numbers stay together.
-#         Example:
-#         Input -> 911 222 333
-#         Output -> 911222333
-#     '''
-#     normalized_number = ''.join(char for char in phone_number if char.isdigit())
-#     return normalized_number
-
-def normalize_phone_number(number):
-    '''
-        Contact numbers stay together.
-        Example:
-        Input -> 911 222 333
-        Output -> 911222333
-    '''
-    if str(number).startswith('9'):
-        return int(number.replace(' ', ''))
-
-    if str(number).startswith('2'):
-        return int(round(float(number.replace(' ', ''))))
-
-    if number == 'empty':
-        return "empty"
+    model = PeftModel.from_pretrained(model, fine_tuned)
 
 
-def csv_to_txt(input_file, output_file):
-    '''
-        Converts the csv file to a txt file where multiple conversation are
-        created for the differents services and responsibles, contacts, emails and department managers.
+    tokenizer = AutoTokenizer.from_pretrained(model_name)
 
-        Input1: .csv file path
-        Input2: .txt file path (Path to save the .txt file)
-        Output1: data.txt file store in path Input2
-    '''
-    with open(input_file, 'r', newline='', encoding='utf-8') as csv_file:
-        csv_reader = csv.reader(csv_file)
-        next(csv_reader)  # Skip header row
-        with open(output_file, 'w', encoding='utf-8') as txt_file:
-            for row in csv_reader:
-                service, service_responsible, contact, mail, dept_manager, general_number = row
-                if service_responsible == 'empty' or dept_manager == 'empty' or mail == 'empty':  # Adaptar codigo para dept_manager e mail
-                    txt_file.write(f"User: Hi, how are you?\n")
-                    txt_file.write(f"Bot: Hi! How can I help you?\n")
-                    # txt_file.write(f"User: ISQ presents any service of {normalize_string(service)}?\n")
-                    # txt_file.write(f"Bot: Yes! The responsible is {normalize_string(service_responsible)}.\n")
-                    txt_file.write(f"User: Can you tell me the contact for the {normalize_string(service)} responsible?\n")
-                    txt_file.write(f"Bot: There is no responsible person although contact {normalize_phone_number(contact)}\n")
-                    txt_file.write(f"User: Can you tell me the responsible for the service {normalize_string(service)}?\n")
-                    txt_file.write(f"Bot: There is no responsible for the service {normalize_string(service)}\n")
-                    txt_file.write(f"User: What is the email for {normalize_string(service)} service?\n")
-                    txt_file.write(f"Bot: The email is {normalize_string(mail)}\n")
-                    txt_file.write(f"User: Who is the department manager of the {normalize_string(service)} service?\n")
-                    txt_file.write(f"Bot: The department manager of {normalize_string(service)} is {normalize_string(dept_manager)}\n")
-                    txt_file.write(f"User: What is the general number?\n")
-                    txt_file.write(f"Bot: The general number is {normalize_phone_number(contact)}.\n")
-                    txt_file.write(f"User: What is the phone number for the {normalize_string(service)}?\n")
-                    txt_file.write(f"Bot: There is no responsible. Contact {normalize_phone_number(contact)}\n")
-                    txt_file.write(f"User: Thank you!\n")
-                    txt_file.write(f"Bot: You're welcome!\n\n")
-                else:
-                    txt_file.write(f"User: Hi, how are you?\n")
-                    txt_file.write(f"Bot: Hi! How can I help you?\n")
-                    # txt_file.write(f"User: ISQ presents any service of {normalize_string(service)}?\n")
-                    # txt_file.write(f"Bot: Yes! The responsible is {normalize_string(service_responsible)}.\n")
-                    txt_file.write(f"User: Can you tell me the personal contact of {normalize_string(service_responsible)}?\n")
-                    txt_file.write(f"Bot: {normalize_string(service_responsible)} personal contact number is {normalize_phone_number(contact)}.\n")
-                    txt_file.write(f"User: Can you tell me the responsible for the service {normalize_string(service)}?\n")
-                    txt_file.write(f"Bot: The responsible for the service is {normalize_string(service_responsible)}\n")
-                    txt_file.write(f"User: What is the email of {normalize_string(service_responsible)}?\n")
-                    txt_file.write(f"Bot: The email is {normalize_string(mail)}\n")
-                    txt_file.write(f"User: Who is the department manager of the {normalize_string(service)} service?\n")
-                    txt_file.write(f"Bot: The department manager of {normalize_string(service)} is {normalize_string(dept_manager)}.\n")
-                    txt_file.write(f"User: What is the general number?\n")
-                    txt_file.write(f"Bot: The general number is {normalize_phone_number(contact)}\n")
-                    txt_file.write(f"User: What is the phone number of the {normalize_string(service_responsible)}?\n")
-                    txt_file.write(f"Bot: The phone number of {normalize_string(service_responsible)}\n")
-                    txt_file.write(f"User: Thank you!\n")
-                    txt_file.write(f"Bot: You're welcome!\n\n")
+    tokenizer.pad_token = tokenizer.eos_token
+    tokenizer.pad_token_id = tokenizer.eos_token_id
 
-    print(f"Conversion completed. Check '{output_file}' for the result.")
+    def generate_prompt(instruction, input=None):
+        if input:
+            return f"""Abaixo está uma instrução que descreve uma tarefa, juntamente com uma entrada que fornece mais contexto. Escreva uma resposta que complete adequadamente o pedido.
+            
+    ### Instrução:
+    {instruction}
 
+    ### Entrada:
+    {input}
 
-class ConversationBufferMemory:
-    def __init__(self):
-        self.chat_memory = []
+    ### Resposta:"""
+        else:
+            return f"""Abaixo está uma instrução que descreve uma tarefa. Escreva uma resposta que complete adequadamente o pedido.
 
-    def add_user_message(self, message):
-        self.chat_memory.append({"role": "user", "content": message})
+    ### Instrução:
+    {instruction}
 
-    def add_ai_message(self, message):
-        self.chat_memory.append({"role": "bot", "content": message})
+    ### Resposta:"""
+        
+    generation_config = GenerationConfig(
+    do_sample = True,  # Acho que permite "usar" tokens aleatórios (TRUE, é melhor estar sempre a TRUE..) e não a sequencia completa (FALSE) (Embora meio que está a ser sempre completa)
+    temperature=0.2,  # Valor de aleatoridade. Quanto mais alto (max = 1) mais aleatória é.
+    top_p=0.9,  # Percentagem dos tokens mais provaveis.
+    num_beams=4,  # Um valor maior geralmente levará a uma geração mais focada e coerente, enquanto um valor menor pode levar a uma geração mais diversificada, mas potencialmente menos coerent
+    )
 
-    def get_full_conversation(self):
-        return self.chat_memory
+    def evaluate(instruction, input=None):
+        prompt = generate_prompt(instruction, input)
+        inputs = tokenizer(prompt, return_tensors="pt")
+        input_ids = inputs["input_ids"].cuda()
+        generation_output = model.generate(
+            input_ids=input_ids,
+            generation_config=generation_config,
+            return_dict_in_generate=True,
+            output_scores=True,
+            max_new_tokens=256
+        )
+        for s in generation_output.sequences:
+            output = tokenizer.decode(s)
+            print("Resposta:", output.split("### Resposta")[1].strip())
 
-
-def chat_bot(HUGGING_FACE_KEY, txt_file_path):
-    '''
-        This function is where the chatbot is created, for that to happen is used LangChain.
-        Is necessary a HUGGING FACE KEY.
-        In the end of this function is create a while loop to maintain always the "conversation" 
-        between user and bot.
-        If user types "exit", the conversation is stopped.
-        At this moment, the language between user and bot needs to be in English.
-        Input1: HUGGING FACE KEY
-        Input2: data.txt file path
-        Input3: Chunk size appropriate to the problem
-        output: Conversation between User and Bot
-    '''
-    os.environ["HUGGINGFACEHUB_API_TOKEN"] = HUGGING_FACE_KEY
-
-    # Carregar o arquivo de texto
-    loader = TextLoader(txt_file_path)
-    document = loader.load()
-
-    # # Preprocessamento
-    # def wrap_text_preserve_newlines(text, width=110):
-    #     lines = text.split('\n')
-    #     wrapped_lines = [textwrap.fill(line, width=width) for line in lines]
-    #     wrapped_text = '\n'.join(wrapped_lines)
-    #     return wrapped_text
-
-    # Divisão do texto
-    text_splitter = CharacterTextSplitter(chunk_size = 0, chunk_overlap=0) # Serve para dividir o texto em documentos menores
-    # document = TextLoader(txt_file).load()
-    docs = text_splitter.split_documents(document) # Serve para dividir o document em documentos menores
-
-    # Embeddings
-    embeddings = HuggingFaceEmbeddings()  # É responsável por gerar embeddings usando modelos pré-treinados do Hugging Face
-    db = FAISS.from_documents(docs, embeddings)  # É criado uma base de dados FAISS a partir dos embeddings dos documentos.
-
-    # Embeddings -> Embeddings são representações numéricas de dados, como palavras, frases ou documentos inteiros, 
-                #   que capturam informações semânticas e contextuais sobre esses dados.
-    # FAISS -> A base de dados FAISS é uma estrutura eficiente para armazenar e pesquisar vetores de alta dimensionalidade.
-
-    # Treinar modelo de perguntas e respostas
-    llm = langchain.llms.HuggingFaceHub(repo_id="google/flan-t5-xxl", model_kwargs={"temperature": 0.8, "max_length": 512})
-    # llm = langchain.llms.HuggingFaceHub(repo_id="facebook/bart-large", model_kwargs={"temperature": 0.8, "max_length": 512})
-    chain = load_qa_chain(llm, chain_type="stuff")
-
-    # É criado um objeto llm (Language Learning Model) usando o Hugging Face Hub
-    # Os model_kwargs são argumentos adicionais que podem ser passados para o modelo, como a temperatura e o comprimento máximo das respostas geradas.
-            #  A temperatura controla a aleatoriedade das respostas geradas. Se for 1.0, as respostas tendem a ser mais aleatorias.
-                                                                        #    Se for 0.1, as respostas tendem a ser mais diretas.
-    # Chama-se a função load_qa_chain para criar uma cadeia de perguntas e respostas.
-    # O uso de "stuff" indica que a cadeia é usada para lidar com perguntas e respostas gerais, sem uma especificidade definida. Existem outras:
-    # -> "tech": usado para perguntas e respostas relacionadas a tecnologia e ciência da computação.
-    # -> "medical": usado para perguntas e respostas relacionadas a informações médicas e de saúde.
-    # -> "legal": usado para perguntas e respostas relacionadas a questões legais e jurídicas.
-    # -> "finance": usado para perguntas e respostas relacionadas a finanças e investimentos.
-
-    memory = ConversationBufferMemory()
-
-    # Loop do chatbot
-    print("Welcome to chatbot!")
-    query = ""
-    # conversation_history = []
-
-    while True:
-        print("User:")
-        query = input()
-
-        if query == 'exit':
-            print("Have a nice day!")
+    while(1):
+        evaluate(input("Chatbot: "))
+        if input == 'exit':
             break
 
-        # Adicionar a nova entrada ao histórico da conversa (Não funcina..)
-        # conversation_history.append({"role": "user", "content": query})
-
-        # Ler informações da memória
-        # chat_history = memory.chat_memory
-        memory.add_user_message(query)
-
-        # Adicionar a nova entrada ao histórico da conversa
-        # chat_history.add_user_message(query)
-
-        # Pesquisar documentos relevantes
-        docs = db.similarity_search(query)
-
-        # Executar o modelo de perguntas e respostas
-        bot_response = chain.run(input_documents=docs, question=query)
-        print(f"Chatbot: {bot_response}")
-
-        # Escrever informações na memória
-        memory.add_ai_message(bot_response)
-
-    print("Full Conversation History:")
-    for entry in memory.get_full_conversation():
-        print(f"{entry['role']}: {entry['content']}")
-
+    # evaluate(input("Instrução: "))
+    # evaluate("Tell me all the services that ISQ have for calibrations?")
 
 if __name__ == "__main__":
-    # Define o caminho do arquivo Excel
-    data_xlsx_path = "/home/dev/chatbot_langchain-1/servicosISQ_tudo.xlsx"
 
-    # Define o caminho do arquivo CSV
-    csv_file_path = "/home/dev/chatbot_langchain-1/servicosISQ_tudo.csv"
+    model_name = 'tiiuae/falcon-40b'
+    # model_name = 'mistralai/Mistral-7B-v0.1'  # Acho que o "mistralai/Mixtral-8x7B-v0.1" é melhor que este sinceramente...
+    # model_name = 'mistralai/Mixtral-8x7B-v0.1'
 
-    # Converte o arquivo Excel para CSV
-    xlsx_to_csv(data_xlsx_path, csv_file_path)
-
-    # Converte o arquivo CSV para o formato de texto
-    txt_file = "/home/dev/chatbot_langchain-1/data.txt"
-    csv_to_txt(csv_file_path, txt_file)
-
-    # Chave do Hugging Face
-    HUGGING_FACE_KEY = "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"
-
-    # Inicia o chatbot
-    chat_bot(HUGGING_FACE_KEY, txt_file)
+    fine_tuned = "/home/tacouto/chatbot/knowledge_repository/finetuning_llm/models/falcon_refined"
+    chat_bot(model_name, fine_tuned)
