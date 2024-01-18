@@ -57,8 +57,8 @@ def chat_bot(model_name, fine_tuned):
     ### Resposta:"""
         
     generation_config = GenerationConfig(
-    do_sample = True,  # Acho que permite "usar" tokens aleatórios (TRUE, é melhor estar sempre a TRUE..) e não a sequencia completa (FALSE) (Embora meio que está a ser sempre completa)
-    temperature=0.2,  # Valor de aleatoridade. Quanto mais alto (max = 1) mais aleatória é.
+    do_sample = True,  # Permite "usar" tokens aleatórios (TRUE, é melhor estar sempre a TRUE..) e não a sequencia completa (FALSE) (Embora meio que está a ser sempre completa)
+    temperature=0.4,  # Valor de aleatoridade. Quanto mais alto (max = 1) mais aleatória é.
     top_p=0.9,  # Percentagem dos tokens mais provaveis.
     num_beams=4,  # Um valor maior geralmente levará a uma geração mais focada e coerente, enquanto um valor menor pode levar a uma geração mais diversificada, mas potencialmente menos coerent
     )
@@ -93,4 +93,5 @@ if __name__ == "__main__":
     # model_name = 'mistralai/Mixtral-8x7B-v0.1'
 
     fine_tuned = "/home/tacouto/chatbot/knowledge_repository/finetuning_llm/models/falcon_refined"
+    # fine_tuned = "models/falcon_refined3"
     chat_bot(model_name, fine_tuned)

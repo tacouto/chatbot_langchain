@@ -1,61 +1,65 @@
-# from transformers import AutoModelForCausalLM, AutoTokenizer, DataCollatorForSeq2Seq
-# from datasets import load_dataset
-# from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, GenerationConfig
-# import os
+from transformers import AutoModelForCausalLM, AutoTokenizer, Seq2SeqTrainer, Seq2SeqTrainingArguments, DataCollatorForSeq2Seq
+from datasets import load_dataset
 
-# os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
-# # Carregar o modelo treinado
-# model = AutoModelForCausalLM.from_pretrained("models/falcon_refined2")  # Substitua pelo caminho real do seu modelo
-# tokenizer = AutoTokenizer.from_pretrained("models/falcon_refined2")  # Substitua pelo caminho real do seu tokenizer
+# Loading Model
+model_name = 'tiiuae/falcon-40b'
+tokenizer = AutoTokenizer.from_pretrained(model_name)
+model = AutoModelForCausalLM.from_pretrained(model_name)
 
-# # Carregar o conjunto de dados de validação
-# validation_dataset = load_dataset("json", data_files="eval_dataset.json")
-# import torch
+# Customize the model with quantization and LORA as needed (as in the provided code)
 
-# def estimate_loss(model, dataloader, device):
-#     model.eval()
-#     total_loss = 0.0
-#     num_batches = len(dataloader)
+# Load dataset
+dataset = load_dataset("json", data_files="train_dataset")
 
-#     with torch.no_grad():
-#         for batch in dataloader:
-#             inputs = batch["input_ids"].to(device)
-#             labels = batch["labels"].to(device)
+# Tokenize and preprocess the dataset
+def tokenize_function(examples):
+    # Implement the tokenize function based on your dataset structure
+    # Make sure to handle instruction, input, and output columns properly
+    return tokenized_example
 
-#             outputs = model(inputs, labels=labels)
-#             loss = outputs.loss.item()
-
-#             total_loss += loss
-
-#     average_loss = total_loss / num_batches
-#     model.train()
-
-#     return average_loss
-
-# # Exemplo de uso
-# device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
-# val_dataloader = torch.utils.data.DataLoader(tokenized_validation_datasets["validation"], batch_size=4, shuffle=True)
-
-# average_val_loss = estimate_loss(model, val_dataloader, device)
-# print(f"A perda média no conjunto de validação é: {average_val_loss}")
-import sys
-from lm_eval.evaluator import simple_evaluate
-# from huggingface_hub import login
-# login()
-import os
-
-os.environ["HUGGINGFACEHUB_API_TOKEN"] = "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"
-sys.path.append('./lm-evaluation-harness-PTBR')
-result = simple_evaluate(
-    model="hf-llama-causal",
-    model_args="pretrained=openlm-research/open_llama_3b,low_cpu_mem_usage=True,dtype=float16",
-    tasks=['faquad'],
-    num_fewshot=4,
-    batch_size=1,
-    device="cuda:0",
-    limit=None,
-    bootstrap_iters=100000,
-    description_dict={"faquad": "Forneça uma Resposta dado o Contexto."},
+tokenized_datasets = dataset.map(
+    tokenize_function,
+    batched=True,
+    remove_columns=['instruction', 'input', 'output'],
 )
 
-print(result)
+# Training Configuration
+training_args = Seq2SeqTrainingArguments(
+    per_device_train_batch_size=4,
+    gradient_accumulation_steps=2,
+    warmup_steps=500,
+    num_train_epochs=6,
+    learning_rate=1.85e-4,
+    output_dir="qlora-cabrita",
+    save_total_limit=3,
+    gradient_checkpointing=True,
+)
+
+trainer = Seq2SeqTrainer(
+    model=model,
+    args=training_args,
+    data_collator=DataCollatorForSeq2Seq(tokenizer, model),
+    train_dataset=tokenized_datasets["train"],
+)
+
+# Training
+trainer.train()
+
+# Save the trained model
+model.save_pretrained("models/falcon_refined3")
+
+# # Optionally, you can evaluate the model on a test set
+# dataset = load_dataset("json", data_files="eval_dataset")
+# test_results = trainer.evaluate(tokenized_datasets["test"])
+# print(test_results)
+
+# Evaluation
+eval_dataset = load_dataset("json", data_files="eval_dataset")
+tokenized_eval_dataset = eval_dataset.map(
+    tokenize_function,
+    batched=True,
+    remove_columns=['instruction', 'input', 'output'],
+)
+
+test_results = trainer.evaluate(tokenized_eval_dataset)
+print(test_results)

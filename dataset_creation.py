@@ -68,6 +68,6 @@ def generate_questions(excel_path, output_file):
             json.dump(data, file, indent=2)
 
 if __name__ == "__main__":
-    excel_path = "/home/tacouto/chatbot/hugging_face/servicosISQ_tudo.xlsx"
+    excel_path = "servicosISQ_tudo.xlsx"
     output_file = "custom_dataset_with_inputs.json"
     generate_questions(excel_path, output_file)

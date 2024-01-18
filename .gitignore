@@ -6,3 +6,7 @@ qlora-cabrita
 errfile
 main2.py
 run.sh
+models
+*.xlsx
+onevsone.json
+onevsone_dataset.py
