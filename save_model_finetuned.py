@@ -162,19 +162,19 @@ set_seed(42)
 # LEARNING_RATE = 2e-4
 # WARMUP_STEPS = 100
 #### falcon_refined1 #####
-EPOCHS = 3
-# EPOCHS = 1
-GRADIENT_ACCUMULATION_STEPS = 2
-MICRO_BATCH_SIZE = 4 
-LEARNING_RATE = 1e-4
-WARMUP_STEPS = 500
-#### falcon_refined1 #####
-# EPOCHS = 10
+# EPOCHS = 3
 # # EPOCHS = 1
 # GRADIENT_ACCUMULATION_STEPS = 2
 # MICRO_BATCH_SIZE = 4 
-# LEARNING_RATE = 1e-5
+# LEARNING_RATE = 1e-4
 # WARMUP_STEPS = 500
+#### falcon_refined1 #####
+EPOCHS = 10
+# EPOCHS = 1
+GRADIENT_ACCUMULATION_STEPS = 2
+MICRO_BATCH_SIZE = 4 
+LEARNING_RATE = 1e-5
+WARMUP_STEPS = 500
 #####################
 # EPOCHS = 6
 # # EPOCHS = 1
@@ -207,22 +207,83 @@ trainer.train(resume_from_checkpoint=False)
 
 model.save_pretrained("models/falcon_refined_with_eval")
 
+from datasets import load_dataset
+from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
-# Evaluation
+
+# Carregue o conjunto de dados original
 eval_dataset = load_dataset("json", data_files="eval_dataset.json")
-# tokenized_eval_dataset = eval_dataset.map(
-#     generate_and_tokenize_prompt,
-#     batched=True,
-#     remove_columns=['instruction', 'input', 'output'],
-# )
+
+# Tokenize o conjunto de dados de avaliação
 tokenized_eval_dataset = eval_dataset.map(
     generate_and_tokenize_prompt,
     batched=False,
     num_proc=4,
     remove_columns=['instruction', 'input', 'output'],
+    # remove_columns=['instruction', 'input'],
     load_from_cache_file=True,
-    desc="Running tokenizer on dataset",
+    desc="Running tokenizer on evaluation dataset",
 )
-test_results = trainer.evaluate(tokenized_eval_dataset)
+print(tokenized_eval_dataset.column_names)
+
+test_results = trainer.predict(tokenized_eval_dataset["train"])
 print(test_results)
+# Obtenha as previsões e os rótulos reais
+predictions = test_results.predictions.argmax(axis=-1)
+labels = test_results.label_ids
+
+import numpy as np
+
+# Achatando as previsões e rótulos
+flattened_predictions = predictions.ravel()
+flattened_labels = labels.ravel()
+
+# Calcule métricas do scikit-learn
+accuracy = accuracy_score(flattened_labels, flattened_predictions)
+precision = precision_score(flattened_labels, flattened_predictions, average="weighted")
+recall = recall_score(flattened_labels, flattened_predictions, average="weighted")
+f1 = f1_score(flattened_labels, flattened_predictions, average="weighted")
+
+# Imprima as métricas
+print(f'Acurácia: {accuracy}')
+print(f'Precisão: {precision}')
+print(f'Recall: {recall}')
+print(f'F1-Score: {f1}')
+
+
+# É NECESSÁRIO OS RESULTADOS QUE DEU PARA O FALCON (CURRENT_OUTPUT (ANTES ESTAVA A FICAR COM O OUTPUT (LINHA COMENTADA NO eval_dataset.map)))
+# NECESSÁRIO SABER COMO FAZER AVALIACAO COM MUDANCA DE TREINO E TESTE 
+# AUTOMATICAMENTE.. PARA JÁ DIVIDI O DATASET POR "MIM". ESTÁ 90% - 10% (TREINO - TESTE) APROXIMADAMENTE
+####################################### MISTRAL ###########################
+# Resuldos para epoch = 1
+# GRADIENT_ACCUMULATION_STEPS = 2
+# MICRO_BATCH_SIZE = 4 
+# LEARNING_RATE = 1e-4
+# WARMUP_STEPS = 500
+
+# Acurácia: 0.015297202797202798
+# Precisão: 0.010709744013971689
+# Recall: 0.015297202797202798
+# F1-Score: 0.012107124537773444
+
+# Resuldos para epoch = 3
+# GRADIENT_ACCUMULATION_STEPS = 2
+# MICRO_BATCH_SIZE = 4 
+# LEARNING_RATE = 1e-4
+# WARMUP_STEPS = 500
+
+# Acurácia: 0.014714452214452214
+# Precisão: 0.011448462443271398
+# Recall: 0.014714452214452214
+# F1-Score: 0.0121659668391476
+####################################### MISTRAL ###########################
+
+
+####################################### Falcon ###########################
+
+# Resuldos para epoch = 10
+# GRADIENT_ACCUMULATION_STEPS = 2
+# MICRO_BATCH_SIZE = 4 
+# LEARNING_RATE = 1e-5
+# WARMUP_STEPS = 500
 
