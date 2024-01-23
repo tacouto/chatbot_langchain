@@ -50,16 +50,20 @@ from peft import get_peft_model, LoraConfig, TaskType
 #     task_type=TaskType.CAUSAL_LM,
 #     inference_mode=False,
 #     target_modules = modules,
-#     r=8,
-#     lora_alpha=16,
+#     r=16,
+#     lora_alpha=64,
 #     lora_dropout=0.1
 # )
 
 peft_config = LoraConfig(
+    # r=16,
+    # lora_alpha=32,
+    # target_modules=["query_key_value"],
+    # lora_dropout=0.05,
     r=16,
-    lora_alpha=32,
+    lora_alpha=64,
     target_modules=["query_key_value"],
-    lora_dropout=0.05,
+    lora_dropout=0.1,
     bias="none",
     task_type="CAUSAL_LM"
 )
@@ -74,9 +78,18 @@ CUTOFF_LEN = 512
 from datasets import load_dataset
 
 # dataset = load_dataset("json", data_files="cabrita-dataset-52k.json")
-dataset = load_dataset("json", data_files="train_dataset.json")
+dataset = load_dataset("json", data_files="dataset_other.json")
 # dataset = load_dataset("json", data_files="custom_dataset_with_context.json")
 # dataset = load_dataset("json", data_files="dataset_inputs.json")
+
+
+# Para se fazer a divisão de treino e teste
+from sklearn.model_selection import train_test_split
+train_data = dataset['train']
+test_size = 0.2
+train_set, test_set = train_test_split(train_data, test_size=test_size, random_state=42)
+
+
 
 def generate_prompt(instruction, input, output=None):
   if input:
@@ -142,7 +155,14 @@ def generate_and_tokenize_prompt(data_point):
     ]
     return tokenized_full_prompt
 
-tokenized_datasets = dataset.map(
+from datasets import Dataset
+
+train_set = Dataset.from_dict(train_set)
+
+
+print(train_set)
+
+tokenized_datasets = train_set.map(
     generate_and_tokenize_prompt,
     batched=False,
     num_proc=4,
@@ -163,18 +183,18 @@ set_seed(42)
 # WARMUP_STEPS = 100
 #### falcon_refined1 #####
 # EPOCHS = 3
-# # EPOCHS = 1
+# EPOCHS = 1
 # GRADIENT_ACCUMULATION_STEPS = 2
-# MICRO_BATCH_SIZE = 4 
+# MICRO_BATCH_SIZE = 4    
 # LEARNING_RATE = 1e-4
 # WARMUP_STEPS = 500
 #### falcon_refined1 #####
-EPOCHS = 10
-# EPOCHS = 1
-GRADIENT_ACCUMULATION_STEPS = 2
-MICRO_BATCH_SIZE = 4 
-LEARNING_RATE = 1e-5
-WARMUP_STEPS = 500
+# EPOCHS = 10
+# # EPOCHS = 1
+# GRADIENT_ACCUMULATION_STEPS = 2
+# MICRO_BATCH_SIZE = 4 
+# LEARNING_RATE = 1e-5
+# WARMUP_STEPS = 500
 #####################
 # EPOCHS = 6
 # # EPOCHS = 1
@@ -182,11 +202,19 @@ WARMUP_STEPS = 500
 # MICRO_BATCH_SIZE = 4 
 # LEARNING_RATE = 1.85e-4
 # WARMUP_STEPS = 500
+###### Ultimos modelo treinado ######
+EPOCHS = 5
+GRADIENT_ACCUMULATION_STEPS = 2
+MICRO_BATCH_SIZE = 4
+LEARNING_RATE = 5e-5  
+WARMUP_STEPS = 400 
+
 
 
 trainer = Seq2SeqTrainer(
     model=model,
-    train_dataset=tokenized_datasets["train"],
+    # train_dataset=tokenized_datasets["train"],
+    train_dataset=tokenized_datasets,
     data_collator=DataCollatorForSeq2Seq(tokenizer, model),
     args=Seq2SeqTrainingArguments(
         per_device_train_batch_size=MICRO_BATCH_SIZE,
@@ -205,17 +233,16 @@ trainer = Seq2SeqTrainer(
 model.config.use_cache = False
 trainer.train(resume_from_checkpoint=False)
 
-model.save_pretrained("models/falcon_refined_with_eval")
+model.save_pretrained("models/dataset_multiple")
 
 from datasets import load_dataset
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
+# eval_dataset = load_dataset("json", data_files="eval_dataset.json")
 
-# Carregue o conjunto de dados original
-eval_dataset = load_dataset("json", data_files="eval_dataset.json")
-
+test_set = Dataset.from_dict(test_set)
 # Tokenize o conjunto de dados de avaliação
-tokenized_eval_dataset = eval_dataset.map(
+tokenized_eval_dataset = test_set.map(
     generate_and_tokenize_prompt,
     batched=False,
     num_proc=4,
@@ -226,29 +253,43 @@ tokenized_eval_dataset = eval_dataset.map(
 )
 print(tokenized_eval_dataset.column_names)
 
-test_results = trainer.predict(tokenized_eval_dataset["train"])
-print(test_results)
-# Obtenha as previsões e os rótulos reais
-predictions = test_results.predictions.argmax(axis=-1)
-labels = test_results.label_ids
+results = trainer.predict(tokenized_eval_dataset)
+predictions = results.predictions.argmax(axis=-1).flatten()
+labels = results.label_ids.flatten()
 
-import numpy as np
+accuracy = accuracy_score(labels, predictions)
+precision = precision_score(labels, predictions, average='weighted')
+recall = recall_score(labels, predictions, average='weighted')
+f1 = f1_score(labels, predictions, average='weighted')
 
-# Achatando as previsões e rótulos
-flattened_predictions = predictions.ravel()
-flattened_labels = labels.ravel()
-
-# Calcule métricas do scikit-learn
-accuracy = accuracy_score(flattened_labels, flattened_predictions)
-precision = precision_score(flattened_labels, flattened_predictions, average="weighted")
-recall = recall_score(flattened_labels, flattened_predictions, average="weighted")
-f1 = f1_score(flattened_labels, flattened_predictions, average="weighted")
-
-# Imprima as métricas
-print(f'Acurácia: {accuracy}')
-print(f'Precisão: {precision}')
+print(f'Accuracy: {accuracy}')
+print(f'Precision: {precision}')
 print(f'Recall: {recall}')
 print(f'F1-Score: {f1}')
+# test_results = trainer.predict(tokenized_eval_dataset)
+# print(test_results)
+
+# # Obtenha as previsões e os rótulos reais
+# predictions = test_results.predictions.argmax(axis=-1)
+# labels = test_results.label_ids
+
+# import numpy as np
+
+# # Achatando as previsões e rótulos
+# flattened_predictions = predictions.ravel()
+# flattened_labels = labels.ravel()
+
+# # Calcule métricas do scikit-learn
+# accuracy = accuracy_score(flattened_labels, flattened_predictions)
+# precision = precision_score(flattened_labels, flattened_predictions, average="weighted")
+# recall = recall_score(flattened_labels, flattened_predictions, average="weighted")
+# f1 = f1_score(flattened_labels, flattened_predictions, average="weighted")
+
+# # Imprima as métricas
+# print(f'Accuracy: {accuracy}')
+# print(f'Precision: {precision}')
+# print(f'Recall: {recall}')
+# print(f'F1-Score: {f1}')
 
 
 # É NECESSÁRIO OS RESULTADOS QUE DEU PARA O FALCON (CURRENT_OUTPUT (ANTES ESTAVA A FICAR COM O OUTPUT (LINHA COMENTADA NO eval_dataset.map)))
@@ -261,8 +302,8 @@ print(f'F1-Score: {f1}')
 # LEARNING_RATE = 1e-4
 # WARMUP_STEPS = 500
 
-# Acurácia: 0.015297202797202798
-# Precisão: 0.010709744013971689
+# Accuracy: 0.015297202797202798
+# Precision: 0.010709744013971689
 # Recall: 0.015297202797202798
 # F1-Score: 0.012107124537773444
 
@@ -272,10 +313,16 @@ print(f'F1-Score: {f1}')
 # LEARNING_RATE = 1e-4
 # WARMUP_STEPS = 500
 
-# Acurácia: 0.014714452214452214
-# Precisão: 0.011448462443271398
+# Accuracy: 0.014714452214452214
+# Precision: 0.011448462443271398
 # Recall: 0.014714452214452214
 # F1-Score: 0.0121659668391476
+
+
+# Accuracy: 0.00802114243323442
+# Precision: 0.0061052807913891454
+# Recall: 0.00802114243323442
+# F1-Score: 0.006794552616881799 # Estes ultimos valores foram um bocado à parte
 ####################################### MISTRAL ###########################
 
 
@@ -286,4 +333,71 @@ print(f'F1-Score: {f1}')
 # MICRO_BATCH_SIZE = 4 
 # LEARNING_RATE = 1e-5
 # WARMUP_STEPS = 500
+# Accuracy: 0.0
+# Precision: 0.0
+# Recall: 0.0
+# F1-Score: 0.0
 
+
+####################### KFOLD ####################
+# from sklearn.model_selection import KFold
+# import numpy as np
+# # Defina o número de folds (k)
+# num_folds = 3
+# kf = KFold(n_splits=num_folds, shuffle=True, random_state=42)
+
+# # Converta seu conjunto de treinamento (tokenized_datasets["train"]) para uma lista de dicionários
+# # train_dataset_list = tokenized_datasets["train"].to_dict("records")
+# train_dataset_list = tokenized_datasets.to_dict("records")
+
+# # Inicialize as métricas que você deseja avaliar ao longo dos folds
+# accuracy_scores = []
+# precision_scores = []
+# recall_scores = []
+# f1_scores = []
+
+# # Itere sobre os folds
+# for fold, (train_index, val_index) in enumerate(kf.split(train_dataset_list)):
+#     print(f"Fold {fold + 1}/{num_folds}")
+
+#     # Divida o conjunto de treinamento em treinamento e validação
+#     train_fold = [train_dataset_list[i] for i in train_index]
+#     val_fold = [train_dataset_list[i] for i in val_index]
+
+#     # Treine o modelo
+#     trainer.train(train_fold)
+
+#     # Avalie o modelo no conjunto de validação
+#     test_results = trainer.predict(val_fold)
+
+#     # Obtenha as previsões e rótulos reais
+#     predictions = test_results.predictions.argmax(axis=-1)
+#     labels = test_results.label_ids
+
+#     # Achatando as previsões e rótulos
+#     flattened_predictions = predictions.ravel()
+#     flattened_labels = labels.ravel()
+
+#     # Calcule métricas do scikit-learn
+#     accuracy = accuracy_score(flattened_labels, flattened_predictions)
+#     precision = precision_score(flattened_labels, flattened_predictions, average="weighted")
+#     recall = recall_score(flattened_labels, flattened_predictions, average="weighted")
+#     f1 = f1_score(flattened_labels, flattened_predictions, average="weighted")
+
+#     # Armazene as métricas para este fold
+#     accuracy_scores.append(accuracy)
+#     precision_scores.append(precision)
+#     recall_scores.append(recall)
+#     f1_scores.append(f1)
+
+# # Calcule as médias das métricas ao longo de todos os folds
+# mean_accuracy = np.mean(accuracy_scores)
+# mean_precision = np.mean(precision_scores)
+# mean_recall = np.mean(recall_scores)
+# mean_f1 = np.mean(f1_scores)
+
+# # Imprima as médias das métricas
+# print(f'Mean Accuracy: {mean_accuracy}')
+# print(f'Mean Precision: {mean_precision}')
+# print(f'Mean Recall: {mean_recall}')
+# print(f'Mean F1-Score: {mean_f1}')

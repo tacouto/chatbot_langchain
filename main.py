@@ -92,6 +92,6 @@ if __name__ == "__main__":
     # model_name = 'mistralai/Mistral-7B-v0.1'  # Acho que o "mistralai/Mixtral-8x7B-v0.1" é melhor que este sinceramente...
     # model_name = 'mistralai/Mixtral-8x7B-v0.1'
 
-    fine_tuned = "/home/tacouto/chatbot/knowledge_repository/finetuning_llm/models/falcon_refined"
+    fine_tuned = "/home/tacouto/chatbot/chatbot_langchain/models/dataset_other"
     # fine_tuned = "models/falcon_refined3"
     chat_bot(model_name, fine_tuned)
