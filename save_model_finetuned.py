@@ -78,7 +78,7 @@ CUTOFF_LEN = 512
 from datasets import load_dataset
 
 # dataset = load_dataset("json", data_files="cabrita-dataset-52k.json")
-dataset = load_dataset("json", data_files="dataset_other.json")
+dataset = load_dataset("json", data_files="dataset_40qa.json")
 # dataset = load_dataset("json", data_files="custom_dataset_with_context.json")
 # dataset = load_dataset("json", data_files="dataset_inputs.json")
 
@@ -233,7 +233,7 @@ trainer = Seq2SeqTrainer(
 model.config.use_cache = False
 trainer.train(resume_from_checkpoint=False)
 
-model.save_pretrained("models/dataset_multiple")
+model.save_pretrained("models/dataset_40qa")
 
 from datasets import load_dataset
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
