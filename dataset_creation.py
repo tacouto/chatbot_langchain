@@ -6,6 +6,47 @@ def generate_questions(excel_path, output_file):
     df = pd.read_excel(excel_path)
 
     data = []
+
+    question_1 = f"What is ISQ?"
+    answer_1 = f" refers to Instituto de Soldadura e Qualidade. The ISQ is a private, independent organization that provides services in areas such as inspection, testing, and certification of materials, products, and processes."
+    data.append({
+        "instruction": f"'{question_1}'.",
+        "input": f"\"Tell me the meaning of ISQ.\"",
+        "output": f"\"{answer_1}\"",
+    })
+
+    question_2 = "What does ISQ stand for?"
+    answer_2 = "ISQ stands for 'Instituto de Soldadura e Qualidade,' which translates to Institute of Welding and Quality. It is a private, independent organization in Portugal that offers services in inspection, testing, and certification of materials, products, and processes."
+    data.append({
+        "instruction": f"'{question_2}'.",
+        "input": "\"Provide the acronym ISQ and its full form.\"",
+        "output": f"\"{answer_2}\"",
+    })
+
+    question_3 = "Can you explain the role of ISQ in Portugal?"
+    answer_3 = "ISQ plays a significant role in Portugal by providing services related to inspection, testing, and certification. Specializing in areas such as welding and quality control, the institute ensures the quality and safety of various industrial processes and products."
+    data.append({
+        "instruction": f"'{question_3}'.",
+        "input": "\"What is the role of ISQ in Portugal?\"",
+        "output": f"\"{answer_3}\"",
+    })
+
+    question_4 = "In which sectors does ISQ operate?"
+    answer_4 = "ISQ operates in various sectors, including but not limited to welding, non-destructive testing, and quality control. The institute's expertise extends to ensuring the quality and safety standards in different industrial processes and products."
+    data.append({
+        "instruction": f"'{question_4}'.",
+        "input": "\"Tell me about the sectors in which ISQ operates.\"",
+        "output": f"\"{answer_4}\"",
+    })
+
+    question_5 = "What services does ISQ provide?"
+    answer_5 = "ISQ provides a range of services, including inspection, testing, and certification of materials, products, and processes. The institute's focus on quality assurance extends to various industrial applications, making it a crucial player in ensuring standards compliance."
+    data.append({
+        "instruction": f"'{question_5}'.",
+        "input": "\"Describe the services offered by ISQ.\"",
+        "output": f"\"{answer_5}\"",
+    })
+    
     for index, row in df.iterrows():
         service = row['SERVIÇO']
         responsible = row['Responsável de serviço']
@@ -323,5 +364,5 @@ def generate_questions(excel_path, output_file):
 
 if __name__ == "__main__":
     excel_path = "servicosISQ_tudo.xlsx"
-    output_file = "dataset_40qa.json"
+    output_file = "dataset_18qa_isq_desc.json"
     generate_questions(excel_path, output_file)

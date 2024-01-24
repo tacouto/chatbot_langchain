@@ -78,7 +78,7 @@ CUTOFF_LEN = 512
 from datasets import load_dataset
 
 # dataset = load_dataset("json", data_files="cabrita-dataset-52k.json")
-dataset = load_dataset("json", data_files="dataset_40qa.json")
+dataset = load_dataset("json", data_files="dataset_18qa_isq_desc.json")
 # dataset = load_dataset("json", data_files="custom_dataset_with_context.json")
 # dataset = load_dataset("json", data_files="dataset_inputs.json")
 
@@ -88,8 +88,6 @@ from sklearn.model_selection import train_test_split
 train_data = dataset['train']
 test_size = 0.2
 train_set, test_set = train_test_split(train_data, test_size=test_size, random_state=42)
-
-
 
 def generate_prompt(instruction, input, output=None):
   if input:
@@ -203,13 +201,12 @@ set_seed(42)
 # LEARNING_RATE = 1.85e-4
 # WARMUP_STEPS = 500
 ###### Ultimos modelo treinado ######
-EPOCHS = 5
+# EPOCHS = 5
+EPOCHS = 3
 GRADIENT_ACCUMULATION_STEPS = 2
 MICRO_BATCH_SIZE = 4
 LEARNING_RATE = 5e-5  
 WARMUP_STEPS = 400 
-
-
 
 trainer = Seq2SeqTrainer(
     model=model,
@@ -233,7 +230,7 @@ trainer = Seq2SeqTrainer(
 model.config.use_cache = False
 trainer.train(resume_from_checkpoint=False)
 
-model.save_pretrained("models/dataset_40qa")
+model.save_pretrained("models/dataset_18qa_isq_desc")
 
 from datasets import load_dataset
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
@@ -401,3 +398,6 @@ print(f'F1-Score: {f1}')
 # print(f'Mean Precision: {mean_precision}')
 # print(f'Mean Recall: {mean_recall}')
 # print(f'Mean F1-Score: {mean_f1}')
+
+
+#############################################################
