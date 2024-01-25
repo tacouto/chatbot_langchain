@@ -7,6 +7,7 @@ attrs==23.1.0
 certifi==2023.11.17
 charset-normalizer==3.3.2
 click==8.1.7
+convertdate==2.4.0
 dataclasses-json==0.6.3
 et-xmlfile==1.1.0
 exceptiongroup==1.2.0
@@ -27,6 +28,7 @@ langchain==0.0.350
 langchain-community==0.0.3
 langchain-core==0.1.1
 langsmith==0.0.71
+lunardate==0.2.2
 MarkupSafe==2.1.3
 marshmallow==3.20.1
 mpmath==1.3.0
@@ -53,6 +55,8 @@ pandas==2.1.4
 Pillow==10.1.0
 pydantic==2.5.2
 pydantic_core==2.14.5
+pyluach==2.2.0
+PyMeeus==0.5.12
 python-dateutil==2.8.2
 pytz==2023.3.post1
 PyYAML==6.0.1
@@ -81,4 +85,5 @@ typing_extensions==4.9.0
 tzdata==2023.3
 Unidecode==1.3.7
 urllib3==2.1.0
+workalendar==17.0.0
 yarl==1.9.4
