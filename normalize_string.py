@@ -32,6 +32,7 @@ def advanced_normalize(name, candidates):
 
         normalized_info = matched_candidate['name'], str(matched_candidate['phone']).replace(" ", ""), matched_candidate['email']  # noqa E541
         return normalized_info
+
     else:
         return pd.Series({'name': 'empty', 'phone': 'empty', 'email': 'empty'})
 
@@ -41,7 +42,7 @@ excel_path = "/home/dev/chatbot_langchain-1/servicosISQ_tudo.xlsx"
 df = pd.read_excel(excel_path)
 
 # Nome para normalizar
-name_to_normalize = 'luis'
+name_to_normalize = 'tania'
 
 # Criar um DataFrame com candidatos
 candidates = pd.DataFrame({
