@@ -10,3 +10,5 @@ models
 *.xlsx
 onevsone.json
 onevsone_dataset.py
+mistral-models
+datasets
