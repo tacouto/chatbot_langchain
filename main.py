@@ -20,7 +20,7 @@ def chat_bot(model_name, fine_tuned):
         load_in_4bit=True,
         bnb_4bit_quant_type="nf4",
         bnb_4bit_use_double_quant=True,
-        bnb_4bit_compute_dtype=torch.float16  # Linha adicionada
+        bnb_4bit_compute_dtype=torch.float16  
     )
 
     model = AutoModelForCausalLM.from_pretrained(model_name,
@@ -89,9 +89,7 @@ def chat_bot(model_name, fine_tuned):
 if __name__ == "__main__":
 
     model_name = 'tiiuae/falcon-40b'
-    # model_name = 'mistralai/Mistral-7B-v0.1'  # Acho que o "mistralai/Mixtral-8x7B-v0.1" é melhor que este sinceramente...
-    # model_name = 'mistralai/Mixtral-8x7B-v0.1'
-
-    fine_tuned = "/home/tacouto/chatbot/chatbot_langchain/models/dataset_40qa"
-    # fine_tuned = "models/falcon_refined3"
+    # fine_tuned = "/home/tacouto/chatbot/chatbot_langchain/models/dataset_40qa"
+    # model_name = 'mistralai/Mistral-7B-v0.1'
+    fine_tuned = "/home/tacouto/chatbot/chatbot_langchain/models/falcon40b/data_all"
     chat_bot(model_name, fine_tuned)

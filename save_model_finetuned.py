@@ -1,15 +1,17 @@
 # Loading Model
 
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
-
+import torch
+torch.cuda.empty_cache()
 model_name = 'tiiuae/falcon-40b'
 # model_name = 'mistralai/Mistral-7B-v0.1'
-# model_name = 'mistralai/Mixtral-8x7B-v0.1'
+# model_name = 'tiiuae/falcon-7b'
 
 nf4_config = BitsAndBytesConfig(
     load_in_4bit=True,
     bnb_4bit_quant_type="nf4",
-    bnb_4bit_use_double_quant=True
+    bnb_4bit_use_double_quant=True,
+    # bnb_4bit_compute_dtype=torch.bfloat16
 )
 
 model = AutoModelForCausalLM.from_pretrained(model_name,
@@ -52,7 +54,8 @@ from peft import get_peft_model, LoraConfig, TaskType
 #     target_modules = modules,
 #     r=16,
 #     lora_alpha=64,
-#     lora_dropout=0.1
+#     # lora_dropout=0.1
+#     lora_dropout=0.2
 # )
 
 peft_config = LoraConfig(
@@ -64,6 +67,7 @@ peft_config = LoraConfig(
     lora_alpha=64,
     target_modules=["query_key_value"],
     lora_dropout=0.1,
+    # lora_dropout=0.2,
     bias="none",
     task_type="CAUSAL_LM"
 )
@@ -73,20 +77,18 @@ model = get_peft_model(model, peft_config)
 model.print_trainable_parameters()
 
 # Training
-CUTOFF_LEN = 512
+# CUTOFF_LEN = 512
+CUTOFF_LEN = 128
 
 from datasets import load_dataset
 
-# dataset = load_dataset("json", data_files="cabrita-dataset-52k.json")
-dataset = load_dataset("json", data_files="dataset_18qa_isq_desc.json")
-# dataset = load_dataset("json", data_files="custom_dataset_with_context.json")
-# dataset = load_dataset("json", data_files="dataset_inputs.json")
+# dataset = load_dataset("json", data_files="datasets/custom_dataset.json")
+dataset = load_dataset("json", data_files="datasets/new2.json")
 
-
-# Para se fazer a divisão de treino e teste
 from sklearn.model_selection import train_test_split
 train_data = dataset['train']
-test_size = 0.2
+test_size = 0.1
+# test_size = 0.2
 train_set, test_set = train_test_split(train_data, test_size=test_size, random_state=42)
 
 def generate_prompt(instruction, input, output=None):
@@ -160,10 +162,19 @@ train_set = Dataset.from_dict(train_set)
 
 print(train_set)
 
+# tokenized_datasets = train_set.map(
+#     generate_and_tokenize_prompt,
+#     batched=False,
+#     num_proc=4,
+#     remove_columns=['instruction', 'input', 'output'],
+#     load_from_cache_file=True,
+#     desc="Running tokenizer on dataset",
+# )
+
 tokenized_datasets = train_set.map(
     generate_and_tokenize_prompt,
-    batched=False,
-    num_proc=4,
+    batched=False,  # Eu acho que é melhor colocar isto a TRUE...
+    num_proc=2,
     remove_columns=['instruction', 'input', 'output'],
     load_from_cache_file=True,
     desc="Running tokenizer on dataset",
@@ -173,40 +184,12 @@ from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, GenerationCon
 
 set_seed(42)
 
-## EPOCHS = 3
-# EPOCHS = 1
-# GRADIENT_ACCUMULATION_STEPS = 1
-# MICRO_BATCH_SIZE = 8
-# LEARNING_RATE = 2e-4
-# WARMUP_STEPS = 100
-#### falcon_refined1 #####
-# EPOCHS = 3
-# EPOCHS = 1
-# GRADIENT_ACCUMULATION_STEPS = 2
-# MICRO_BATCH_SIZE = 4    
-# LEARNING_RATE = 1e-4
-# WARMUP_STEPS = 500
-#### falcon_refined1 #####
-# EPOCHS = 10
-# # EPOCHS = 1
-# GRADIENT_ACCUMULATION_STEPS = 2
-# MICRO_BATCH_SIZE = 4 
-# LEARNING_RATE = 1e-5
-# WARMUP_STEPS = 500
-#####################
-# EPOCHS = 6
-# # EPOCHS = 1
-# GRADIENT_ACCUMULATION_STEPS = 2
-# MICRO_BATCH_SIZE = 4 
-# LEARNING_RATE = 1.85e-4
-# WARMUP_STEPS = 500
-###### Ultimos modelo treinado ######
-# EPOCHS = 5
-EPOCHS = 3
-GRADIENT_ACCUMULATION_STEPS = 2
-MICRO_BATCH_SIZE = 4
-LEARNING_RATE = 5e-5  
-WARMUP_STEPS = 400 
+###### Ultimo modelo treinado ######
+EPOCHS = 1
+GRADIENT_ACCUMULATION_STEPS = 1
+MICRO_BATCH_SIZE = 4  # Experimentar com 64 ou 128
+LEARNING_RATE = 1e-4
+WARMUP_STEPS = 500 
 
 trainer = Seq2SeqTrainer(
     model=model,
@@ -214,23 +197,53 @@ trainer = Seq2SeqTrainer(
     train_dataset=tokenized_datasets,
     data_collator=DataCollatorForSeq2Seq(tokenizer, model),
     args=Seq2SeqTrainingArguments(
-        per_device_train_batch_size=MICRO_BATCH_SIZE,
-        gradient_accumulation_steps=GRADIENT_ACCUMULATION_STEPS,
+        # per_device_eval_batch_size=1,  # Eu acho que é este e não per_device_test_batch_size.. Nos documentos do Seq2SeqTrainingArguments fala de eval_batch_size e não test_batch_size
+        per_device_test_batch_size=1,
+        per_device_train_batch_size=1,
+        gradient_accumulation_steps=4,
         warmup_steps=WARMUP_STEPS,
         num_train_epochs=EPOCHS,
         learning_rate=LEARNING_RATE,
-        optim = "paged_adamw_32bit",
+        # optim = "paged_adamw_32bit",
+        # optim = "adafactor",
+        optim="adamw_bnb_8bit",
         logging_steps=200,
         output_dir="qlora-cabrita",
-        save_total_limit=3,
+        # save_total_limit=3,
+        save_total_limit=2,
         gradient_checkpointing=True,
-        generation_config = GenerationConfig(temperature=0)
+        # tf32=True,
+        # fp16=True,
+        # generation_config = GenerationConfig(temperature=0)
+        generation_config = GenerationConfig(temperature=0.4)
     )
 )
+
+# default_args = {
+#     "output_dir": "tmp",
+#     "evaluation_strategy": "steps",
+#     "num_train_epochs": 1,
+#     "log_level": "error",
+#     "report_to": "none",
+# }
+
+# training_args = Seq2SeqTrainingArguments(
+#     per_device_train_batch_size=1,
+#     gradient_accumulation_steps=4,
+#     gradient_checkpointing=True,
+#     fp16=True,
+#     optim="adafactor",
+#     **default_args,
+# )
+
+# trainer = Seq2SeqTrainer(model=model, args=training_args, train_dataset=tokenized_datasets)
+# result = trainer.train()
+
+
 model.config.use_cache = False
 trainer.train(resume_from_checkpoint=False)
 
-model.save_pretrained("models/dataset_18qa_isq_desc")
+model.save_pretrained("models/GPU_problem")
 
 from datasets import load_dataset
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
@@ -242,7 +255,8 @@ test_set = Dataset.from_dict(test_set)
 tokenized_eval_dataset = test_set.map(
     generate_and_tokenize_prompt,
     batched=False,
-    num_proc=4,
+    # num_proc=4,
+    num_proc=2,
     remove_columns=['instruction', 'input', 'output'],
     # remove_columns=['instruction', 'input'],
     load_from_cache_file=True,
@@ -251,8 +265,16 @@ tokenized_eval_dataset = test_set.map(
 print(tokenized_eval_dataset.column_names)
 
 results = trainer.predict(tokenized_eval_dataset)
-predictions = results.predictions.argmax(axis=-1).flatten()
+print(f"Results: {results}\n\n")
+predictions = results.predictions.argmax(axis=-1).flatten()  # Flatten para colocar numa unica dimensão.
+predictions_norm = results.predictions.argmax(axis=-1)
+print(f"Predictions (FLATTEN): {predictions}\n\n")
+print(f"Predictions (Normal): {predictions_norm}\n\n")
 labels = results.label_ids.flatten()
+labels_norm = results.label_ids
+print(f"Labels (FLATTEN): {labels}\n\n")
+print(f"Labels (Normal): {labels_norm}\n\n")
+
 
 accuracy = accuracy_score(labels, predictions)
 precision = precision_score(labels, predictions, average='weighted')
@@ -401,3 +423,7 @@ print(f'F1-Score: {f1}')
 
 
 #############################################################
+# Accuracy: 7.94533608771651e-05
+# Precision: 8.52670214291528e-05
+# Recall: 7.94533608771651e-05
+# F1-Score: 8.225759714341797e-05
