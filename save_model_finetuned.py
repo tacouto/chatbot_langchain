@@ -3,8 +3,8 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 torch.cuda.empty_cache()
-model_name = 'tiiuae/falcon-40b'
-# model_name = 'mistralai/Mistral-7B-v0.1'
+# model_name = 'tiiuae/falcon-40b'
+model_name = 'mistralai/Mistral-7B-v0.1'
 # model_name = 'tiiuae/falcon-7b'
 
 nf4_config = BitsAndBytesConfig(
@@ -48,29 +48,29 @@ modules = find_all_linear_names(model)
 
 from peft import get_peft_model, LoraConfig, TaskType
 
-# peft_config = LoraConfig(
-#     task_type=TaskType.CAUSAL_LM,
-#     inference_mode=False,
-#     target_modules = modules,
-#     r=16,
-#     lora_alpha=64,
-#     # lora_dropout=0.1
-#     lora_dropout=0.2
-# )
-
 peft_config = LoraConfig(
-    # r=16,
-    # lora_alpha=32,
-    # target_modules=["query_key_value"],
-    # lora_dropout=0.05,
+    task_type=TaskType.CAUSAL_LM,
+    inference_mode=False,
+    target_modules = modules,
     r=16,
     lora_alpha=64,
-    target_modules=["query_key_value"],
-    lora_dropout=0.1,
-    # lora_dropout=0.2,
-    bias="none",
-    task_type="CAUSAL_LM"
+    # lora_dropout=0.1
+    lora_dropout=0.2
 )
+
+# peft_config = LoraConfig(
+#     # r=16,
+#     # lora_alpha=32,
+#     # target_modules=["query_key_value"],
+#     # lora_dropout=0.05,
+#     r=16,
+#     lora_alpha=64,
+#     target_modules=["query_key_value"],
+#     lora_dropout=0.1,
+#     # lora_dropout=0.2,
+#     bias="none",
+#     task_type="CAUSAL_LM"
+# )
 
 model = get_peft_model(model, peft_config)
 
@@ -87,8 +87,8 @@ dataset = load_dataset("json", data_files="datasets/new2.json")
 
 from sklearn.model_selection import train_test_split
 train_data = dataset['train']
-test_size = 0.1
-# test_size = 0.2
+# test_size = 0.1
+test_size = 0.2
 train_set, test_set = train_test_split(train_data, test_size=test_size, random_state=42)
 
 def generate_prompt(instruction, input, output=None):
@@ -174,7 +174,7 @@ print(train_set)
 tokenized_datasets = train_set.map(
     generate_and_tokenize_prompt,
     batched=False,  # Eu acho que é melhor colocar isto a TRUE...
-    num_proc=2,
+    num_proc=1,
     remove_columns=['instruction', 'input', 'output'],
     load_from_cache_file=True,
     desc="Running tokenizer on dataset",
@@ -197,16 +197,15 @@ trainer = Seq2SeqTrainer(
     train_dataset=tokenized_datasets,
     data_collator=DataCollatorForSeq2Seq(tokenizer, model),
     args=Seq2SeqTrainingArguments(
-        # per_device_eval_batch_size=1,  # Eu acho que é este e não per_device_test_batch_size.. Nos documentos do Seq2SeqTrainingArguments fala de eval_batch_size e não test_batch_size
-        per_device_test_batch_size=1,
+        per_device_eval_batch_size=1, # per_device_test_batch_size não existe
         per_device_train_batch_size=1,
         gradient_accumulation_steps=4,
         warmup_steps=WARMUP_STEPS,
         num_train_epochs=EPOCHS,
         learning_rate=LEARNING_RATE,
-        # optim = "paged_adamw_32bit",
+        optim = "paged_adamw_32bit",
         # optim = "adafactor",
-        optim="adamw_bnb_8bit",
+        # optim="adamw_bnb_8bit",
         logging_steps=200,
         output_dir="qlora-cabrita",
         # save_total_limit=3,
@@ -256,7 +255,7 @@ tokenized_eval_dataset = test_set.map(
     generate_and_tokenize_prompt,
     batched=False,
     # num_proc=4,
-    num_proc=2,
+    num_proc=1,
     remove_columns=['instruction', 'input', 'output'],
     # remove_columns=['instruction', 'input'],
     load_from_cache_file=True,

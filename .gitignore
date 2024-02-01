@@ -11,4 +11,3 @@ models
 onevsone.json
 onevsone_dataset.py
 mistral-models
-datasets
