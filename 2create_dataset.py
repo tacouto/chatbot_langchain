@@ -86,6 +86,11 @@ def generate_questions(excel_path, output_file):
         service = row['SERVIÇO'] if not pd.isna(row['SERVIÇO']) else 'Unknown'
         responsible = row['Responsável de serviço'] if not pd.isna(row['Responsável de serviço']) else 'Unknown'
 
+        if responsible in ['João Pombo', 'Maria Manuel Farinha', 'João Brás Luis', 'Sandra Isabel Fernandes', 'Paula Gorjão', 'Ana Cristina Gouveia', 'Rui Mendes', \
+                           'Frazão Guerreiro', 'Alexandre Levy', 'Rui A. Louro', 'Carlos Martins', 'Pedro Pinto', 'Luís Ferreira', 'Maria João Franco', 'Januário da Torre', 'Tânia Farinha', \
+                           'Elsa Maria Cantiga']:
+            continue
+        
         phone = row['Telefone'] if not pd.isna(row['Telefone']) else 'Unknown'
         email = row['Email de contacto'] if not pd.isna(row['Email de contacto']) else 'Unknown'
         depart = row['Resp. de Departamento'] if not pd.isna(row['Resp. de Departamento']) else 'Unknown'
@@ -449,17 +454,17 @@ def generate_questions(excel_path, output_file):
             "input": f"\"I'm looking for information on the department at ISQ responsible for {service}.\"",
             "output": f"\"{answer_45}\"",
         })
-    responsavel_counts = df['Responsável de serviço'].value_counts()
-    email_counts = df['Email de contacto'].value_counts()
-    phone_counts = df['Telefone'].value_counts()
+    # responsavel_counts = df['Responsável de serviço'].value_counts()
+    # email_counts = df['Email de contacto'].value_counts()
+    # phone_counts = df['Telefone'].value_counts()
 
-    print(responsavel_counts)
-    print("\n\n\n")
-    print(email_counts)
-    print("\n\n\n")
-    print(phone_counts)
-    print("\n\n\n")
-    responsible_arr = list(set(responsible_arr))
+    # print(responsavel_counts)
+    # print("\n\n\n")
+    # print(email_counts)
+    # print("\n\n\n")
+    # print(phone_counts)
+    # print("\n\n\n")
+    # responsible_arr = list(set(responsible_arr))
 
     # print(service_arr)
 
