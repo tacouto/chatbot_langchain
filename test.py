@@ -2,6 +2,7 @@ from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 
 model_name = 'tiiuae/falcon-40b'
+# model_name = 'tiiuae/falcon-7b'
 
 nf4_config = BitsAndBytesConfig(
     load_in_4bit=True,
@@ -26,7 +27,7 @@ model.num_parameters()
 
 from datasets import load_dataset
 
-dataset = load_dataset("json", data_files="dataset_18qa_isq_desc.json")
+dataset = load_dataset("json", data_files="datasets/dataset2.json")
 dataset
 
 
@@ -146,7 +147,7 @@ print(train_set[0])
 print(tokenized_train_dataset)
 print(tokenized_train_dataset[0]['input_ids'])
 print(len(tokenized_train_dataset[0]['labels']))
-
+model.enable_input_require_grads()
 
 
 from peft import get_peft_model, LoraConfig
@@ -170,37 +171,88 @@ model.print_trainable_parameters()
 
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+# def compute_metrics(pred):
+#     print(pred)
+#     # predictions = pred.predictions.argmax(axis=-1)
+#     # labels = pred.label_ids.flatten()
 
+#     # accuracy = accuracy_score(labels, predictions)
+#     # precision = precision_score(labels, predictions, average='weighted')
+#     # recall = recall_score(labels, predictions, average='weighted')
+#     # f1 = f1_score(labels, predictions, average='weighted')
+
+#     # print(f'Accuracy: {accuracy}')
+#     # print(f'Precision: {precision}')
+#     # print(f'Recall: {recall}')
+#     # print(f'F1-Score: {f1}')
+#     predictions = pred.predictions.argmax(axis=-1).flatten()  # Flatten para colocar numa unica dimensão.
+#     predictions_norm = pred.predictions.argmax(axis=-1)
+#     print(f"Predictions (FLATTEN): {predictions}\n\n")
+#     print(f"Predictions (Normal): {predictions_norm}\n\n")
+#     labels = pred.label_ids.flatten()
+#     labels_norm = pred.label_ids
+#     print(f"Labels (FLATTEN): {labels}\n\n")
+#     print(f"Labels (Normal): {labels_norm}\n\n")
+
+#     mask = (labels != -100)
+#     labels = labels[mask]
+#     predictions = predictions[mask]
+#     accuracy = accuracy_score(labels, predictions)
+#     precision = precision_score(labels, predictions, average='weighted')
+#     recall = recall_score(labels, predictions, average='weighted')
+#     f1 = f1_score(labels, predictions, average='weighted')
+
+#     print(f'Accuracy: {accuracy}')
+#     print(f'Precision: {precision}')
+#     print(f'Recall: {recall}')
+#     print(f'F1-Score: {f1}')
+
+#     return {"accuracy": accuracy, 
+#             "precision": precision, 
+#             "recall": recall, 
+#             "f1":f1}
 def compute_metrics(pred):
-    print(pred)
     predictions = pred.predictions.argmax(axis=-1).flatten()
     labels = pred.label_ids.flatten()
+
+    mask = (labels != -100)
+    labels = labels[mask][1:]
+    predictions = predictions[mask][:-1]  # Foram retirados o primeiro valor das labels e o ultimo de predicitions.. 
+
+    print("Labels:", labels)
+    print("Predictions:", predictions)
 
     accuracy = accuracy_score(labels, predictions)
     precision = precision_score(labels, predictions, average='weighted')
     recall = recall_score(labels, predictions, average='weighted')
     f1 = f1_score(labels, predictions, average='weighted')
-    return {"accuracy": accuracy, 
-            "precision": precision, 
-            "recall": recall, 
-            "f1":f1}
+
+    print(f'Accuracy: {accuracy}')
+    print(f'Precision: {precision}')
+    print(f'Recall: {recall}')
+    print(f'F1-Score: {f1}')
+
+    return {"accuracy": accuracy, "precision": precision, "recall": recall, "f1": f1}
+
+
 
 
 from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, GenerationConfig, DataCollatorForSeq2Seq, set_seed
 
 set_seed(42)
-EPOCHS = 3
+EPOCHS = 20
 GRADIENT_ACCUMULATION_STEPS = 2
 MICRO_BATCH_SIZE = 8
-LEARNING_RATE = 5e-5  
+# LEARNING_RATE = 5e-5  
+LEARNING_RATE = 1e-4
 WARMUP_STEPS = 400 
 trainer = Seq2SeqTrainer(
     model=model,
-    compute_metrics=compute_metrics,
     # train_dataset=tokenized_datasets["train"],
     train_dataset=tokenized_train_dataset,
     eval_dataset=tokenized_eval_dataset,
     data_collator=DataCollatorForSeq2Seq(tokenizer, model),
+    compute_metrics=compute_metrics,
     args=Seq2SeqTrainingArguments(
         per_device_train_batch_size=MICRO_BATCH_SIZE,
         per_device_eval_batch_size=MICRO_BATCH_SIZE,
@@ -218,9 +270,17 @@ trainer = Seq2SeqTrainer(
     )
 )
 
-trainer.model.eval()
+model.config.use_cache = False
+trainer.train(resume_from_checkpoint=False)
 
-with torch.no_grad():
-    trainer.evaluate()
+model.save_pretrained("models/1stcode")
 
+# trainer.model.eval()
 
+trainer.evaluate()
+
+# Primeiro teste com o 7B e 3 EPOCHS
+# Accuracy: 89.75%
+# Precision: 90.20%
+# Recall: 89.75%
+# F1-Score: 89.33%

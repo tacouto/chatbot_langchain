@@ -3,8 +3,8 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 torch.cuda.empty_cache()
-# model_name = 'tiiuae/falcon-40b'
-model_name = 'mistralai/Mistral-7B-v0.1'
+model_name = 'tiiuae/falcon-40b'
+# model_name = 'mistralai/Mistral-7B-v0.1'
 # model_name = 'tiiuae/falcon-7b'
 
 nf4_config = BitsAndBytesConfig(
@@ -83,7 +83,7 @@ CUTOFF_LEN = 128
 from datasets import load_dataset
 
 # dataset = load_dataset("json", data_files="datasets/custom_dataset.json")
-dataset = load_dataset("json", data_files="datasets/new2.json")
+dataset = load_dataset("json", data_files="datasets/dataset2.json")
 
 from sklearn.model_selection import train_test_split
 train_data = dataset['train']
@@ -191,11 +191,55 @@ MICRO_BATCH_SIZE = 4  # Experimentar com 64 ou 128
 LEARNING_RATE = 1e-4
 WARMUP_STEPS = 500 
 
+test_set = Dataset.from_dict(test_set)
+# Tokenize o conjunto de dados de avaliação
+tokenized_eval_dataset = test_set.map(
+    generate_and_tokenize_prompt,
+    batched=False,
+    # num_proc=4,
+    num_proc=1,
+    remove_columns=['instruction', 'input', 'output'],
+    # remove_columns=['instruction', 'input'],
+    load_from_cache_file=True,
+    desc="Running tokenizer on evaluation dataset",
+)
+
+
+import nltk
+import evaluate
+from datasets import load_dataset
+import numpy as np
+from transformers import AutoTokenizer, DataCollatorForSeq2Seq
+from transformers import AutoModelForSeq2SeqLM, Seq2SeqTrainingArguments, Seq2SeqTrainer
+
+nltk.download("punkt", quiet=True)
+metric = evaluate.load("rouge")
+
+def compute_metrics(eval_preds):
+    preds, labels = eval_preds
+
+    # decode preds and labels
+    labels = np.where(labels != -100, labels, tokenizer.pad_token_id)
+    decoded_preds = tokenizer.batch_decode(preds, skip_special_tokens=True)
+    decoded_labels = tokenizer.batch_decode(labels, skip_special_tokens=True)
+
+    # rougeLSum expects newline after each sentence
+    decoded_preds = ["\n".join(nltk.sent_tokenize(pred.strip())) for pred in decoded_preds]
+    decoded_labels = ["\n".join(nltk.sent_tokenize(label.strip())) for label in decoded_labels]
+
+    result = metric.compute(predictions=decoded_preds, references=decoded_labels, use_stemmer=True)
+    print(result)
+    return result
+
+
 trainer = Seq2SeqTrainer(
     model=model,
     # train_dataset=tokenized_datasets["train"],
     train_dataset=tokenized_datasets,
+    eval_dataset=tokenized_eval_dataset,
+    tokenizer=tokenizer,
     data_collator=DataCollatorForSeq2Seq(tokenizer, model),
+    compute_metrics=compute_metrics,
     args=Seq2SeqTrainingArguments(
         per_device_eval_batch_size=1, # per_device_test_batch_size não existe
         per_device_train_batch_size=1,
@@ -218,6 +262,12 @@ trainer = Seq2SeqTrainer(
     )
 )
 
+model.config.use_cache = False
+trainer.train(resume_from_checkpoint=False)
+
+model.save_pretrained("models/GPU_problem")
+
+trainer.evaluate()
 # default_args = {
 #     "output_dir": "tmp",
 #     "evaluation_strategy": "steps",
@@ -239,51 +289,47 @@ trainer = Seq2SeqTrainer(
 # result = trainer.train()
 
 
-model.config.use_cache = False
-trainer.train(resume_from_checkpoint=False)
 
-model.save_pretrained("models/GPU_problem")
+# from datasets import load_dataset
+# from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
 
-from datasets import load_dataset
-from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+# # eval_dataset = load_dataset("json", data_files="eval_dataset.json")
 
-# eval_dataset = load_dataset("json", data_files="eval_dataset.json")
+# test_set = Dataset.from_dict(test_set)
+# # Tokenize o conjunto de dados de avaliação
+# tokenized_eval_dataset = test_set.map(
+#     generate_and_tokenize_prompt,
+#     batched=False,
+#     # num_proc=4,
+#     num_proc=1,
+#     remove_columns=['instruction', 'input', 'output'],
+#     # remove_columns=['instruction', 'input'],
+#     load_from_cache_file=True,
+#     desc="Running tokenizer on evaluation dataset",
+# )
+# print(tokenized_eval_dataset.column_names)
 
-test_set = Dataset.from_dict(test_set)
-# Tokenize o conjunto de dados de avaliação
-tokenized_eval_dataset = test_set.map(
-    generate_and_tokenize_prompt,
-    batched=False,
-    # num_proc=4,
-    num_proc=1,
-    remove_columns=['instruction', 'input', 'output'],
-    # remove_columns=['instruction', 'input'],
-    load_from_cache_file=True,
-    desc="Running tokenizer on evaluation dataset",
-)
-print(tokenized_eval_dataset.column_names)
-
-results = trainer.predict(tokenized_eval_dataset)
-print(f"Results: {results}\n\n")
-predictions = results.predictions.argmax(axis=-1).flatten()  # Flatten para colocar numa unica dimensão.
-predictions_norm = results.predictions.argmax(axis=-1)
-print(f"Predictions (FLATTEN): {predictions}\n\n")
-print(f"Predictions (Normal): {predictions_norm}\n\n")
-labels = results.label_ids.flatten()
-labels_norm = results.label_ids
-print(f"Labels (FLATTEN): {labels}\n\n")
-print(f"Labels (Normal): {labels_norm}\n\n")
+# results = trainer.predict(tokenized_eval_dataset)
+# print(f"Results: {results}\n\n")
+# predictions = results.predictions.argmax(axis=-1).flatten()  # Flatten para colocar numa unica dimensão.
+# predictions_norm = results.predictions.argmax(axis=-1)
+# print(f"Predictions (FLATTEN): {predictions}\n\n")
+# print(f"Predictions (Normal): {predictions_norm}\n\n")
+# labels = results.label_ids.flatten()
+# labels_norm = results.label_ids
+# print(f"Labels (FLATTEN): {labels}\n\n")
+# print(f"Labels (Normal): {labels_norm}\n\n")
 
 
-accuracy = accuracy_score(labels, predictions)
-precision = precision_score(labels, predictions, average='weighted')
-recall = recall_score(labels, predictions, average='weighted')
-f1 = f1_score(labels, predictions, average='weighted')
+# accuracy = accuracy_score(labels, predictions)
+# precision = precision_score(labels, predictions, average='weighted')
+# recall = recall_score(labels, predictions, average='weighted')
+# f1 = f1_score(labels, predictions, average='weighted')
 
-print(f'Accuracy: {accuracy}')
-print(f'Precision: {precision}')
-print(f'Recall: {recall}')
-print(f'F1-Score: {f1}')
+# print(f'Accuracy: {accuracy}')
+# print(f'Precision: {precision}')
+# print(f'Recall: {recall}')
+# print(f'F1-Score: {f1}')
 # test_results = trainer.predict(tokenized_eval_dataset)
 # print(test_results)
 
