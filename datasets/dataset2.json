@@ -1800,6 +1800,31 @@
     "output": "For more details, contact Liliana Silva at 961 322 922 or cnd@isq.pt."
   },
   {
+    "instruction": "'What is ISQ?'.",
+    "input": "",
+    "output": "\" refers to Instituto de Soldadura e Qualidade. The ISQ is a private, independent organization that provides services in areas such as inspection, testing, and certification of materials, products, and processes.\""
+  },
+  {
+    "instruction": "'What does ISQ stand for?'.",
+    "input": "",
+    "output": "\"ISQ stands for 'Instituto de Soldadura e Qualidade,' which translates to Institute of Welding and Quality. It is a private, independent organization in Portugal that offers services in inspection, testing, and certification of materials, products, and processes.\""
+  },
+  {
+    "instruction": "'Can you explain the role of ISQ in Portugal?'.",
+    "input": "",
+    "output": "\"ISQ plays a significant role in Portugal by providing services related to inspection, testing, and certification. Specializing in areas such as welding and quality control, the institute ensures the quality and safety of various industrial processes and products.\""
+  },
+  {
+    "instruction": "'In which sectors does ISQ operate?'.",
+    "input": "",
+    "output": "\"ISQ operates in various sectors, including but not limited to welding, non-destructive testing, and quality control. The institute's expertise extends to ensuring the quality and safety standards in different industrial processes and products.\""
+  },
+  {
+    "instruction": "'What services does ISQ provide?'.",
+    "input": "",
+    "output": "\"ISQ provides a range of services, including inspection, testing, and certification of materials, products, and processes. The institute's focus on quality assurance extends to various industrial applications, making it a crucial player in ensuring standards compliance.\""
+  },
+  {
     "instruction": "'Who is responsible for the Metrological verification in the automotive sector service?'.",
     "input": "\"Tell me the responsible party for the Metrological verification in the automotive sector service at ISQ.\"",
     "output": "\"The responsible party is C\u00e9sar Ribeiro, reachable at 969 510 995 or labmetro@isq.pt.\""

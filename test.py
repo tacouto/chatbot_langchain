@@ -1,8 +1,8 @@
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 
-model_name = 'tiiuae/falcon-40b'
-# model_name = 'tiiuae/falcon-7b'
+# model_name = 'tiiuae/falcon-40b'
+model_name = 'tiiuae/falcon-7b'
 
 nf4_config = BitsAndBytesConfig(
     load_in_4bit=True,
@@ -27,8 +27,10 @@ model.num_parameters()
 
 from datasets import load_dataset
 
-dataset = load_dataset("json", data_files="datasets/dataset2.json")
-dataset
+# dataset = load_dataset("json", data_files="datasets/dataset2.json")
+# dataset = load_dataset("json", data_files="datasets/data_all.json")
+dataset = load_dataset("json", data_files="datasets/qa3.json")
+# dataset
 
 
 train_data = dataset['train']
@@ -103,17 +105,32 @@ def generate_and_tokenize_prompt(data_point):
         )
         
         tokenized_user_prompt = tokenize(user_prompt, add_eos_token=False)
+        # print(f"tokenized_user_prompt: {tokenized_user_prompt}")
         user_prompt_len = len(tokenized_user_prompt["input_ids"])
 
+        
         tokenized_full_prompt["labels"] = [
             -100
         ] * user_prompt_len + tokenized_full_prompt["labels"][
             user_prompt_len:
         ]
+        # tokenized_full_prompt["labels"] = [
+        #    1
+        # ] * user_prompt_len + tokenized_full_prompt["labels"][
+        #     user_prompt_len:
+        # ]
+        # tokenized_full_prompt["labels"] = [
+        #    0
+        # ] * user_prompt_len + tokenized_full_prompt["labels"][
+        #     user_prompt_len:
+        # ]
+        # print(f"tokenized_full_prompt: {tokenized_full_prompt.labels}")
+        # tokenized_full_prompt["labels"] = user_prompt_len + tokenized_full_prompt["labels"][user_prompt_len:]
+
         tokenized_full_prompts["input_ids"].append(tokenized_full_prompt["input_ids"])
         tokenized_full_prompts["attention_mask"].append(tokenized_full_prompt["attention_mask"])
         tokenized_full_prompts["labels"].append(tokenized_full_prompt["labels"])
-
+    print (f"tokenized_full_prompts{tokenized_full_prompts}")
     return tokenized_full_prompts
 
 
@@ -143,10 +160,10 @@ tokenized_train_dataset = train_set.map(
 )
 
 
-print(train_set[0])
-print(tokenized_train_dataset)
-print(tokenized_train_dataset[0]['input_ids'])
-print(len(tokenized_train_dataset[0]['labels']))
+print(f"train_set[0]: {train_set[0]}")
+print(f"tokenized_train_dataset: {tokenized_train_dataset}")
+print(f"tokenized_train_dataset[0]['input_ids']: {tokenized_train_dataset[0]['input_ids']}")
+print(f"len(tokenized_train_dataset[0]['labels']): {len(tokenized_train_dataset[0]['labels'])}")
 model.enable_input_require_grads()
 
 
@@ -171,80 +188,108 @@ model.print_trainable_parameters()
 
 
 from sklearn.metrics import accuracy_score, precision_score, recall_score, f1_score
+from nltk.translate.bleu_score import corpus_bleu
+def compute_metrics(pred):
+    print(f"pred: {pred}")
+    # predictions = pred.predictions.argmax(axis=-1).flatten()
+    # labels = tokenized_train_dataset[0]['input_ids']
+    # predictions = pred.predictions.argmax(dim=-1)
+    predictions = torch.argmax(torch.from_numpy(pred.predictions), dim=-1)
+    labels = pred.label_ids
+
+    # Lista para armazenar rótulos e previsões não preenchidas (-100)
+    filtered_labels = []
+    filtered_predictions = []
+
+    for i in range(len(predictions)):
+        for j in range(len(predictions[i])):
+            if labels[i][j] != -100:
+                prediction_value = predictions[i][j-1].item() 
+                label_value = labels[i][j].item()
+
+                print(f"Previsão: {prediction_value}, Rótulo Real: {label_value}")
+
+                filtered_labels.append(label_value)
+                filtered_predictions.append(prediction_value)
+
+    accuracy = accuracy_score(filtered_labels, filtered_predictions)
+    precision = precision_score(filtered_labels, filtered_predictions, average='weighted')
+    recall = recall_score(filtered_labels, filtered_predictions, average='weighted')
+    f1 = f1_score(filtered_labels, filtered_predictions, average='weighted')
+
+    # Calcule a métrica BLEU
+    references = [[str(label)] for label in filtered_labels]
+    hypotheses = [str(prediction) for prediction in filtered_predictions]
+    bleu_score = corpus_bleu(references, hypotheses)
+
+    print(f'Accuracy: {accuracy}')
+    print(f'Precision: {precision}')
+    print(f'Recall: {recall}')
+    print(f'F1-Score: {f1}')
+    print(f'BLEU Score: {bleu_score}')
+
+    return {"accuracy": accuracy, "precision": precision, "recall": recall, "f1": f1, "bleu_score": bleu_score}
+
+
+    # mask2 = (labels != -100) 
+    # labels2 = labels[mask2]
+    # predictions2 = predictions[mask2]
+    # print("Labels 1st:", labels2)
+    # print("Predictions 1st:", predictions2)
+
+    # mask = (labels != -100)
+    # labels = labels[mask][1:]
+    # predictions = predictions[mask][:-1]  # Foram retirados o primeiro valor das labels e o ultimo de predicitions.. 
+    #                                       # Para já o primeiro no label tinha valor 13 e o ultimo do predictions tinha valor 487
+    #                                       # Labels: [   13 46037    23 ...  1857    25    11]
+    #                                       # Predictions: [46037    23   248 ...    25    11   487]
+    # print("Labels:", labels)
+    # print("Predictions:", predictions)
+
+
+
+    # accuracy = accuracy_score(labels, predictions)
+    # precision = precision_score(labels, predictions, average='weighted')
+    # recall = recall_score(labels, predictions, average='weighted')
+    # f1 = f1_score(labels, predictions, average='weighted')
+
+    # print(f'Accuracy: {accuracy}')
+    # print(f'Precision: {precision}')
+    # print(f'Recall: {recall}')
+    # print(f'F1-Score: {f1}')
+
+    # return {"accuracy": accuracy, "precision": precision, "recall": recall, "f1": f1}
+
 # def compute_metrics(pred):
-#     print(pred)
-#     # predictions = pred.predictions.argmax(axis=-1)
-#     # labels = pred.label_ids.flatten()
-
-#     # accuracy = accuracy_score(labels, predictions)
-#     # precision = precision_score(labels, predictions, average='weighted')
-#     # recall = recall_score(labels, predictions, average='weighted')
-#     # f1 = f1_score(labels, predictions, average='weighted')
-
-#     # print(f'Accuracy: {accuracy}')
-#     # print(f'Precision: {precision}')
-#     # print(f'Recall: {recall}')
-#     # print(f'F1-Score: {f1}')
-#     predictions = pred.predictions.argmax(axis=-1).flatten()  # Flatten para colocar numa unica dimensão.
-#     predictions_norm = pred.predictions.argmax(axis=-1)
-#     print(f"Predictions (FLATTEN): {predictions}\n\n")
-#     print(f"Predictions (Normal): {predictions_norm}\n\n")
+#     predictions = pred.predictions.argmax(axis=-1).flatten()
 #     labels = pred.label_ids.flatten()
-#     labels_norm = pred.label_ids
-#     print(f"Labels (FLATTEN): {labels}\n\n")
-#     print(f"Labels (Normal): {labels_norm}\n\n")
+#     predictions_flat = [pred for sublist in predictions for pred in sublist]
+#     labels_flat = [label for sublist in labels for label in sublist]
 
-#     mask = (labels != -100)
-#     labels = labels[mask]
-#     predictions = predictions[mask]
-#     accuracy = accuracy_score(labels, predictions)
-#     precision = precision_score(labels, predictions, average='weighted')
-#     recall = recall_score(labels, predictions, average='weighted')
-#     f1 = f1_score(labels, predictions, average='weighted')
+#     print("Labels all:", labels_flat)
+#     print("Predictions all:", predictions_flat)
+
+#     accuracy = accuracy_score(labels_flat, predictions_flat)
+#     precision = precision_score(labels_flat, predictions_flat, average='weighted')
+#     recall = recall_score(labels_flat, predictions_flat, average='weighted')
+#     f1 = f1_score(labels_flat, predictions_flat, average='weighted')
 
 #     print(f'Accuracy: {accuracy}')
 #     print(f'Precision: {precision}')
 #     print(f'Recall: {recall}')
 #     print(f'F1-Score: {f1}')
 
-#     return {"accuracy": accuracy, 
-#             "precision": precision, 
-#             "recall": recall, 
-#             "f1":f1}
-def compute_metrics(pred):
-    predictions = pred.predictions.argmax(axis=-1).flatten()
-    labels = pred.label_ids.flatten()
-
-    mask = (labels != -100)
-    labels = labels[mask][1:]
-    predictions = predictions[mask][:-1]  # Foram retirados o primeiro valor das labels e o ultimo de predicitions.. 
-
-    print("Labels:", labels)
-    print("Predictions:", predictions)
-
-    accuracy = accuracy_score(labels, predictions)
-    precision = precision_score(labels, predictions, average='weighted')
-    recall = recall_score(labels, predictions, average='weighted')
-    f1 = f1_score(labels, predictions, average='weighted')
-
-    print(f'Accuracy: {accuracy}')
-    print(f'Precision: {precision}')
-    print(f'Recall: {recall}')
-    print(f'F1-Score: {f1}')
-
-    return {"accuracy": accuracy, "precision": precision, "recall": recall, "f1": f1}
-
-
+#     return {"accuracy": accuracy, "precision": precision, "recall": recall, "f1": f1}
 
 
 from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, GenerationConfig, DataCollatorForSeq2Seq, set_seed
 
 set_seed(42)
-EPOCHS = 20
+EPOCHS = 3
 GRADIENT_ACCUMULATION_STEPS = 2
 MICRO_BATCH_SIZE = 8
 # LEARNING_RATE = 5e-5  
-LEARNING_RATE = 1e-4
+LEARNING_RATE = 2e-4
 WARMUP_STEPS = 400 
 trainer = Seq2SeqTrainer(
     model=model,
@@ -273,14 +318,63 @@ trainer = Seq2SeqTrainer(
 model.config.use_cache = False
 trainer.train(resume_from_checkpoint=False)
 
-model.save_pretrained("models/1stcode")
+model.save_pretrained("models/qa3")
 
 # trainer.model.eval()
 
 trainer.evaluate()
 
-# Primeiro teste com o 7B e 3 EPOCHS
+# Teste com o 7B e 3 EPOCHS e LEARNING_RATE = 1e-4 (dataset2 --> só utiliza o responsáveis que "aparecem uma vez")
 # Accuracy: 89.75%
 # Precision: 90.20%
 # Recall: 89.75%
 # F1-Score: 89.33%
+
+# Teste com o 7B e 3 EPOCHS e LEARNING_RATE = 1e-4 (dataset_all)
+# Accuracy: 96.88%
+# Precision: 96.84%
+# Recall: 96.88%
+# F1-Score: 96.77%
+
+# Teste com o 40B e 20 EPOCHS e LEARNING_RATE = 1e-4 (dataset2 --> só utiliza o responsáveis que "aparecem uma vez")
+# Accuracy: 96.95%
+# Precision: 96.94%
+# Recall: 96.95%
+# F1-Score: 96.83%
+
+# Teste com o 40B e 15 EPOCHS e LEARNING_RATE = 1e-4 (dataset_all) --> Guardado com nome "1stcode"
+# Accuracy: 97.15%
+# Precision: 97.05%
+# Recall: 97.15%
+# F1-Score: 97.01%
+
+# Teste com o 40B e 1 EPOCHS e LEARNING_RATE = 1e-4 (dataset2 --> só utiliza o responsáveis que "aparecem uma vez")
+# Accuracy: 65.02%
+# Precision: 66.03%
+# Recall: 65.02%
+# F1-Score: 63.99%
+
+
+# ---- NOVA MANEIRA DE AVALIAR ----
+
+# Teste com o 7B e 3 EPOCHS e LEARNING_RATE = 1e-4 (Dataset equilibrado)
+
+# Accuracy: 92.14%
+# Precision: 91.76%
+# Recall: 92.14%
+# F1-Score: 91.54%
+
+# Teste com o 7B e 3 EPOCHS e LEARNING_RATE = 1e-4 (Dataset qa3)
+# Accuracy: 0.9747468707645699
+# Precision: 0.9788583081453062
+# Recall: 0.9747468707645699
+# F1-Score: 0.9751106132893038
+# BLEU Score: 0.8012516102822385
+
+
+# Teste com o 40B e 20 EPOCHS e LEARNING_RATE = 1e-4 (dataset_all) --> Guardado com nome "2stcode"
+# Accuracy: 99.53%
+# Precision: 99.58%
+# Recall: 99.53%
+# F1-Score: 99.54%
+# BLEU Score: 0.8347926038799907
