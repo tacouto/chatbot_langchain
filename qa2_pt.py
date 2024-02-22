@@ -221,7 +221,7 @@ def generate_negative_answers(excel_path):
 excel_path = "servicosISQ.xlsx"
 
 # Specify the file path where you want to save the output in JSON format
-output_json_path = "datasets/pt_dataset2_without_input.json"
+output_json_path = "datasets/pt_dataset.json"
 
 data_output = []
 
@@ -401,6 +401,48 @@ print(services)
 with open(output_json_path, 'w') as json_file:
     json.dump(data_output, json_file, indent=2)
 
+
+df_filtrado = df[~df['Responsável de serviço'].isin(['João Pombo', 'Maria Manuel Farinha', 'João Brás Luis', 'Sandra Isabel Fernandes', 'Paula Gorjão', 'Ana Cristina Gouveia', 'Rui Mendes', \
+                           'Frazão Guerreiro', 'Alexandre Levy', 'Rui A. Louro', 'Carlos Martins', 'Pedro Pinto', 'Luís Ferreira', 'Maria João Franco', 'Januário da Torre', 'Tânia Farinha', \
+                           'Elsa Maria Cantiga', 'André Ramalho', 'Cristina Leão', 'Rogério Magalhães', 'Liliana P. Silva', 'Sara Leonardo', 'Luis Conde Santos', \
+                            'Vasco Mendes Pires', 'João Paulo Figueiredo', 'Elsa Cantiga', 'José Azevedo'])]
+csv_filtrado_out_path = "aproveitado_pt.csv"
+
+df_filtrado.to_csv(csv_filtrado_out_path, index=False)
+
+with open('/home/tacouto/chatbot/chatbot_langchain/descriptions_pt.txt', 'r', encoding='utf-8') as file:
+    file_content = file.read()
+
+descriptions = re.findall(r'\{(.*?)\}', file_content, re.DOTALL)
+
+
+data_output_descprition = data_output
+for index, row in df_filtrado.iterrows():
+    service = row['SERVIÇO']
+
+    for i, description in enumerate(descriptions):
+        question_5 = f"O que se faz no serviço {service}?"
+        answer_5 = description.strip()
+        
+        data_output_descprition.append({
+            "instruction": f"'{question_5}'",
+            "input": "",
+            "output": f"\"{answer_5}\"",
+        })
+
+        question_6 = f"Preciso de informações sobre o serviço {service}"
+        answer_6 = description.strip()
+        
+        data_output_descprition.append({
+            "instruction": f"'{question_6}'",
+            "input": "",
+            "output": f"\"{answer_6}\"",
+        })
+
+
+output_json_description = "datasets/pt_description_dataset.json"
+with open(output_json_description, 'w') as json_file:
+    json.dump(data_output_descprition, json_file, indent=2)
 # Remover os serviços com unknown:
     
 def remover_conversas_desconhecidas(dados_json):
@@ -413,13 +455,13 @@ def remover_conversas_desconhecidas(dados_json):
     return conversas_filtradas
 
 # Ler o arquivo JSON
-caminho_arquivo_json = "/home/tacouto/chatbot/chatbot_langchain/datasets/pt_dataset2_without_input.json"  # Substitua pelo caminho real do seu arquivo JSON
+caminho_arquivo_json = "/home/tacouto/chatbot/chatbot_langchain/datasets/pt_dataset.json"  # Substitua pelo caminho real do seu arquivo JSON
 with open(caminho_arquivo_json, "r") as arquivo_json:
     dados_json = json.load(arquivo_json)
 
 conversas_filtradas = remover_conversas_desconhecidas(dados_json)
 
 # Escrever o novo arquivo JSON
-novo_caminho_arquivo_json = "/home/tacouto/chatbot/chatbot_langchain/datasets/pt_dataset2_without_input.json"  # Substitua pelo caminho desejado para o novo arquivo JSON
+novo_caminho_arquivo_json = "/home/tacouto/chatbot/chatbot_langchain/datasets/pt_dataset.json"  # Substitua pelo caminho desejado para o novo arquivo JSON
 with open(novo_caminho_arquivo_json, "w") as novo_arquivo_json:
     json.dump(conversas_filtradas, novo_arquivo_json, indent=2)
