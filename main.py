@@ -77,7 +77,9 @@ def chat_bot(model_name, fine_tuned):
         for s in generation_output.sequences:
             output = tokenizer.decode(s)
             print("Bot:", output.split("### Resposta:")[1].strip())
-
+            # Guardar a interação
+            bot_response = output.split("### Resposta:")[1].strip()
+            conversations.append(prompt, bot_response)
     while(1):
         evaluate(input("\nUser: "))
         if input == 'exit':
@@ -85,12 +87,13 @@ def chat_bot(model_name, fine_tuned):
 
     # evaluate(input("Instrução: "))
     # evaluate("Tell me all the services that ISQ have for calibrations?")
-
+conversations = []
 if __name__ == "__main__":
 
     model_name = 'tiiuae/falcon-40b'
     # model_name = 'tiiuae/falcon-7b'
     # fine_tuned = "models/dataset2_without_input_40b"
-    fine_tuned = "models/dataset2_without_input_40b_plusepochs"  # EN
+    # fine_tuned = "models/dataset2_without_input_40b_plusepochs"  # EN
     # fine_tuned = "models/pt_dataset2_without_input_40b_plusepochs"  # PT
+    fine_tuned = "models/en_pt_dataset"  # EN e PT
     chat_bot(model_name, fine_tuned)

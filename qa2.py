@@ -172,17 +172,17 @@ def generate_negative_answers(excel_path):
 
         # Create Different negative questions
         question_1 = f"Is {service} available on weekends/holidays?"
-        answer_1 = "Unfortunately, {service} is not available on weekends nor holidays."
+        answer_1 = f"Unfortunately, {service} is not available on weekends nor holidays."
         intention_1 = "ServiceNotAvailableWeekendOrHoliday"
         # print(provide_negative_feedback())
 
         question_2 = f"Is {service} available 24/7?"
-        answer_2 = "Sadly, {service} is not available 24/7."
+        answer_2 = f"Sadly, {service} is not available 24/7."
         intention_2 = "ServiceNotAvailable24/7"
         # print(provide_negative_feedback())
 
         question_3 = f"Is {service} free of charge?"
-        answer_3 = "Naturally, {service} is not free of charge."
+        answer_3 = f"Naturally, {service} is not free of charge."
         intention_3 = "ServiceNotFree"
         # print(provide_negative_feedback())
 
@@ -192,7 +192,7 @@ def generate_negative_answers(excel_path):
         # print(provide_negative_feedback())
 
         question_5 = f"Is {service} only available for business customers?"
-        answer_5 = "As might be expected, {service} is not only available for business customers."
+        answer_5 = f"As might be expected, {service} is not only available for business customers."
         intention_5 = "ServiceAvailableForEveryone"
         # print(provide_negative_feedback())
 

@@ -273,3 +273,5 @@ model.save_pretrained("models/en_pt_dataset")
 # trainer.model.eval()
 
 trainer.evaluate()
+
+trainer.push_to_hub()

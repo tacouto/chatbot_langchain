@@ -812,17 +812,17 @@
   {
     "instruction": "Is Metrological verification in the automotive sector available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Metrological verification in the automotive sector is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Metrological verification in the automotive sector available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Metrological verification in the automotive sector is not available 24/7."
   },
   {
     "instruction": "Is Metrological verification in the automotive sector free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Metrological verification in the automotive sector is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Metrological verification in the automotive sector?",
@@ -832,7 +832,7 @@
   {
     "instruction": "Is Metrological verification in the automotive sector only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Metrological verification in the automotive sector is not only available for business customers."
   },
   {
     "instruction": "Is Metrological verification in the automotive sector available on December 25?",
@@ -842,17 +842,17 @@
   {
     "instruction": "Is Calibration of electrical and radiofrequency equipment available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Calibration of electrical and radiofrequency equipment is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Calibration of electrical and radiofrequency equipment available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Calibration of electrical and radiofrequency equipment is not available 24/7."
   },
   {
     "instruction": "Is Calibration of electrical and radiofrequency equipment free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Calibration of electrical and radiofrequency equipment is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Calibration of electrical and radiofrequency equipment?",
@@ -862,7 +862,7 @@
   {
     "instruction": "Is Calibration of electrical and radiofrequency equipment only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Calibration of electrical and radiofrequency equipment is not only available for business customers."
   },
   {
     "instruction": "Is Calibration of electrical and radiofrequency equipment available on December 25?",
@@ -872,17 +872,17 @@
   {
     "instruction": "Is Calibration of optical and topography equipment available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Calibration of optical and topography equipment is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Calibration of optical and topography equipment available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Calibration of optical and topography equipment is not available 24/7."
   },
   {
     "instruction": "Is Calibration of optical and topography equipment free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Calibration of optical and topography equipment is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Calibration of optical and topography equipment?",
@@ -892,22 +892,22 @@
   {
     "instruction": "Is Calibration of optical and topography equipment only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Calibration of optical and topography equipment is not only available for business customers."
   },
   {
     "instruction": "Is Evaluation/Verification of radiological safety conditions available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Evaluation/Verification of radiological safety conditions is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Evaluation/Verification of radiological safety conditions available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Evaluation/Verification of radiological safety conditions is not available 24/7."
   },
   {
     "instruction": "Is Evaluation/Verification of radiological safety conditions free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Evaluation/Verification of radiological safety conditions is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Evaluation/Verification of radiological safety conditions?",
@@ -917,22 +917,22 @@
   {
     "instruction": "Is Evaluation/Verification of radiological safety conditions only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Evaluation/Verification of radiological safety conditions is not only available for business customers."
   },
   {
     "instruction": "Is Expertise available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Expertise is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Expertise available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Expertise is not available 24/7."
   },
   {
     "instruction": "Is Expertise free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Expertise is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Expertise?",
@@ -942,22 +942,22 @@
   {
     "instruction": "Is Expertise only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Expertise is not only available for business customers."
   },
   {
     "instruction": "Is Elevator, escalator, and moving walkway inspection available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Elevator, escalator, and moving walkway inspection is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Elevator, escalator, and moving walkway inspection available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Elevator, escalator, and moving walkway inspection is not available 24/7."
   },
   {
     "instruction": "Is Elevator, escalator, and moving walkway inspection free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Elevator, escalator, and moving walkway inspection is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Elevator, escalator, and moving walkway inspection?",
@@ -967,7 +967,7 @@
   {
     "instruction": "Is Elevator, escalator, and moving walkway inspection only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Elevator, escalator, and moving walkway inspection is not only available for business customers."
   },
   {
     "instruction": "Is Elevator, escalator, and moving walkway inspection available on December 25?",
@@ -977,17 +977,17 @@
   {
     "instruction": "Is Analysis and verification of fire safety system projects available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Analysis and verification of fire safety system projects is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Analysis and verification of fire safety system projects available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Analysis and verification of fire safety system projects is not available 24/7."
   },
   {
     "instruction": "Is Analysis and verification of fire safety system projects free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Analysis and verification of fire safety system projects is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Analysis and verification of fire safety system projects?",
@@ -997,7 +997,7 @@
   {
     "instruction": "Is Analysis and verification of fire safety system projects only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Analysis and verification of fire safety system projects is not only available for business customers."
   },
   {
     "instruction": "Is Analysis and verification of fire safety system projects available on December 25?",
@@ -1007,17 +1007,17 @@
   {
     "instruction": "Is Analysis of outdoor air quality - Portuguese Law No. 102/2010 available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Analysis of outdoor air quality - Portuguese Law No. 102/2010 is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Analysis of outdoor air quality - Portuguese Law No. 102/2010 available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Analysis of outdoor air quality - Portuguese Law No. 102/2010 is not available 24/7."
   },
   {
     "instruction": "Is Analysis of outdoor air quality - Portuguese Law No. 102/2010 free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Analysis of outdoor air quality - Portuguese Law No. 102/2010 is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Analysis of outdoor air quality - Portuguese Law No. 102/2010?",
@@ -1027,7 +1027,7 @@
   {
     "instruction": "Is Analysis of outdoor air quality - Portuguese Law No. 102/2010 only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Analysis of outdoor air quality - Portuguese Law No. 102/2010 is not only available for business customers."
   },
   {
     "instruction": "Is Analysis of outdoor air quality - Portuguese Law No. 102/2010 available on December 25?",
@@ -1037,17 +1037,17 @@
   {
     "instruction": "Is Mechanical tests available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Mechanical tests is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Mechanical tests available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Mechanical tests is not available 24/7."
   },
   {
     "instruction": "Is Mechanical tests free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Mechanical tests is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Mechanical tests?",
@@ -1057,7 +1057,7 @@
   {
     "instruction": "Is Mechanical tests only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Mechanical tests is not only available for business customers."
   },
   {
     "instruction": "Is Mechanical tests available on December 25?",
@@ -1067,17 +1067,17 @@
   {
     "instruction": "Is Equipment inspection for amusement available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Equipment inspection for amusement is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Equipment inspection for amusement available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Equipment inspection for amusement is not available 24/7."
   },
   {
     "instruction": "Is Equipment inspection for amusement free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Equipment inspection for amusement is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Equipment inspection for amusement?",
@@ -1087,7 +1087,7 @@
   {
     "instruction": "Is Equipment inspection for amusement only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Equipment inspection for amusement is not only available for business customers."
   },
   {
     "instruction": "Is Equipment inspection for amusement available on December 25?",
@@ -1097,17 +1097,17 @@
   {
     "instruction": "Is Thermodynamic tests available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Thermodynamic tests is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Thermodynamic tests available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Thermodynamic tests is not available 24/7."
   },
   {
     "instruction": "Is Thermodynamic tests free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Thermodynamic tests is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Thermodynamic tests?",
@@ -1117,7 +1117,7 @@
   {
     "instruction": "Is Thermodynamic tests only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Thermodynamic tests is not only available for business customers."
   },
   {
     "instruction": "Is Thermodynamic tests available on December 25?",
@@ -1127,17 +1127,17 @@
   {
     "instruction": "Is Energy Audit 68-A available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Energy Audit 68-A is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Energy Audit 68-A available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Energy Audit 68-A is not available 24/7."
   },
   {
     "instruction": "Is Energy Audit 68-A free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Energy Audit 68-A is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Energy Audit 68-A?",
@@ -1147,7 +1147,7 @@
   {
     "instruction": "Is Energy Audit 68-A only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Energy Audit 68-A is not only available for business customers."
   },
   {
     "instruction": "Is Energy Audit 68-A available on December 25?",
@@ -1157,17 +1157,17 @@
   {
     "instruction": "Is Energy Audit and Energy Consumption Rationalization Plan RGCEST available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Energy Audit and Energy Consumption Rationalization Plan RGCEST is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Energy Audit and Energy Consumption Rationalization Plan RGCEST available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Energy Audit and Energy Consumption Rationalization Plan RGCEST is not available 24/7."
   },
   {
     "instruction": "Is Energy Audit and Energy Consumption Rationalization Plan RGCEST free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Energy Audit and Energy Consumption Rationalization Plan RGCEST is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Energy Audit and Energy Consumption Rationalization Plan RGCEST?",
@@ -1177,22 +1177,22 @@
   {
     "instruction": "Is Energy Audit and Energy Consumption Rationalization Plan RGCEST only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Energy Audit and Energy Consumption Rationalization Plan RGCEST is not only available for business customers."
   },
   {
     "instruction": "Is Energy Audit: 68-A available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Energy Audit: 68-A is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Energy Audit: 68-A available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Energy Audit: 68-A is not available 24/7."
   },
   {
     "instruction": "Is Energy Audit: 68-A free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Energy Audit: 68-A is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Energy Audit: 68-A?",
@@ -1202,7 +1202,7 @@
   {
     "instruction": "Is Energy Audit: 68-A only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Energy Audit: 68-A is not only available for business customers."
   },
   {
     "instruction": "Is Energy Audit: 68-A available on December 25?",
@@ -1212,17 +1212,17 @@
   {
     "instruction": "Is Cogeneration Energy Audit available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Cogeneration Energy Audit is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Cogeneration Energy Audit available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Cogeneration Energy Audit is not available 24/7."
   },
   {
     "instruction": "Is Cogeneration Energy Audit free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Cogeneration Energy Audit is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Cogeneration Energy Audit?",
@@ -1232,7 +1232,7 @@
   {
     "instruction": "Is Cogeneration Energy Audit only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Cogeneration Energy Audit is not only available for business customers."
   },
   {
     "instruction": "Is Cogeneration Energy Audit available on December 25?",
@@ -1242,17 +1242,17 @@
   {
     "instruction": "Is Monitoring of Electrical Energy Consumption available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Monitoring of Electrical Energy Consumption is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Monitoring of Electrical Energy Consumption available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Monitoring of Electrical Energy Consumption is not available 24/7."
   },
   {
     "instruction": "Is Monitoring of Electrical Energy Consumption free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Monitoring of Electrical Energy Consumption is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Monitoring of Electrical Energy Consumption?",
@@ -1262,7 +1262,7 @@
   {
     "instruction": "Is Monitoring of Electrical Energy Consumption only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Monitoring of Electrical Energy Consumption is not only available for business customers."
   },
   {
     "instruction": "Is Monitoring of Electrical Energy Consumption available on December 25?",
@@ -1272,17 +1272,17 @@
   {
     "instruction": "Is Inspection Planning available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Inspection Planning is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Inspection Planning available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Inspection Planning is not available 24/7."
   },
   {
     "instruction": "Is Inspection Planning free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Inspection Planning is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Inspection Planning?",
@@ -1292,22 +1292,22 @@
   {
     "instruction": "Is Inspection Planning only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Inspection Planning is not only available for business customers."
   },
   {
     "instruction": "Is Direct Assessment of Pipelines available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Direct Assessment of Pipelines is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Direct Assessment of Pipelines available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Direct Assessment of Pipelines is not available 24/7."
   },
   {
     "instruction": "Is Direct Assessment of Pipelines free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Direct Assessment of Pipelines is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Direct Assessment of Pipelines?",
@@ -1317,7 +1317,7 @@
   {
     "instruction": "Is Direct Assessment of Pipelines only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Direct Assessment of Pipelines is not only available for business customers."
   },
   {
     "instruction": "Is Direct Assessment of Pipelines available on December 25?",
@@ -1327,17 +1327,17 @@
   {
     "instruction": "Is RoHS Directive - D.L. No. 230/2004 available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, RoHS Directive - D.L. No. 230/2004 is not available on weekends nor holidays."
   },
   {
     "instruction": "Is RoHS Directive - D.L. No. 230/2004 available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, RoHS Directive - D.L. No. 230/2004 is not available 24/7."
   },
   {
     "instruction": "Is RoHS Directive - D.L. No. 230/2004 free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, RoHS Directive - D.L. No. 230/2004 is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in RoHS Directive - D.L. No. 230/2004?",
@@ -1347,7 +1347,7 @@
   {
     "instruction": "Is RoHS Directive - D.L. No. 230/2004 only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, RoHS Directive - D.L. No. 230/2004 is not only available for business customers."
   },
   {
     "instruction": "Is RoHS Directive - D.L. No. 230/2004 available on December 25?",
@@ -1357,17 +1357,17 @@
   {
     "instruction": "Is Development of Testing Systems for Aerospace Industry Prototypes available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Development of Testing Systems for Aerospace Industry Prototypes is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Development of Testing Systems for Aerospace Industry Prototypes available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Development of Testing Systems for Aerospace Industry Prototypes is not available 24/7."
   },
   {
     "instruction": "Is Development of Testing Systems for Aerospace Industry Prototypes free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Development of Testing Systems for Aerospace Industry Prototypes is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Development of Testing Systems for Aerospace Industry Prototypes?",
@@ -1377,7 +1377,7 @@
   {
     "instruction": "Is Development of Testing Systems for Aerospace Industry Prototypes only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Development of Testing Systems for Aerospace Industry Prototypes is not only available for business customers."
   },
   {
     "instruction": "Is Development of Testing Systems for Aerospace Industry Prototypes available on December 25?",
@@ -1387,17 +1387,17 @@
   {
     "instruction": "Is Vibration Analysis (Modal) available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Vibration Analysis (Modal) is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Vibration Analysis (Modal) available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Vibration Analysis (Modal) is not available 24/7."
   },
   {
     "instruction": "Is Vibration Analysis (Modal) free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Vibration Analysis (Modal) is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Vibration Analysis (Modal)?",
@@ -1407,7 +1407,7 @@
   {
     "instruction": "Is Vibration Analysis (Modal) only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Vibration Analysis (Modal) is not only available for business customers."
   },
   {
     "instruction": "Is Vibration Analysis (Modal) available on December 25?",
@@ -1417,17 +1417,17 @@
   {
     "instruction": "Is Design and Development of Laboratory Projects available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Design and Development of Laboratory Projects is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Design and Development of Laboratory Projects available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Design and Development of Laboratory Projects is not available 24/7."
   },
   {
     "instruction": "Is Design and Development of Laboratory Projects free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Design and Development of Laboratory Projects is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Design and Development of Laboratory Projects?",
@@ -1437,22 +1437,22 @@
   {
     "instruction": "Is Design and Development of Laboratory Projects only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Design and Development of Laboratory Projects is not only available for business customers."
   },
   {
     "instruction": "Is Conventional Non-Destructive Testing available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Conventional Non-Destructive Testing is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Conventional Non-Destructive Testing available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Conventional Non-Destructive Testing is not available 24/7."
   },
   {
     "instruction": "Is Conventional Non-Destructive Testing free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Conventional Non-Destructive Testing is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Conventional Non-Destructive Testing?",
@@ -1462,7 +1462,7 @@
   {
     "instruction": "Is Conventional Non-Destructive Testing only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Conventional Non-Destructive Testing is not only available for business customers."
   },
   {
     "instruction": "Is Conventional Non-Destructive Testing available on December 25?",
@@ -1472,17 +1472,17 @@
   {
     "instruction": "Is Acoustic Emission available on weekends/holidays?",
     "input": "",
-    "output": "Unfortunately, {service} is not available on weekends nor holidays."
+    "output": "Unfortunately, Acoustic Emission is not available on weekends nor holidays."
   },
   {
     "instruction": "Is Acoustic Emission available 24/7?",
     "input": "",
-    "output": "Sadly, {service} is not available 24/7."
+    "output": "Sadly, Acoustic Emission is not available 24/7."
   },
   {
     "instruction": "Is Acoustic Emission free of charge?",
     "input": "",
-    "output": "Naturally, {service} is not free of charge."
+    "output": "Naturally, Acoustic Emission is not free of charge."
   },
   {
     "instruction": "Is there a notification system for changes in Acoustic Emission?",
@@ -1492,7 +1492,7 @@
   {
     "instruction": "Is Acoustic Emission only available for business customers?",
     "input": "",
-    "output": "As might be expected, {service} is not only available for business customers."
+    "output": "As might be expected, Acoustic Emission is not only available for business customers."
   },
   {
     "instruction": "Is Acoustic Emission available on December 25?",
