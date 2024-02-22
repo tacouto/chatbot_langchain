@@ -1515,11 +1515,6 @@
     "output": "\"ISQ plays a significant role in Portugal by providing services related to inspection, testing, and certification. Specializing in areas such as welding and quality control, the institute ensures the quality and safety of various industrial processes and products.\""
   },
   {
-    "instruction": "'What is the ISQ role?'",
-    "input": "",
-    "output": "\"ISQ plays an important role through services related to inspection, testing and certification. Specializing in areas such as welding and quality control, the institute guarantees the quality and safety of various industrial processes and products.\""
-  },
-  {
     "instruction": "'In which sectors does ISQ operate?'",
     "input": "",
     "output": "\"ISQ operates in various sectors, including but not limited to welding, non-destructive testing, and quality control. The institute's expertise extends to ensuring the quality and safety standards in different industrial processes and products.\""
@@ -1545,7 +1540,7 @@
     "output": "\"For Metrological verification in the automotive sector, please contact C\u00e9sar Ribeiro at 969 510 995 or labmetro@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Metrological verification in the automotive sector service.'.",
+    "instruction": "'Tell me more details about the Metrological verification in the automotive sector service.'",
     "input": "",
     "output": "\"For additional information on Metrological verification in the automotive sector, you can contact C\u00e9sar Ribeiro at 969 510 995 or labmetro@isq.pt.\""
   },
@@ -1590,7 +1585,7 @@
     "output": "\"For Calibration of electrical and radiofrequency equipment, please contact Jorge Silva at 214 229 037 or labmetro@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Calibration of electrical and radiofrequency equipment service.'.",
+    "instruction": "'Tell me more details about the Calibration of electrical and radiofrequency equipment service.'",
     "input": "",
     "output": "\"For additional information on Calibration of electrical and radiofrequency equipment, you can contact Jorge Silva at 214 229 037 or labmetro@isq.pt.\""
   },
@@ -1635,7 +1630,7 @@
     "output": "\"For Elevator, escalator, and moving walkway inspection, please contact Carlos Almas Ramos at 214 228 187 or elevadores@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Elevator, escalator, and moving walkway inspection service.'.",
+    "instruction": "'Tell me more details about the Elevator, escalator, and moving walkway inspection service.'",
     "input": "",
     "output": "\"For additional information on Elevator, escalator, and moving walkway inspection, you can contact Carlos Almas Ramos at 214 228 187 or elevadores@isq.pt.\""
   },
@@ -1680,7 +1675,7 @@
     "output": "\"For Analysis and verification of fire safety system projects, please contact Seguran\u00e7a e Ambiente at 214 228 189 or segurancaambiente@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Analysis and verification of fire safety system projects service.'.",
+    "instruction": "'Tell me more details about the Analysis and verification of fire safety system projects service.'",
     "input": "",
     "output": "\"For additional information on Analysis and verification of fire safety system projects, you can contact Seguran\u00e7a e Ambiente at 214 228 189 or segurancaambiente@isq.pt.\""
   },
@@ -1725,7 +1720,7 @@
     "output": "\"For Analysis of outdoor air quality - Portuguese Law No. 102/2010, please contact Lu\u00eds Guedes at 214 229 420 or labqui@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Analysis of outdoor air quality - Portuguese Law No. 102/2010 service.'.",
+    "instruction": "'Tell me more details about the Analysis of outdoor air quality - Portuguese Law No. 102/2010 service.'",
     "input": "",
     "output": "\"For additional information on Analysis of outdoor air quality - Portuguese Law No. 102/2010, you can contact Lu\u00eds Guedes at 214 229 420 or labqui@isq.pt.\""
   },
@@ -1770,7 +1765,7 @@
     "output": "\"For Mechanical tests, please contact Marta Freitas at 968 563 242 or labmat@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Mechanical tests service.'.",
+    "instruction": "'Tell me more details about the Mechanical tests service.'",
     "input": "",
     "output": "\"For additional information on Mechanical tests, you can contact Marta Freitas at 968 563 242 or labmat@isq.pt.\""
   },
@@ -1815,7 +1810,7 @@
     "output": "\"For Equipment inspection for amusement, please contact Nelson Fernandes at 227 471 950 or equipamentosludicos@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Equipment inspection for amusement service.'.",
+    "instruction": "'Tell me more details about the Equipment inspection for amusement service.'",
     "input": "",
     "output": "\"For additional information on Equipment inspection for amusement, you can contact Nelson Fernandes at 227 471 950 or equipamentosludicos@isq.pt.\""
   },
@@ -1860,7 +1855,7 @@
     "output": "\"For Thermodynamic tests, please contact  Vasco Pires at 272 322 336 or lee@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Thermodynamic tests service.'.",
+    "instruction": "'Tell me more details about the Thermodynamic tests service.'",
     "input": "",
     "output": "\"For additional information on Thermodynamic tests, you can contact  Vasco Pires at 272 322 336 or lee@isq.pt.\""
   },
@@ -1905,7 +1900,7 @@
     "output": "\"For Energy Audit 68-A, please contact Nat\u00e1lia Ribeiro at 227 471 950 or maquinas@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Energy Audit 68-A service.'.",
+    "instruction": "'Tell me more details about the Energy Audit 68-A service.'",
     "input": "",
     "output": "\"For additional information on Energy Audit 68-A, you can contact Nat\u00e1lia Ribeiro at 227 471 950 or maquinas@isq.pt.\""
   },
@@ -1950,7 +1945,7 @@
     "output": "\"For Energy Audit: 68-A, please contact Jos\u00e9 Barros at 927 984 439 or LabValv@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Energy Audit: 68-A service.'.",
+    "instruction": "'Tell me more details about the Energy Audit: 68-A service.'",
     "input": "",
     "output": "\"For additional information on Energy Audit: 68-A, you can contact Jos\u00e9 Barros at 927 984 439 or LabValv@isq.pt.\""
   },
@@ -1995,7 +1990,7 @@
     "output": "\"For Cogeneration Energy Audit, please contact Vasco Pires at 272 322 336 or lee@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Cogeneration Energy Audit service.'.",
+    "instruction": "'Tell me more details about the Cogeneration Energy Audit service.'",
     "input": "",
     "output": "\"For additional information on Cogeneration Energy Audit, you can contact Vasco Pires at 272 322 336 or lee@isq.pt.\""
   },
@@ -2040,7 +2035,7 @@
     "output": "\"For Monitoring of Electrical Energy Consumption, please contact Lu\u00eds Guedes / T\u00e2nia Santos at 214 229 420 or labqui@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Monitoring of Electrical Energy Consumption service.'.",
+    "instruction": "'Tell me more details about the Monitoring of Electrical Energy Consumption service.'",
     "input": "",
     "output": "\"For additional information on Monitoring of Electrical Energy Consumption, you can contact Lu\u00eds Guedes / T\u00e2nia Santos at 214 229 420 or labqui@isq.pt.\""
   },
@@ -2085,7 +2080,7 @@
     "output": "\"For Direct Assessment of Pipelines, please contact Hugo Carrasqueira at 912 982 368 or cnd@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Direct Assessment of Pipelines service.'.",
+    "instruction": "'Tell me more details about the Direct Assessment of Pipelines service.'",
     "input": "",
     "output": "\"For additional information on Direct Assessment of Pipelines, you can contact Hugo Carrasqueira at 912 982 368 or cnd@isq.pt.\""
   },
@@ -2130,7 +2125,7 @@
     "output": "\"For RoHS Directive - D.L. No. 230/2004, please contact Carla Caetano at 214 229 065 or labqui@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the RoHS Directive - D.L. No. 230/2004 service.'.",
+    "instruction": "'Tell me more details about the RoHS Directive - D.L. No. 230/2004 service.'",
     "input": "",
     "output": "\"For additional information on RoHS Directive - D.L. No. 230/2004, you can contact Carla Caetano at 214 229 065 or labqui@isq.pt.\""
   },
@@ -2175,7 +2170,7 @@
     "output": "\"For Development of Testing Systems for Aerospace Industry Prototypes, please contact Paulo Chaves at 214 229 459 or lee@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Development of Testing Systems for Aerospace Industry Prototypes service.'.",
+    "instruction": "'Tell me more details about the Development of Testing Systems for Aerospace Industry Prototypes service.'",
     "input": "",
     "output": "\"For additional information on Development of Testing Systems for Aerospace Industry Prototypes, you can contact Paulo Chaves at 214 229 459 or lee@isq.pt.\""
   },
@@ -2220,7 +2215,7 @@
     "output": "\"For Vibration Analysis (Modal), please contact Nuno Marques at 214 229 459 or lee@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Vibration Analysis (Modal) service.'.",
+    "instruction": "'Tell me more details about the Vibration Analysis (Modal) service.'",
     "input": "",
     "output": "\"For additional information on Vibration Analysis (Modal), you can contact Nuno Marques at 214 229 459 or lee@isq.pt.\""
   },
@@ -2265,7 +2260,7 @@
     "output": "\"For Conventional Non-Destructive Testing, please contact Manuel Amorim at 926 808 710 or cnd@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Conventional Non-Destructive Testing service.'.",
+    "instruction": "'Tell me more details about the Conventional Non-Destructive Testing service.'",
     "input": "",
     "output": "\"For additional information on Conventional Non-Destructive Testing, you can contact Manuel Amorim at 926 808 710 or cnd@isq.pt.\""
   },
@@ -2310,7 +2305,7 @@
     "output": "\"For Acoustic Emission, please contact Liliana Silva at 961 322 922 or cnd@isq.pt.\""
   },
   {
-    "instruction": "'Tell me more details about the Acoustic Emission service.'.",
+    "instruction": "'Tell me more details about the Acoustic Emission service.'",
     "input": "",
     "output": "\"For additional information on Acoustic Emission, you can contact Liliana Silva at 961 322 922 or cnd@isq.pt.\""
   },
@@ -2345,7 +2340,7 @@
     "output": "\"ISQ provides the following services: Metrological verification in the automotive sector, Calibration of electrical and radiofrequency equipment, Calibration of optical and topography equipment, Evaluation/Verification of radiological safety conditions, Expertise, Elevator, escalator, and moving walkway inspection, Analysis and verification of fire safety system projects, Analysis of outdoor air quality - Portuguese Law No. 102/2010, Mechanical tests, Equipment inspection for amusement, Thermodynamic tests, Energy Audit 68-A, Energy Audit and Energy Consumption Rationalization Plan RGCEST, Energy Audit: 68-A, Cogeneration Energy Audit, Monitoring of Electrical Energy Consumption, Inspection Planning, Direct Assessment of Pipelines, RoHS Directive - D.L. No. 230/2004, Development of Testing Systems for Aerospace Industry Prototypes, Vibration Analysis (Modal), Design and Development of Laboratory Projects, Conventional Non-Destructive Testing, Acoustic Emission\""
   },
   {
-    "instruction": "'Tell me a few services that ISQ have'.",
+    "instruction": "'Tell me a few services that ISQ have'",
     "input": "",
     "output": "\"ISQ have the following services: Metrological verification in the automotive sector, Calibration of electrical and radiofrequency equipment, Calibration of optical and topography equipment, Evaluation/Verification of radiological safety conditions, Expertise, Elevator, escalator, and moving walkway inspection, Analysis and verification of fire safety system projects, Analysis of outdoor air quality - Portuguese Law No. 102/2010, Mechanical tests, Equipment inspection for amusement, Thermodynamic tests, Energy Audit 68-A, Energy Audit and Energy Consumption Rationalization Plan RGCEST, Energy Audit: 68-A, Cogeneration Energy Audit, Monitoring of Electrical Energy Consumption, Inspection Planning, Direct Assessment of Pipelines, RoHS Directive - D.L. No. 230/2004, Development of Testing Systems for Aerospace Industry Prototypes, Vibration Analysis (Modal), Design and Development of Laboratory Projects, Conventional Non-Destructive Testing, Acoustic Emission\""
   },
@@ -2360,7 +2355,7 @@
     "output": "\"ISQ operates in various sectors, such as Metrological verification in the automotive sector, Calibration of electrical and radiofrequency equipment, Calibration of optical and topography equipment, Evaluation/Verification of radiological safety conditions, Expertise, Elevator, escalator, and moving walkway inspection, Analysis and verification of fire safety system projects, Analysis of outdoor air quality - Portuguese Law No. 102/2010, Mechanical tests, Equipment inspection for amusement, Thermodynamic tests, Energy Audit 68-A, Energy Audit and Energy Consumption Rationalization Plan RGCEST, Energy Audit: 68-A, Cogeneration Energy Audit, Monitoring of Electrical Energy Consumption, Inspection Planning, Direct Assessment of Pipelines, RoHS Directive - D.L. No. 230/2004, Development of Testing Systems for Aerospace Industry Prototypes, Vibration Analysis (Modal), Design and Development of Laboratory Projects, Conventional Non-Destructive Testing, Acoustic Emission.\""
   },
   {
-    "instruction": "'Tell me about ISQ's expertise in testing and certification.'.",
+    "instruction": "'Tell me about ISQ's expertise in testing and certification.'",
     "input": "",
     "output": "\"ISQ has extensive expertise in testing and certification, covering Metrological verification in the automotive sector, Calibration of electrical and radiofrequency equipment, Calibration of optical and topography equipment, Evaluation/Verification of radiological safety conditions, Expertise, Elevator, escalator, and moving walkway inspection, Analysis and verification of fire safety system projects, Analysis of outdoor air quality - Portuguese Law No. 102/2010, Mechanical tests, Equipment inspection for amusement, Thermodynamic tests, Energy Audit 68-A, Energy Audit and Energy Consumption Rationalization Plan RGCEST, Energy Audit: 68-A, Cogeneration Energy Audit, Monitoring of Electrical Energy Consumption, Inspection Planning, Direct Assessment of Pipelines, RoHS Directive - D.L. No. 230/2004, Development of Testing Systems for Aerospace Industry Prototypes, Vibration Analysis (Modal), Design and Development of Laboratory Projects, Conventional Non-Destructive Testing, Acoustic Emission.\""
   }

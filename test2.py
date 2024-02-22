@@ -237,7 +237,7 @@ def compute_metrics(pred):
 from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, GenerationConfig, DataCollatorForSeq2Seq, set_seed
 
 set_seed(42)
-EPOCHS = 10
+EPOCHS = 40
 GRADIENT_ACCUMULATION_STEPS = 2
 MICRO_BATCH_SIZE = 8
 # LEARNING_RATE = 5e-5  
@@ -270,7 +270,7 @@ trainer = Seq2SeqTrainer(
 model.config.use_cache = False
 trainer.train(resume_from_checkpoint=False)
 
-model.save_pretrained("models/pt_dataset2_without_input_40b")
+model.save_pretrained("models/pt_dataset2_without_input_40b_plusepochs")
 
 # trainer.model.eval()
 

@@ -60,8 +60,8 @@ def chat_bot(model_name, fine_tuned):
     do_sample = True,  # Permite "usar" tokens aleatórios (TRUE, é melhor estar sempre a TRUE..) e não a sequencia completa (FALSE) (Embora meio que está a ser sempre completa)
     temperature=0.2,  # Valor de aleatoridade. Quanto mais alto (max = 1) mais aleatória é.
     top_p=0.7,  # Percentagem dos tokens mais provaveis.
-    num_beams=40,  # Um valor maior geralmente levará a uma geração mais focada e coerente, enquanto um valor menor pode levar a uma geração mais diversificada, mas potencialmente menos coerent
-    )
+    # num_beams=40,  # Um valor maior geralmente levará a uma geração mais focada e coerente, enquanto um valor menor pode levar a uma geração mais diversificada, mas potencialmente menos coerent
+    num_beams=4,)
 
     def evaluate(instruction, input=None):
         prompt = generate_prompt(instruction, input)
@@ -79,7 +79,7 @@ def chat_bot(model_name, fine_tuned):
             print("Bot:", output.split("### Resposta:")[1].strip())
 
     while(1):
-        evaluate(input("User: "))
+        evaluate(input("\nUser: "))
         if input == 'exit':
             break
 
@@ -91,5 +91,6 @@ if __name__ == "__main__":
     model_name = 'tiiuae/falcon-40b'
     # model_name = 'tiiuae/falcon-7b'
     # fine_tuned = "models/dataset2_without_input_40b"
-    fine_tuned = "models/dataset2_without_input_40b_plusepochs"  # MELHOR PARA JÁ!!!!! 
+    fine_tuned = "models/dataset2_without_input_40b_plusepochs"  # EN
+    # fine_tuned = "models/pt_dataset2_without_input_40b_plusepochs"  # PT
     chat_bot(model_name, fine_tuned)

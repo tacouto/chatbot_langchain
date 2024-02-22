@@ -243,46 +243,6 @@ for q, a, intent in generate_negative_answers(excel_path):
 
 df = pd.read_excel(excel_path)
 
-question_1 = f"What is ISQ?"
-answer_1 = f" refers to Instituto de Soldadura e Qualidade. The ISQ is a private, independent organization that provides services in areas such as inspection, testing, and certification of materials, products, and processes."
-data_output.append({
-    "instruction": f"'{question_1}'.",
-    "input": "",
-    "output": f"\"{answer_1}\"",
-})
-
-question_2 = "What does ISQ stand for?"
-answer_2 = "ISQ stands for 'Instituto de Soldadura e Qualidade,' which translates to Institute of Welding and Quality. It is a private, independent organization in Portugal that offers services in inspection, testing, and certification of materials, products, and processes."
-data_output.append({
-    "instruction": f"'{question_2}'.",
-    "input": "",
-    "output": f"\"{answer_2}\"",
-})
-
-question_3 = "Can you explain the role of ISQ in Portugal?"
-answer_3 = "ISQ plays a significant role in Portugal by providing services related to inspection, testing, and certification. Specializing in areas such as welding and quality control, the institute ensures the quality and safety of various industrial processes and products."
-data_output.append({
-    "instruction": f"'{question_3}'.",
-    "input": "",
-    "output": f"\"{answer_3}\"",
-})
-
-question_4 = "In which sectors does ISQ operate?"
-answer_4 = "ISQ operates in various sectors, including but not limited to welding, non-destructive testing, and quality control. The institute's expertise extends to ensuring the quality and safety standards in different industrial processes and products."
-data_output.append({
-    "instruction": f"'{question_4}'.",
-    "input": "",
-    "output": f"\"{answer_4}\"",
-})
-
-question_5 = "What services does ISQ provide?"
-answer_5 = "ISQ provides a range of services, including inspection, testing, and certification of materials, products, and processes. The institute's focus on quality assurance extends to various industrial applications, making it a crucial player in ensuring standards compliance."
-data_output.append({
-    "instruction": f"'{question_5}'.",
-    "input": "",
-    "output": f"\"{answer_5}\"",
-})
-
 services = []
 
 for index, row in df.iterrows():
@@ -311,7 +271,7 @@ for index, row in df.iterrows():
         question_1 = f"Quem é responsável pelo serviço {service}?"
         answer_1 = f"A entidade responsável é {responsible}, contactável através do telefone {phone} ou do email {email}."
         data_output.append({
-            "instruction": f"'{question_1}'.",
+            "instruction": f"'{question_1}'",
             "input": "",
             "output": f"\"{answer_1}\"",
         })
@@ -319,7 +279,7 @@ for index, row in df.iterrows():
         question_2 = f"O ISQ oferece algum serviço de {service}?"
         answer_2 = f"Sim, pode contactar {responsible} através do telefone {phone} ou do email {email} para obter mais informações."
         data_output.append({
-            "instruction": f"'{question_2}'.",
+            "instruction": f"'{question_2}'",
             "input": "",
             "output": f"\"{answer_2}\"",
         })
@@ -327,7 +287,7 @@ for index, row in df.iterrows():
         question_3 = f"Como posso contactar o fornecedor de serviços para {service}?"
         answer_3 = f"Para o serviço de {service}, por favor, entre em contacto com {responsible} através do telefone {phone} ou do email {email}."
         data_output.append({
-            "instruction": f"'{question_3}'.",
+            "instruction": f"'{question_3}'",
             "input": "",
             "output": f"\"{answer_3}\"",
         })
@@ -335,7 +295,7 @@ for index, row in df.iterrows():
         question_4 = f"Dê-me mais detalhes sobre o serviço {service}."
         answer_4 = f"Para informações adicionais sobre o serviço {service}, pode contactar {responsible} através do telefone {phone} ou do email {email}."
         data_output.append({
-            "instruction": f"'{question_4}'.",
+            "instruction": f"'{question_4}'",
             "input": "",
             "output": f"\"{answer_4}\"",
         })
@@ -343,7 +303,7 @@ for index, row in df.iterrows():
         question_5 = f"Quais são os detalhes de contacto para o serviço {service}?"
         answer_5 = f"Para o serviço de {service}, contacte {responsible} através do telefone ({phone}) ou do email ({email})."
         data_output.append({
-            "instruction": f"'{question_5}'.",
+            "instruction": f"'{question_5}'",
             "input": "",
             "output": f"\"{answer_5}\"",
         })
@@ -351,7 +311,7 @@ for index, row in df.iterrows():
         question_6 = f"O serviço {service} está atualmente disponível?"
         answer_6 = f"Sim, o serviço {service} está disponível. Entre em contacto com {responsible} através do telefone {phone} ou do email {email} para mais detalhes."
         data_output.append({
-            "instruction": f"'{question_6}'.",
+            "instruction": f"'{question_6}'",
             "input": "",
             "output": f"\"{answer_6}\"",
         })
@@ -359,7 +319,7 @@ for index, row in df.iterrows():
         question_7 = f"Quem está encarregue do departamento de {service} no ISQ?"
         answer_7 = f"{responsible} está encarregado do departamento de {service} e pode ser contactado através do telefone {phone} ou do email {email}."
         data_output.append({
-            "instruction": f"'{question_7}'.",
+            "instruction": f"'{question_7}'",
             "input": "",
             "output": f"\"{answer_7}\"",
         })
@@ -367,7 +327,7 @@ for index, row in df.iterrows():
         question_8 = f"Qual é o número de contacto geral para o ISQ?"
         answer_8 = f"O número de contacto geral para o ISQ é {phone_general}. Para o serviço de {service}, contacte {responsible} através do telefone {phone} ou do email {email}."
         data_output.append({
-            "instruction": f"'{question_8}'.",
+            "instruction": f"'{question_8}'",
             "input": "",
             "output": f"\"{answer_8}\"",
         })
@@ -375,57 +335,64 @@ for index, row in df.iterrows():
         question_9 = f"Que outros serviços oferece o ISQ?"
         answer_9 = f"Além do {service}, oferecemos também outros serviços. Para mais informações, contacte {responsible} através do telefone {phone} ou do email {email}."
         data_output.append({
-            "instruction": f"'{question_9}'.",
+            "instruction": f"'{question_9}'",
             "input": "",
             "output": f"\"{answer_9}\"",
         })
 
-
 question_1 = f"O que é o ISQ?"
-answer_1 = f"ISQ refere-se ao Instituto de Soldadura e Qualidade. O ISQ é uma organização privada e independente que oferece serviços nas áreas de inspeção, teste e certificação de materiais, produtos e processos."
+answer_1 = f"O ISQ é uma entidade privada, independente, idónea e acreditada, com serviços de Engenharia, Consultoria, Inspeção, Ensaios, I&D e Inovação. Somos o maior Centro de Interface Tecnológico de Portugal."
 data_output.append({
-    "instruction": f"'{question_1}'.",
+    "instruction": f"'{question_1}'",
     "input": "",
     "output": f"\"{answer_1}\"",
 })
 
-question = f"Quais as funções do ISQ?"
-answer = f"ISQ remete a Instituto de Soldadura e Qualidade. O ISQ desempenha um papel importante através de serviços relacionados com a inspeção, ensaio e certificação. Especializado em áreas como a soldadura e o controlo de qualidade, o instituto garante a qualidade e segurança de diversos processos e produtos industriais."
+question_11 = f"O que faz o ISQ?"
+answer_11 = f"ISQ refere-se ao Instituto de Soldadura e Qualidade. Tem vários serviços tais como: {', '.join(services)}"
 data_output.append({
-    "instruction": f"'{question}'.",
+    "instruction": f"'{question_11}'",
+    "input": "",
+    "output": f"\"{answer_11}\"",
+})
+
+question = f"Quais as funções do ISQ?"
+answer = f"ISQ remete a Instituto de Soldadura e Qualidade. Fornece os seguintes serviços: {', '.join(services)}"
+data_output.append({
+    "instruction": f"'{question}'",
     "input": "",
     "output": f"\"{answer}\"",
 })
 
 
 question_2 = "O que significa ISQ?"
-answer_2 = "ISQ significa 'Instituto de Soldadura e Qualidade', que se traduz para Instituto de Soldadura e Qualidade. É uma organização privada e independente em Portugal que oferece serviços de inspeção, teste e certificação de materiais, produtos e processos."
+answer_2 = "ISQ significa 'Instituto de Soldadura e Qualidade'. É uma organização em Portugal que oferece serviços de inspeção, teste e certificação de materiais, produtos e processos."
 data_output.append({
-    "instruction": f"'{question_2}'.",
+    "instruction": f"'{question_2}'",
     "input": "",
     "output": f"\"{answer_2}\"",
 })
 
 question_3 = "Pode explicar o papel do ISQ em Portugal?"
-answer_3 = "O ISQ desempenha um papel significativo em Portugal, fornecendo serviços relacionados com inspeção, teste e certificação. Especializado em áreas como soldadura e controlo de qualidade, o instituto assegura a qualidade e segurança de vários processos industriais e produtos."
+answer_3 = f"O ISQ desempenha um papel significativo em Portugal, fornecendo serviços tais como: {', '.join(services)}"
 data_output.append({
-    "instruction": f"'{question_3}'.",
+    "instruction": f"'{question_3}'",
     "input": "",
     "output": f"\"{answer_3}\"",
 })
 
 question_4 = "Em que setores opera o ISQ?"
-answer_4 = "O ISQ opera em vários setores, incluindo, mas não se limitando a, soldadura, ensaios não destrutivos e controlo de qualidade. A expertise do instituto estende-se a assegurar os padrões de qualidade e segurança em diferentes processos industriais e produtos."
+answer_4 = f"O ISQ opera em vários setores, incluindo {', '.join(services)}"
 data_output.append({
-    "instruction": f"'{question_4}'.",
+    "instruction": f"'{question_4}'",
     "input": "",
     "output": f"\"{answer_4}\"",
 })
 
 question_5 = "Que serviços oferece o ISQ?"
-answer_5 = "O ISQ oferece uma variedade de serviços, incluindo inspeção, teste e certificação de materiais, produtos e processos. O foco do instituto na garantia de qualidade estende-se a várias aplicações industriais, tornando-o um interveniente crucial na conformidade com padrões."
+answer_5 = f"O ISQ oferece uma variedade de serviços, incluindo inspeção, teste e certificação de materiais, produtos e processos. Entre eles: {', '.join(services)}"
 data_output.append({
-    "instruction": f"'{question_5}'.",
+    "instruction": f"'{question_5}'",
     "input": "",
     "output": f"\"{answer_5}\"",
 })
