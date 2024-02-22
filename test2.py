@@ -49,8 +49,9 @@ from datasets import load_dataset
 
 # dataset = load_dataset("json", data_files="datasets/pt_dataset2_without_input.json")
 # dataset = load_dataset("json", data_files="datasets/en_description_dataset.json")
-dataset = load_dataset("json", data_files="en_pt_dataset.json")
+# dataset = load_dataset("json", data_files="en_pt_dataset.json")
 
+dataset = load_dataset("json", data_files="en_description_dataset.json")  # errfile2 e current_output_secondary.
 train_data = dataset['train']
 test_size = 0.2
 train_data = train_data.train_test_split(test_size=test_size)
@@ -268,10 +269,9 @@ trainer = Seq2SeqTrainer(
 model.config.use_cache = False
 trainer.train(resume_from_checkpoint=False)
 
-model.save_pretrained("models/en_pt_dataset")
+# model.save_pretrained("models/en_pt_dataset")
+model.save_pretrained("models/en_description_dataset")
 
 # trainer.model.eval()
 
 trainer.evaluate()
-
-trainer.push_to_hub()

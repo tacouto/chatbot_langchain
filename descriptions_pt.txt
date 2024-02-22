@@ -1,0 +1,542 @@
+{
+    O Laboratório está qualificado para realizar verificações de analisadores de gases de escape e opacímetros. Analisadores gases escape (Portaria nº 20/2007, de 5 Janeiro) Opacímetros (Portaria nº 797/97, de 1 de Setembro).
+    O Laboratório está qualificado para realizar verificações de analisadores de gases de escape e opacímetros.
+}
+
+{
+    Calibração a equipamentos da área elétrica e radiofrequência, de DC a alta frequência, em laboratório, no laboratório móvel ou nas instalações do cliente.
+    O Laboratório de Metrologia Elétrica e Radiofrequência efetua calibrações a equipamentos da área elétrica e radiofrequência, em laboratório, no laboratório móvel ou nas instalações do cliente.
+    Calibração de equipamentos nas seguintes grandezas:
+        - DC e baixa frequência
+
+            Calibrações em tensão contínua e alternada, corrente contínua e alternada, resistência, capacidade, indutância, assim como em potência elétrica monofásica/trifásica, ativa ou reativa.
+
+        - Alta frequência
+
+            Calibrações de potência em RF (sensores e medidores de potência), modulação de amplitude, modulação de frequência, modulação de fase, distorção harmónica, atenuação, coeficientes de reflexão e transmissão.
+
+}
+
+{
+    O Laboratório de Metrologia Óptica, único laboratório acreditado em Portugal para a calibração de equipamentos nos domínios da fotometria e topografia.
+
+    Efectuamos a calibração dos seguintes equipamentos:
+        - Fotometria:
+            Luxímetros
+            Luminancímetros
+            Colorímetros
+            Espectrofotómetros e filtros ópticos (Transmitância, opacidade e densidade óptica)
+            Medidores fotométricos de transmissão luminosa
+
+        - Fibras Ópticas:
+            Medidores de potência óptica
+            Medidores de comprimento de onda
+            Fontes laser
+            Atenuadores ópticos
+            Analisadores de espectros ópticos e reflectómetros ópticos no domínio do tempo (OTDR’s).
+        
+        - Topografia:
+            Teodolitos
+            Estações totais
+            EDM’s
+            Níveis ópticos
+            Níveis laser rotativos
+            Sistemas GPS/GNSS
+        
+        - Serviços não acreditados:
+            Colimadores
+            Distanciómetros
+            Réguas de invar
+            Miras topográficas
+            Níveis laser
+            Radiómetros
+            GNSS topográfico
+
+}
+
+{
+    Apoio ao licenciamento radiológico das instalações. Avaliação/verificação das condições de segurança radiológica, incluindo o controlo de qualidade dos equipamentos e a vigilância dos níveis de radiação nos postos de trabalho.
+
+    O Labmetro Saúde fornece uma solução global em matéria de segurança e protecção radiológica de forma a garantir que as instalações, os equipamentos e os seus profissionais cumprem as disposições legais e fazem uma correcta utilização dos equipamentos radiológicos.
+
+    - Apoio ao licenciamento radiológico das instalações:
+        Adequação das instalações/equipamentos com vista ao seu licenciamento radiológico (sinalética, projecto de blindagem contra radiações, programas de protecção radiológica, etc.).
+
+    - Avaliação/verificação das condições de protecção radiológica:
+        Avaliação/verificação anual das condições de segurança radiológica, incluindo o controlo de qualidade dos equipamentos e a vigilância dos níveis de radiação nos postos de trabalho.
+
+    - Equipamentos:
+        Equipamentos de radiologia convencional
+        Equipamentos móveis de radiologia convencional
+        Equipamentos de radiologia intra-oral
+        Ortopantomógrafos
+        Angiógrafos
+        Arcos cirúrgicos
+        Mesas de hemodinâmica
+    
+}
+
+{
+    O ISQ como entidade independente de reconhecida experiência e competências multidisciplinares, efectua peritagens por solicitação quer de particulares, empresas (companhias seguradoras, empresas de peritagens, etc…), quer de entidades judiciais (Ministério Público, Tribunais, etc…).
+
+    As peritagens envolvem um exame metódico de um incidente do qual resultaram danos.
+
+    Esta investigação está directamente ligada à identificação de factos e de circunstâncias relacionadas com o acontecimento, bem como com a determinação de causas e desenvolvimento de acções correctivas.
+
+    O início da peritagem começa por procurar obter respostas para as seguintes questões:
+        -O que aconteceu?
+        -Como aconteceu?
+        -Porque aconteceu?
+    
+    Na posse destes dados a equipa de peritagem pode identificar os factores críticos que provocaram o incidente e determinar as suas causas, utilizando as metodologias mais adequadas, das quais destacamos a RCA (Root Cause Analysis).
+
+    As peritagens podem passar pela análise de acontecimentos, componentes ou produtos, que deram origem ao incidente e, consequentemente determinar os mecanismos de falha e as suas causas raiz se necessário efectuando um conjunto de verificações e ensaios, quer em laboratório, quer “in situ”:
+
+        - Verificação de projectos / cálculos
+        - Ensaios mecânicos e de corrosão
+        - Ensaios não destrutivos “in situ”
+        - Controlo dimensional
+        - Análise experimental de tensões e tensões residuais
+        - Caracterização de materiais por análise metalográfica e química
+        - Microscopia electrónica de varrimento
+        - Algumas análises são realizadas em colaboração com empresas do grupo ISQ, nomeadamente o ISQ Engenharia e a NTM no que respeita a equipamentos dinâmicos.
+
+    Estando as causas identificadas, poderão ser feitas as recomendações tendentes à sua eliminação, resultando assim na prevenção de ocorrências similares ou caso ocorram, haja redução da gravidade dos danos.
+
+}
+
+{
+    Avaliação da conformidade dos ascensores, como Organismo Notificado no âmbito da Diretiva Ascensores. Inspeções técnicas, iniciais e periódicas (vistorias).
+
+    Avaliamos as condições de segurança associadas à instalação e/ou exploração de elevadores, monta-cargas, escadas mecânicas e tapetes rolantes, antecipando o risco de falha e acidente provocado por deficiência de conceção, instalação e/ou manutenção.
+
+    Tendo por base o Regulamento de Segurança de Elevadores e demais legislação aplicável, normas nacionais e europeias, efetuamos:
+
+        - Avaliação da conformidade dos ascensores, como Organismo Notificado no âmbito da Diretiva Ascensores.
+        - Inspeções técnicas, iniciais e periódicas (vistorias).
+
+    A quem se destina
+        Câmaras Municipais:
+            - Gestão Técnica e Administrativa do sistema de fiscalização
+            - Realização de inspeções periódicas, reinspecções e inspeções extraordinárias
+            - Realização de peritagens a acidentes
+        
+        Condomínios:
+            - Avaliação da conformidade dos ascensores, como Organismo Notificado no âmbito da Diretiva Ascensores
+            - Análise técnica de propostas
+            - Verificações das condições técnicas dos equipamentos
+            - Acompanhamento de obra
+            - Receção Final
+        
+        Onde se aplica:
+            Todos os edifícios onde existam ascensores, escadas mecânicas e/ou tapetes rolantes, nomeadamente:
+                - Edifícios destinados à habitação
+                - Edifícios comerciais
+                - Edifícios do tipo administrativo
+                - Estabelecimentos hoteleiros
+                - Estabelecimentos hospitalares e lares de idosos
+
+}
+
+{
+    O ISQ verifica o projecto de sistemas de segurança contra incêndio, por forma a assegurar que são cumpridos os critérios técnicos estabelecidos na documentação de referência.
+
+    O que fazemos:
+        - Análise e verificação de toda a documentação de projecto, incluindo memória descritiva, parâmetros, dimensionamentos, caudais, cálculos hidráulicos e desenhos
+        - Emissão de relatório técnico
+        - Esta validação permite passar à fase de execução em obra, evitando constrangimentos de eventuais propagações de erros e omissões.
+
+    Sistemas abrangidos:
+        Todos os sistemas associados com:
+
+            - Segurança passiva: portas corta-fogo e selagens
+            - Segurança e activa: sistemas de detecção de incêndio (SADI); sistemas de controlo de fumo (desenfumagem); sistemas de extinção de incêndio com água (sprinklers, redes de incêndio armada, espuma) ou outros sistemas de extinção e central de bombagem
+        
+    Onde se aplica:
+        - Todo o tipo de edifícios e recintos ao abrigo do D.L. nº 220/2008
+
+    Quadro legislativo:
+        - Decreto-Lei n.º 220/2008,(RJSCIE)
+        - Portaria n.º 1532/2008,(RTSCIE)
+        - Requisitos estabelecidos em regras técnicas e/ou normas aplicáveis, nomeadamente, normas nacionais, europeias (CEPREVEN) e outras (NFPA)
+
+}
+
+{
+    Monitorização da qualidade do ar ambiente. Regime jurídico da promoção da segurança e saúde no trabalho.
+
+    Monitorização da qualidade do ar ambiente
+
+    Para efectuar as medições da qualidade do ar ambiente, o ISQ dispõe de três laboratórios móveis de monitorização – LABAR.
+
+    Estes laboratórios estão totalmente equipados com analisadores para a medição em contínuo da concentração de todos os poluentes presentes no actual quadro legislativo. Somos actualmente um laboratório de referência no mercado com equipamentos tecnologicamente avançados que permitem remotamente (via modem) a aquisição dos resultados e a detecção de desvios ao seu normal funcionamento.
+
+    Dispomos igualmente de recursos que permitem realizar as medições de partículas no âmbito do procedimento de avaliação de impacto ambiental de pedreiras e areeiros.
+
+    Como disponibilizamos ao cliente uma solução integrada (medição e relatório) podemos garantir um curto prazo de entrega do relatório de monitorização, sendo este elaborado à medida das necessidades particulares de cada cliente (rosa dos ventos, índices de poluição, gráficos de comparação com os valores legislados, entre outros), podendo ser destinados a estudos de impacto ambiental. De forma a garantir a exactidão dos resultados, temos implementado um sistema de controlo de qualidade altamente exigente e somos acreditados pelo IPAC (Instituto Português de Acreditação) para os ensaios neste âmbito.
+
+    O que fazemos
+        Dispomos de equipamentos permitem a monitorização de uma ampla gama de parâmetros, entre os quais salientamos:
+
+            - Partículas em suspensão (PM10, PM2,5)
+            - Óxidos de azoto (NOx)
+            - Dióxido de enxofre (SO2)
+            - Monóxido de carbono (CO)
+            - Ozono (O3)
+            - Benzeno, Tolueno, Etilbenzeno, Xileno (BTEX)
+            - Hidrocarbonetos Aromáticos Policiclicos (PAH’s)
+            - Metais pesados
+            - Benzo(a)pireno (C20H12)
+
+}
+
+{
+    Ensaios mecânicos, aplicáveis a materiais metálicos, poliméricos, respectivas juntas soldadas, a aço das armaduras de construção e betão, agregados e inertes.
+
+    Em que consiste:
+        O LABMAT-UEM – Laboratório de Materiais-Unidade de Ensaios Mecânicos tem ao dispor dos seus clientes uma diversidade de ensaios mecânicos, aplicáveis a materiais metálicos, poliméricos, respectivas juntas soldadas e a aço das armaduras de construção.
+
+        O laboratório realiza ainda ensaios ao betão, agregados e inertes.
+
+    O que fazemos
+        Ensaios em materiais metálicos:
+        - Tracção e compressão uniaxial até 500kN
+        - Ensaios Charpy até 300J desde -196 até +35ºC
+        - Dobragem até 200kN e 180º
+        - Fadiga oligocíclica até 500kN
+        - Nick-break em juntas soldadas até 500kN
+        - Fractura em juntas soldadas até 500kN
+        - Arranque em juntas soldadas, Peel-test até 500kN
+        - Ensaios de dureza Vickers, Rockwell e Brinell em material base e soldadura
+
+        Ensaios em materiais poliméricos:
+        - Tracção uniaxial até 500kN
+        - Dobragem até 200kN e 180º
+        - Arranque em juntas soldadas, Peel-test por descoesão, T-peel, ou esmagamento até 500kN
+        - Ensaio de dureza Shore
+
+        Ensaios de betão (misturas de betão fresco e betão endurecido):
+        - Ensaios de compressão de cubos e provetes cilíndricos
+        - Ensaio de flexão de prismas de betão
+        - Ensaio de abaixamento (Cone de Abraams)
+        - Extracção de carotes, corte e rectificação das faces de compressão
+        - Ensaio de flexão e compressão de argamassas
+        - Determinação do módulo de elasticidade
+        - Ensaio de compressão diametral
+
+        Ensaios de agregados:
+        - Análise granulométrica
+        - Análise experimental de tensões
+
+    O laboratório dispõe de equipamentos para determinar deformações (estáticas ou dinâmicas) à temperatura ambiente ou alta temperatura, aplicadas em materiais ou componentes. É uma técnica não destrutiva que permite determinar as tensões de serviço in situ, ou seja, são verificadas durante o funcionamento normal dos equipamentos. A medição das tensões residuais pode ser realizada através dos métodos do furo, de ruído de Barkausen e por difracção de Raios X.
+}
+
+{
+
+    Avaliamos as condições de segurança associadas à instalação ou exploração do divertimento, antecipando o risco de falha e acidente provocado por deficiência de instalação e/ou manutenção. Tendo por base o Decreto-Lei 268/2009, normas nacionais e europeias dos divertimentos e circos.
+
+    Avaliamos as condições de segurança associadas à instalação ou exploração do divertimento, antecipando o risco de falha e acidente provocado por deficiência de instalação e/ou manutenção.
+
+    Tendo por base o Decreto-Lei 268/2009, normas nacionais e europeias dos divertimentos e circos, avaliamos a conformidade dos equipamentos e/ou instalações com a legislação em vigor.
+
+    O que fazemos:
+        Inspeções técnicas
+            - Verificação e inspeção das condições de segurança associadas aos equipamentos
+            - Simulação de falhas e testes dos dispositivos de segurança
+            - Ensaios diversos: funcionais, elétricos, entre outros.
+
+    Onde se aplica:
+        - Recintos itinerantes
+        - Equipamentos de diversão (definidos na NP EN 13814), nomeadamente, circos ambulantes
+        - Praças de touros ambulantes
+        - Pavilhões de diversão
+        - Carrosséis
+        - Pistas de carros de diversão
+        - Outros divertimentos mecanizados
+
+}
+
+{
+    Ensaios de Termodinâmica e Aeroespaciais, por uma equipa técnica especialista e laboratórios equipados. Ensaios standard e não standard por requisitos de clientes.
+}
+
+{
+    Asseguramos medidas de protecção das pessoas contra o risco de acidente causado por deficiências de concepção, instalação e/ou uso do equipamento, máquina, ferramenta, acessório de elevação ou instalação. 
+
+    Tendo por base o Decreto-Lei 214/95, a Portaria 172/2000 e as diretivas europeias ou regras de boa prática para máquinas, efetuamos:
+
+        Avaliação da conformidade das máquinas de acordo com a legislação em vigor
+        Inspeções técnicas:
+            - Verificação e inspeção das condições de segurança associadas aos equipamentos
+            - Ensaios diversos:
+                – Ensaios funcionais
+                – Ensaios elétricos
+                – Ensaios ao limitador de carga em aparelhos de elevação
+                – Ensaios de frenagem em aparelhos de elevação
+                – Ensaios estáticos / dinâmicos
+                – Medição do tempo de paragem dos movimentos perigosos
+                – Outros ensaios
+            - Simulação de falhas e testes dos dispositivos de segurança
+
+        Onde se aplica:
+            - Comércio de máquinas em segunda mão.
+
+            - Todas as máquinas ou os equipamentos de trabalho listados na Portaria 172/2000 e que se encontrem em comercialização como usados.
+}
+
+{
+    Ensaios de fiabilidade em componentes ou subconjuntos, nas áreas eléctrica e electrónica, automóvel e aeroespacial.
+
+    O LABFIABIL é um laboratório dedicado à realização de ensaios de durabilidade de conjuntos e componentes, assegurando em simultâneo a monitorização de diversos parâmetros (eléctricos, mecânicos, etc.).
+
+    O que fazemos:
+        - Ensaios de fiabilidade em componentes ou subconjuntos, nas áreas eléctrica e electrónica, automóvel e aeroespacial: Frio e calor seco (EN 60068-2-1, EN 60068-2-2)
+        - Calor húmido (EN 60068-2-30, EN 60069-2-78)
+        - Calor e temperatura cíclico (EN 60068-2-38)
+        - Envelhecimento combinando diferentes ciclos de temperatura e humidade Nevoeiro salino (EN 60068-2-11, EN 60068-2-52)
+        - Choque térmico e variação de temperatura (EN 60068-2-14)
+        - Exposição ao pó (EN 60529, EN 60068-2-68)
+        - Estanquicidade (EN 60529)
+        - Queda (EN 60068-2-31, EN 60068-2-32)
+        - Baixa pressão e calor seco (EN 60068-2-41)
+        - Ozono Fluência Radiação solar e chuva (EN 60068-2-5, EN 60068-2-9)
+        - Accionamentos, dobragens cíclicas, etc.
+        - Vibração sinusoidal, aleatória e choque em 3 eixos, combinada com ciclos de temperatura e humidade (EN 60068-2-6, EN 60068-2-27, EN 60068-2-50, EN 60068-2-53, EN 60068-2-64)
+        - Resistência a agentes químicos
+        - Endurance mecânica e eléctrica
+        - Ensaios de avaliação de resistência mecânica ao impacto
+
+}
+
+{
+    DL 131/2019, verificação de válvulas de segurança, Laboratório acreditado pelo IPAC, de acordo com a norma EN ISO/IEC 17025, para ensaios e ajuste de válvulas e dispositivos de segurança.
+
+    O LABVALV é um laboratório acreditado pelo IPAC, de acordo com a norma EN ISO/IEC 17025, para ensaios e ajuste de válvulas e dispositivos de segurança.
+
+    De acordo com o  DL 131/2019, a verificação de válvulas de segurança deve ser efetuada apenas por entidades reconhecidas no âmbito do sistema português da qualidade.
+
+    O que fazemos:
+        - Ensaios de ajuste de válvulas de segurança até 400 bar (pneumático) e até 600 bar (hidráulico)
+        - Ensaios de válvulas de vácuo
+        - Ensaios em serviço de válvulas de segurança –TREVITEST
+        - Ensaios reais de válvulas de segurança
+
+    O âmbito acreditado do Laboratório pode  ser consultado em www.ipac.pt.
+}
+
+{
+    Caracterização termodinâmica de materiais (calor especifíco, conductividade térmica, dilatometria) em pós, sólidos e líquidos.
+
+    A área de caracterização termodinâmica de materiais, está equipada com equipamentos NETZSCH.
+
+    O que fazemos:
+        Dilatometria
+
+        Equipamento de testes e análise TMA 402 F1 Hyperion para ensaios de dilatometria a amostras nas seguintes condições:
+            - Comprimento máx.:  30 mm
+            - Gama de medida  ± 2.5 mm  ± 2.5 mm
+            - Resolução de dig:(comprimento) 0.125 nm 0.125 nm
+            - Gama de força 0.001 N a ± 3 N em passos de 0.2 mN 0.001 N a ± 3 N em passos de 0.2 mN
+            - Resolução de dig:(força) < 0.01 mN < 0.01 mN
+            - Força modulada até 1 Hz
+            - Vácuo limite < 10-4 mbar < 10-2 mbar
+        
+        Sistema combinado TG-DTA-DSC, que permite TG (Termo-Gravimetria) mede a variação de massa da amostra em função da temperatura ou tempo DTA (Differential Thermal Analysis) é usada para medir efeitos energéticos quando uma amostra é sujeita a um programa de temperatura controlada.
+
+        A análise de temperaturas de transição, tais como, temperaturas de decomposição, fusão ou transição vítrea, podem ser medidas com grande precisão DSC (Differential Scanning Calorimetry) é a técnica de análise térmica mais comum na caracterização de sólidos e líquidos e pode ser utilizada para o estudo de:
+            - Sistema para operação desde temperatura ambiente até 1 650 ºC ou desde -120 ºC até + 1 000 ºC
+            - Processos de fusão / cristalização
+            - Grau de cristalinidade
+            - Polimorfísmo
+            - Transições vítreas
+            - Decomposição térmica estabilidade oxidativa – OIT
+            - Reacções sólido-sólido pureza
+            - Cp – calor específico
+            - Difusividade térmica 0.001 to 10 cm2/sec
+            - Calor específico
+            - Condutibilidade térmica   0.1 … 2000 W/(m*K)
+        
+        Difusibilidade térmica / Condutibilidade térmica LFA (Laser Flash Analysis) é um técnica onde a difusividade térmica de uma amostra (pós, sólidos ou líquidos) é medida pela monitorização da subida de temperatura da amostra, quando sujeita a um pulso de uma fonte de energia.
+
+        Calcula o calor específico da amostra.
+
+        Conhecendo a difusividade térmica e o calor específico da amostra, a condutibilidade térmica pode ser calculada. Sistema para operação, desde temperatura ambiente até 1.100ºC.
+
+        Sistema versátil que permite a medição em pós, sólidos e líquidos.
+}
+
+{
+    Medição in-situ ou em laboratório dos parâmetros característicos do biogás. Monitorização e controlo em digestores de ETAR’s, aterros ou lixeiras, lagoas.
+
+    O LABQUI – Laboratório de Química e Ambiente dispõe de analisadores portáteis que permitem a medição in-situ dos parâmetros característicos do biogás.
+
+    Em alternativa, e recorrendo a métodos de amostragem específicos que garantem as características do biogás, podemos realizar as análises da sua composição no nosso laboratório.
+
+    A monitorização e controlo do biogás pode ser realizada em diversos tipos de instalações, entre os quais digestores de ETAR’s, aterros ou lixeiras.
+
+    Caracterização de biogás em emissões difusas:
+        Para a monitorização e caracterização de biogás em emissões difusas, o LABQUI utiliza a metodologia de Lindvall, que permite a medição in-situ dos parâmetros a determinar.  Este tipo de avaliação pode ser realizado em aterros, lixeiras e lagoas.
+
+    O que analisamos no biogás:
+        O nosso laboratório dispõe de recursos técnicos e humanos que permitem analisar os seguintes parâmetros:
+            - Metano (CH4)
+            - Dióxido de carbono (CO2)
+            - oxigénio (O2)
+            - Ácido sulfídrico (H2S)
+            - Hidrogénio (H2)
+            - Amónia (NH3)
+            - Monóxido de carbono (CO)
+}
+
+{
+
+    Planeamento de inspeção com a metodologia RBI (risk based inspection). Minimizar períodos de paragem, reduzir o risco, aumentar fiabilidade,  otimizar recursos. Processo passível de ser auditado.
+
+    É importante reconhecer que a realização de acções de inspecção podem não contribuir, por si só, para uma redução significativa do risco.
+
+    Por outro lado a aplicação da metodologia RBI (risk based inspection), baseada exclusivamente no histórico de inspecção, não é adequada a situações onde se verifiquem alterações das condições operacionais.
+
+    Neste âmbito a metodologia RBI do ISQ permite:
+        - Minimizar os períodos de paragem
+        - Reduzir o risco global
+        - Aumentar a fiabilidade
+        - Optimizar os recursos de Inspecção e Manutenção
+
+    O principal objectivo consiste no fornecimento de uma estratégia que permita a optimização dos recursos de Inspecção e Manutenção, com os seguintes benefícios:
+        - Abordagem de inspecção preventiva e pró-activa
+        - Aumento da disponibilidade e fiabilidade (minimiza as paragens não programadas)
+        - Maior flexibilidade dos intervalos de inspecção sem comprometer a integridade dos equipamentos
+        - Aumento da eficiência global da inspecção
+        - Eliminação das actividades de inspecção desnecessárias e que não trazem valor acrescentado
+        - Aumento da segurança técnica sólida e totalmente rastreável, que permite justificar alterações de intervalos de inspecção aos reguladores
+        - Processo passível de ser auditado
+}
+
+{
+    Serviço de inspeção e avaliação direta de pipelines que não interfere com a operacionalidade da tubagem e se destina à identificação de ameaças e degradação que afetam a instalação.
+
+    O ISQ fornece um serviço de inspecção directa de pipelines tendo como suporte os diversos códigos aplicáveis.
+
+    As melhores práticas em uso na indústria, recomendam o processo de inspecção por avaliação directa de tubagens para transporte de combustíveis por pipeline, nas situações em que a utilização de instrumentos de inspecção convencional em serviço (“pigs”- que executam a inspecção navegando pelo interior da tubagem) não seja possível ou economicamente viável.
+
+    Trata-se essencialmente de um processo estruturado e documentado que não interfere com a operacionalidade da tubagem e que se destina principalmente à identificação das ameaças e modos de degradação que afectam a instalação, por forma a definir uma estratégia que permita prever os mecanismos de degradação, sua localização e controlar a sua evolução, de modo a garantir a integridade e segurança da instalação.
+
+}
+
+{
+    O LABQUI – Laboratório de Química e Ambiente é actualmente um laboratório de referência no mercado com equipamentos tecnologicamente avançados que permitem realizar análises de Chumbo, Cádmio, Mercúrio, Crómio e Bromo por XRF, Crómio Vi por via húmida e PPB/PBDE.
+    O LABQUI – Laboratório de Química e Ambiente é actualmente um laboratório de referência no mercado com equipamentos tecnologicamente avançados que permitem realizar análises de Chumbo, Cádmio, Mercúrio, Crómio e Bromo por XRF, Crómio Vi por via húmida e PPB/PBDE por GC-MS, cumprindo a Directiva RoHS (Restriction of Hazardous Substances Directive).
+    Os recursos técnicos de que dispomos permitem-nos uma dinâmica de melhoria de desempenho de métodos, indo ao encontro das expectativas do cliente e novos requisitos legais.
+    De forma a garantir a exactidão dos resultados, temos implementado um sistema de controlo de qualidade altamente exigente bem como um sistema de gestão no âmbito da acreditação IPAC (Instituto Português de Acreditação).
+    Os boletins de análise emitidos pelo LABQUI permitem a comparação imediata com a legislação, cabendo ao cliente apenas o seu envio para as entidades competentes.
+    Como disponibilizamos ao cliente uma solução integrada podemos garantir um curto prazo de entrega dos resultados.
+    Pautamos-nos por uma relação activa e de proximidade com os nossos clientes e destacamos-nos pela capacidade de atender às mais exigentes e particulares solicitações do mercado.
+
+    O que fazemos:
+        Análises em todo o tipo de equipamentos abrangidos pela directiva RoHS
+
+    A quem se destina o cumprimento da directiva RoHS
+        - Fabricantes de equipamentos electrónicos
+        - Quadro legislativo Directiva 2002/95/EC
+
+}
+
+{
+    Desenvolvimento de sistemas de ensaio para protótipos da indústria aeroespacial para simulação de condições extremas no espaço, de reentrada ou lançamento: radiação, temperatura, vácuo, pressão, vibração, compressão, stress, fadiga, entre outras.
+
+    A área de I&D do Labet – Laboratório de Termodinâmica e Aeroespaciais, em 2008 decidiu internacionalizar a sua actividade e abranger novos sectores de alta tecnologia relacionada com a sua especialidade de termodinâmica.
+
+    Começou a desenvolver metodologias e equipamentos destinados à realização de ensaios específicos para as indústrias aeronáuticas e espacial, passando a colaborar com as principais entidades europeias em diversos programas e importantes programas aeroespaciais, tais como IXV, CUST, SNICK FLOW, entre outros.
+
+    Graças ao excelente trabalho e resultados obtidos nestes testes, o nosso laboratório é hoje reconhecido pela Agência Espacial Europeia – ESA.
+
+    Entre outros equipamentos disponíveis no laboratório, destacam-se:
+        - Câmara de alto vácuo e capacidade de aquecimento por radiação das amostras até temperaturas de 1.200 ºC
+        - Máquina de ensaios de tração/compressão até temperaturas de 1.000
+        - Variadíssimos equipamentos para caracterização termodinâmica de materiais (calor específico, difusibilidade térmica, condutibilidade térmica, coeficiente de expansão térmica, etc.) em condições atmosféricas, vácuo e/ou temperaturas extremas (-80ºC até 1.000 a 1.600 ºC
+        - Shaker V9 de 105 Kn para a realização de análise de vibrações, funcional, fadiga, modal e shoke com câmara climática (-50ºC – +150 ºC)
+        - Equipamentos construídos por medida em função das necessidades dos ensaios a realizar
+}
+
+{
+
+    Ensaios e análise de vibrações, funcional, fadiga, choque e análise modal. cumprindo os requisitos de indústrias mais exigentes tais como a Aeroespacial.
+    Para tal a área de I&D do LABET – Laboratório de Termodinâmica e Aeroespaciais, dispõe de um shaker de alta performance / capacidade, para fazer face às cada vez maiores solicitações de ensaios de vibrações.
+    O shaker instalado é um LDS, modelo V9 de 105 Kn, 5 Hz até 3.000 Hz, equipado com mesa horizontal de 1,2 m x 1,2 m e expansor vertical guiado de 1,0 m x 1,0 m, que permitem efectuar ensaios a peças de grandes dimensões e massa.
+    O sistema de aquisição de dados é um sistema LSM de 44 canais, que permite efectuar ensaios funcionais, fadiga, choque e análise modal.
+    Este shaker encontra-se também equipado com câmara climática de 2,0 m x 2,0 m x 2,0 m permtindo efectuar ensaios na gama dos -50 ºC até aos 150 ºC.
+    Todo este sistema encontra-se montado numa câmara de proteção acústica e “limpa” para obedecer aos requisitos de indústrias mais exigentes tais como a Aeroespacial.
+}
+
+{
+
+    Serviço chave na mão conceção e desenvolvimento de laboratórios, incluindo tecnologia, formação, processos, certificação.
+    A partir da experiência e do conhecimento adquiridos ao longo de mais de 40 anos na implementação dos seus próprios laboratórios, o ISQ disponibiliza os serviços que permitem aos seus clientes projectar, construir e explorar os seus próprios laboratórios.
+
+    O que fazemos:
+        - Projecto dos laboratórios e das infraestruturas
+        - Projecto das instalações, incluindo o projecto arquitectura e especialidades, tendo em conta os requisitos específicos de instalações laboratoriais, nomeadamente:
+            - Os fluxos e as cadências de trabalhos
+            - A segregação de tarefas
+            - As condições ambientais e de segurança
+            - Os equipamentos a instalar
+            - Os ensaios a realizar
+            - Os produtos a manipular
+            - Os efluentes e seu tratamento
+        - Construção das instalações
+        - Inspecção da construção dos laboratórios, validação da instalação das infra-estruturas
+        - Instalação dos equipamentos
+        - Validação das instalações e comissionamento e recepção de equipamentos
+        - Operação dos laboratórios
+        - O ISQ transfere a tecnologia necessária para a colocação dos laboratórios em operação, através da formação e certificação de técnicos de laboratório e, se necessário, da disponibilização dos seus próprios técnicos para, nas instalações dos clientes, supervisionar a realização dos trabalhos laboratoriais.
+
+    O ISQ presta consultoria para todos os processos que levam à certificação e acreditação dos laboratórios.
+
+    O ISQ tem a capacidade para gerir projectos deste tipo, destinados a construir e colocar em serviço laboratórios para apoio à indústria, em condições chave na mão, nomeadamente, nos domínios das análises químicas, metrologia, ensaios não destrutivos, materiais e tecnologias de ligação.
+}
+
+{
+    Ensaios não destrutivos em laboratório e nas instalações do cliente para uma série de parâmetros físicos e químicos. Laboratório acreditado pelo IPAC.
+
+    O Laboratório de Controlo Não Destrutivo – LABEND, disponibiliza uma vasta gama de ensaios não destrutivos aos seus clientes.
+
+    Também conhecidas como técnicas de “NDT – Non Destructive Testing” ou “NDE – Non Destructive Evaluation”, as técnicas convencionais de ensaio não destrutivo utilizam os princípios básicos de inspeção visual, radiografia, ultrassons, electromagnetismo e emissão acústica para efetuar a deteção e o dimensionamento de descontinuidades em materiais.
+
+    A aplicação de uma ou de várias técnicas de ensaio permite fornecer elementos fundamentais para a avaliação da condição e da qualidade de construção.
+
+    Com exceção da radiografia industrial, os ensaios não destrutivos convencionais não fornecem um registo de resultados, estando dependentes da avaliação pontual que deverá sempre ser efetuada por um técnico qualificado.
+
+    O que fazemos:
+        - Líquidos penetrantes
+        - Partículas magnéticas
+        - Radiografia industrial (raios x)
+        - Gamagrafia industrial (raios gama)
+        - Ultrassons
+        - Correntes Induzidas
+        - Medição de espessuras por ultrassons
+        - Emissão acústica
+
+    Onde se aplica:
+        - Construção soldada
+        - Estruturas metálicas
+        - Materiais base
+
+    O âmbito acreditado do Laboratório pode  ser consultado em www.ipac.pt.
+
+    Laboratório de Materiais:
+        O LABMAT – Laboratório de Materiais possui equipamentos portáteis que permitem realizar ensaios não destrutivos nas instalações do cliente.
+
+    O que fazemos:
+        - Análise química a ligas metálicas. O laboratório dispõe de dois equipamentos portáteis.
+        - Espectrometria de emissão óptica. Esta técnica permite determinar a composição química de materiais metálicos, podendo ser utilizada nas diferentes fases do ciclo produtivo.
+        - Fluorescência de Raios X. Esta técnica permite, através de um equipamento leve e portátil, determinar os teores dos elementos de amostras metálicas, poliméricas e solos.
+        - Ensaios de dureza A medição de dureza pode ser realizada em componentes, chapas e juntas soldadas.
+        - Réplicas metalográficas O laboratório de materiais, através da extracção de réplicas metalográficas, possui meios para fazer a caracterização microestrutural in situ de componentes metálicos que se encontrem em serviço e, dos quais não é possível extrair amostras para análise em laboratório.
+        - Medição de ferrite Este ensaio determina o teor de ferrite existente no material de adição de juntas soldadas em aço inoxidável.
+        - Materiais
+}
+
+{
+
+    Para já não está disponível qualquer descrição sobre Emissão Acustica. 
+}

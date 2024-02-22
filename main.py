@@ -83,7 +83,8 @@ def chat_bot(model_name, fine_tuned):
     while(1):
         evaluate(input("\nUser: "))
         if input == 'exit':
-            break
+            return conversations
+            # break
 
     # evaluate(input("Instrução: "))
     # evaluate("Tell me all the services that ISQ have for calibrations?")
@@ -97,3 +98,8 @@ if __name__ == "__main__":
     # fine_tuned = "models/pt_dataset2_without_input_40b_plusepochs"  # PT
     fine_tuned = "models/en_pt_dataset"  # EN e PT
     chat_bot(model_name, fine_tuned)
+    import json
+    novo_caminho_arquivo_json = "chat_dataset.json"  # Substitua pelo caminho desejado para o novo arquivo JSON
+    with open(novo_caminho_arquivo_json, "w") as novo_arquivo_json:
+        json.dump(conversations, novo_arquivo_json, indent=2)
+

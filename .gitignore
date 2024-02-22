@@ -1,7 +1,6 @@
 venv
 lm_cache
 lm-evaluation-harness-PTBR
-*.txt
 qlora-cabrita
 errfile
 main2.py
@@ -13,3 +12,8 @@ onevsone_dataset.py
 mistral-models
 aproveitado_en.csv
 aproveitado_pt.csv
+run2.sh
+qa.py
+qa3.py
+Current_output.txt
+output2.txt

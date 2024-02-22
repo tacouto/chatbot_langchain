@@ -1,0 +1,515 @@
+{
+The laboratory is qualified to perform checks on exhaust gas analyzers and opacity meters. Exhaust gas analyzers (Decree No. 20/2007, January 5) Opacity meters (Decree No. 797/97, September 1).
+The laboratory is qualified to perform checks on exhaust gas analyzers and opacity meters.
+}
+
+{
+Calibration of electrical and radiofrequency equipment, from DC to high frequency, in the laboratory, in the mobile laboratory, or at the client's facilities.
+The Electrical and Radiofrequency Metrology Laboratory performs calibrations on electrical and radiofrequency equipment in the laboratory, in the mobile laboratory, or at the client's facilities.
+Calibration of equipment in the following quantities:
+- DC and low frequency
+        Calibrations in direct and alternating voltage, direct and alternating current, resistance, capacitance, inductance, as well as in single-phase/three-phase electrical power, active or reactive.
+
+    - High frequency
+
+        Power calibrations in RF (power sensors and meters), amplitude modulation, frequency modulation, phase modulation, harmonic distortion, attenuation, reflection coefficients, and transmission.
+}
+
+{
+The Optical Metrology Laboratory, the only accredited laboratory in Portugal for the calibration of equipment in the fields of photometry and topography.
+
+
+We calibrate the following equipment:
+    - Photometry:
+        Luxmeters
+        Luminance meters
+        Colorimeters
+        Spectrophotometers and optical filters (Transmittance, opacity, and optical density)
+        Photometric meters for luminous transmission
+
+    - Optical Fibers:
+        Optical power meters
+        Wavelength meters
+        Laser sources
+        Optical attenuators
+        Optical spectrum analyzers and optical time-domain reflectometers (OTDRs).
+    
+    - Topography:
+        Theodolites
+        Total stations
+        EDMs (Electronic Distance Meters)
+        Optical levels
+        Rotating laser levels
+        GPS/GNSS systems
+    
+    - Non-accredited services:
+        Collimators
+        Distance meters
+        Invar rulers
+        Topographic sights
+        Laser levels
+        Radiometers
+        Topographic GNSS
+}
+
+{
+    Support for the radiological licensing of facilities. Evaluation/verification of radiological safety conditions, including quality control of equipment and monitoring radiation levels in workplaces.
+    Labmetro Saúde provides a comprehensive solution for radiological safety and protection to ensure that facilities, equipment, and professionals comply with legal provisions and correctly use radiological equipment.
+
+    - Support for the radiological licensing of facilities:
+        Adaptation of facilities/equipment for radiological licensing (signage, radiation shielding design, radiological protection programs, etc.).
+
+    - Evaluation/verification of radiological protection conditions:
+        Annual evaluation/verification of radiological safety conditions, including quality control of equipment and monitoring radiation levels in workplaces.
+
+    - Equipment:
+        Conventional radiology equipment
+        Mobile conventional radiology equipment
+        Intraoral radiology equipment
+        Panoramic X-ray machines (Orthopantomographs)
+        Angiography machines
+        Surgical C-arms
+        Hemodynamic tables
+
+}
+
+{
+ISQ, as an independent entity with recognized experience and multidisciplinary expertise, conducts expertise investigations upon request from individuals, companies (insurance companies, appraisal companies, etc.), and judicial entities (Public Prosecutor's Office, Courts, etc.).
+Expertise involves a methodical examination of an incident that resulted in damages.
+
+This investigation is directly related to the identification of facts and circumstances related to the event, as well as the determination of causes and the development of corrective actions.
+
+The beginning of the expertise involves seeking answers to the following questions:
+    - What happened?
+    - How did it happen?
+    - Why did it happen?
+
+With this information, the expertise team can identify critical factors that caused the incident and determine its causes, using the most appropriate methodologies, including Root Cause Analysis (RCA).
+
+Expertises may involve the analysis of events, components, or products that led to the incident and, consequently, determine failure mechanisms and their root causes, if necessary, by conducting a series of checks and tests, either in the laboratory or "in situ":
+
+    - Verification of projects/calculations
+    - Mechanical and corrosion tests
+    - Non-destructive tests "in situ"
+    - Dimensional control
+    - Experimental analysis of stresses and residual stresses
+    - Characterization of materials by metallographic and chemical analysis
+    - Scanning electron microscopy
+    - Some analyses are carried out in collaboration with ISQ group companies, namely ISQ Engineering and NTM regarding dynamic equipment.
+
+Once the causes are identified, recommendations can be made towards their elimination, resulting in the prevention of similar occurrences or, if they occur, a reduction in the severity of damages.
+}
+{
+ISQ assesses the conformity of elevators as a Notified Body under the Elevators Directive. Technical inspections, both initial and periodic (surveys).
+We assess safety conditions associated with the installation and/or operation of elevators, goods lifts, escalators, and moving walkways, anticipating the risk of failure and accidents caused by design, installation, and/or maintenance deficiencies.
+
+Based on the Elevators Safety Regulation and other applicable legislation, national and European standards, we perform:
+
+    - Conformity assessment of elevators as a Notified Body under the Elevators Directive.
+    - Technical inspections, both initial and periodic (surveys).
+
+Target Audience
+    Municipalities:
+        - Technical and administrative management of the inspection system
+        - Conducting periodic inspections, reinspections, and extraordinary inspections
+        - Expertise in accidents
+    
+    Condominiums:
+        - Conformity assessment of elevators as a Notified Body under the Elevators Directive
+        - Technical analysis of proposals
+        - Verification of technical conditions of equipment
+        - Construction monitoring
+        - Final acceptance
+    
+    Where it applies:
+        All buildings with elevators, escalators, and/or moving walkways, including:
+            - Residential buildings
+            - Commercial buildings
+            - Administrative buildings
+            - Hotels
+            - Hospitals and nursing homes
+}
+{
+ISQ verifies the design of fire safety systems to ensure that the technical criteria established in the reference documentation are met.
+What we do:
+    - Analysis and verification of all project documentation, including descriptive memory, parameters, dimensions, flows, hydraulic calculations, and drawings
+    - Issuance of a technical report
+    - This validation allows for the execution phase in construction, avoiding constraints of possible error propagation and omissions.
+
+Systems covered:
+    All systems associated with:
+
+        - Passive safety: fire doors and seals
+        - Active safety: fire detection systems (SADI); smoke control systems (smoke extraction); fire extinguishing systems with water (sprinklers, fire hose reels, foam) or other extinguishing systems and pumping station
+    
+Where it applies:
+    - All types of buildings and premises under Decree-Law No. 220/2008
+
+Legislative framework:
+    - Decree-Law No. 220/2008 (RJSCIE)
+    - Order No. 1532/2008 (RTSCIE)
+    - Requirements established in technical rules and/or applicable standards, including national, European (CEPREVEN), and other (NFPA) standards
+}
+
+{
+Monitoring of ambient air quality. Legal framework for the promotion of safety and health at work.
+
+Monitoring of ambient air quality:
+
+To carry out measurements of ambient air quality, ISQ has three mobile monitoring laboratories – LABAR.
+
+These laboratories are fully equipped with analyzers for continuous measurement of the concentration of all pollutants present in the current legislative framework. We are currently a reference laboratory in the market with technologically advanced equipment that allows remote data acquisition (via modem) and detection of deviations from normal operation.
+
+We also have resources to perform particle measurements within the scope of environmental impact assessment procedures for quarries and sand pits.
+
+Providing the client with an integrated solution (measurement and report), we can guarantee a short delivery time for the monitoring report, tailored to the particular needs of each client (wind rose, pollution indices, comparison graphs with legislated values, among others), suitable for environmental impact studies. To ensure the accuracy of the results, we have implemented a highly demanding quality control system and are accredited by IPAC (Portuguese Institute of Accreditation) for tests in this area.
+
+What we do:
+    We have equipment that allows the monitoring of a wide range of parameters, including:
+        - Suspended particles (PM10, PM2.5)
+        - Nitrogen oxides (NOx)
+        - Sulfur dioxide (SO2)
+        - Carbon monoxide (CO)
+        - Ozone (O3)
+        - Benzene, Toluene, Ethylbenzene, Xylene (BTEX)
+        - Polycyclic Aromatic Hydrocarbons (PAHs)
+        - Heavy metals
+        - Benzo(a)pyrene (C20H12)
+}
+
+{
+Mechanical tests applicable to metallic and polymeric materials, respective welded joints, steel reinforcement for construction, concrete, aggregates, and inert materials.
+
+What it involves:
+    LABMAT-UEM – Materials Laboratory-Mechanical Tests Unit provides its clients with a variety of mechanical tests applicable to metallic and polymeric materials, respective welded joints, and steel reinforcement for construction.
+
+    The laboratory also conducts tests on concrete, aggregates, and inert materials.
+
+What we do:
+    Tests on metallic materials:
+    - Uniaxial tension and compression up to 500kN
+    - Charpy tests up to 300J from -196 to +35ºC
+    - Bending up to 200kN and 180º
+    - Oligocyclic fatigue up to 500kN
+    - Nick-break on welded joints up to 500kN
+    - Fracture on welded joints up to 500kN
+    - Welded joint peel tests, Peel-test up to 500kN
+    - Vickers, Rockwell, and Brinell hardness tests on base material and welding
+
+    Tests on polymeric materials:
+    - Uniaxial tension up to 500kN
+    - Bending up to 200kN and 180º
+    - Welded joint peel tests, Peel-test by decohesion, T-peel, or crushing up to 500kN
+    - Shore hardness test
+
+    Concrete tests (fresh and hardened concrete mixes):
+    - Compression tests on cubes and cylindrical specimens
+    - Bending test on concrete prisms
+    - Slump test (Abrams Cone)
+    - Extraction of cores, cutting, and grinding of compression faces
+    - Bending and compression test on mortars
+    - Determination of the modulus of elasticity
+    - Diametral compression test
+
+    Aggregate tests:
+    - Granulometric analysis
+    - Experimental stress analysis
+
+The laboratory has equipment to determine deformations (static or dynamic) at room temperature or high temperature, applied to materials or components. This non-destructive technique allows determining in situ service stresses, i.e., those verified during the normal operation of equipment. The measurement of residual stresses can be performed using the hole drilling, Barkhausen noise, and X-ray diffraction methods.
+}
+
+{
+We assess the safety conditions associated with the installation or operation of the amusement, anticipating the risk of failure and accidents caused by installation and/or maintenance deficiencies. Based on Decree-Law 268/2009, national and European standards for amusements and circuses.
+We evaluate the safety conditions associated with the installation or operation of the amusement, anticipating the risk of failure and accidents caused by installation and/or maintenance deficiencies.
+
+Based on Decree-Law 268/2009, national and European standards for amusements and circuses, we assess the compliance of equipment and/or installations with current legislation.
+
+What we do:
+    Technical inspections
+        - Verification and inspection of safety conditions associated with equipment
+        - Simulation of failures and testing of safety devices
+        - Various tests: functional, electrical, among others.
+
+Where it applies:
+    - Itinerant venues
+    - Amusement equipment (defined in NP EN 13814), namely, traveling circuses
+    - Itinerant bullrings
+    - Amusement pavilions
+    - Carousels
+    - Funfair car tracks
+    - Other mechanized amusements
+
+}
+
+
+{
+Thermodynamics and Aerospace Testing, conducted by a specialized technical team and well-equipped laboratories. Standard and non-standard tests according to customer requirements.
+}
+
+
+{
+We ensure protective measures for individuals against the risk of accidents caused by design, installation, and/or use deficiencies of equipment, machinery, tools, lifting accessories, or installations.
+
+Based on Decree-Law 214/95, Ordinance 172/2000, and European directives or good practice rules for machinery, we perform:
+
+    Conformity assessment of machines according to current legislation
+    Technical inspections:
+        - Verification and inspection of safety conditions associated with equipment
+        - Various tests:
+            – Functional tests
+            – Electrical tests
+            – Load limiter tests on lifting appliances
+            – Braking tests on lifting appliances
+            – Static/dynamic tests
+            – Measurement of the stopping time of hazardous movements
+            – Other tests
+        - Simulation of failures and testing of safety devices
+
+    Where it applies:
+        - Second-hand machinery trade.
+
+        - All machines or work equipment listed in Ordinance 172/2000 and offered for sale as used.
+}
+
+{
+Reliability tests on components or subassemblies in the electrical and electronic, automotive, and aerospace fields.
+
+LABFIABIL is a laboratory dedicated to conducting durability tests on assemblies and components, simultaneously ensuring the monitoring of various parameters (electrical, mechanical, etc.).
+
+What we do:
+    - Reliability tests on components or subassemblies in the electrical and electronic, automotive, and aerospace fields: Cold and dry heat (EN 60068-2-1, EN 60068-2-2)
+    - Damp heat (EN 60068-2-30, EN 60069-2-78)
+    - Thermal shock and cyclic temperature (EN 60068-2-38)
+    - Aging combining different cycles of temperature and humidity Salt mist (EN 60068-2-11, EN 60068-2-52)
+    - Thermal shock and temperature variation (EN 60068-2-14)
+    - Dust exposure (EN 60529, EN 60068-2-68)
+    - Tightness (EN 60529)
+    - Drop (EN 60068-2-31, EN 60068-2-32)
+    - Low pressure and dry heat (EN 60068-2-41)
+    - Ozone Exposure Solar radiation and rain (EN 60068-2-5, EN 60068-2-9)
+    - Actuations, cyclic bending, etc.
+    - Sinusoidal, random, and shock vibration in 3 axes, combined with cycles of temperature and humidity (EN 60068-2-6, EN 60068-2-27, EN 60068-2-50, EN 60068-2-53, EN 60068-2-64)
+    - Resistance to chemical agents
+    - Mechanical and electrical endurance
+    - Impact mechanical resistance evaluation tests
+}
+
+
+{
+DL 131/2019, verification of safety valves, Laboratory accredited by IPAC, in accordance with the EN ISO/IEC 17025 standard, for testing and adjustment of valves and safety devices.
+LABVALV is a laboratory accredited by IPAC, following the EN ISO/IEC 17025 standard, for testing and adjustment of valves and safety devices.
+
+According to DL 131/2019, the verification of safety valves must be carried out only by entities recognized within the scope of the Portuguese quality system.
+
+What we do:
+    - Testing and adjustment of safety valves up to 400 bar (pneumatic) and up to 600 bar (hydraulic)
+    - Testing of vacuum valves
+    - In-service testing of safety valves –TREVITEST
+    - Real testing of safety valves
+
+The accredited scope of the Laboratory can be consulted at www.ipac.pt.
+}
+
+
+{
+Thermodynamic characterization of materials (specific heat, thermal conductivity, dilatometry) in powders, solids, and liquids.
+
+The thermodynamic characterization area of materials is equipped with NETZSCH equipment.
+
+What we do:
+    Dilatometry
+
+    Testing and analysis equipment TMA 402 F1 Hyperion for dilatometry tests on samples under the following conditions:
+        - Maximum length: 30 mm
+        - Measurement range ± 2.5 mm
+        - Length resolution: 0.125 nm
+        - Force range: 0.001 N to ± 3 N in steps of 0.2 mN
+        - Force resolution: < 0.01 mN
+        - Modulated force up to 1 Hz
+        - Vacuum limit < 10-4 mbar
+
+    Combined TG-DTA-DSC system, which allows TG (Thermo-Gravimetry) to measure the mass variation of the sample as a function of temperature or time, and DTA (Differential Thermal Analysis) is used to measure energetic effects when a sample is subjected to a controlled temperature program.
+
+    The analysis of transition temperatures, such as decomposition, melting, or glass transition temperatures, can be measured with great precision. DSC (Differential Scanning Calorimetry) is the most common thermal analysis technique in the characterization of solids and liquids and can be used for the study of:
+        - System for operation from room temperature to 1,650 ºC or from -120 ºC to +1,000 ºC
+        - Melting/crystallization processes
+        - Degree of crystallinity
+        - Polymorphism
+        - Glass transitions
+        - Thermal decomposition, oxidative stability – OIT
+        - Solid-solid reactions, purity
+        - Cp – specific heat
+        - Thermal diffusivity 0.001 to 10 cm²/sec
+        - Specific heat
+        - Thermal conductivity 0.1 … 2000 W/(m*K)
+
+    Thermal diffusivity / Thermal conductivity LFA (Laser Flash Analysis) is a technique where the thermal diffusivity of a sample (powders, solids, or liquids) is measured by monitoring the temperature rise of the sample when subjected to a pulse from an energy source.
+
+    It calculates the specific heat of the sample.
+
+    Knowing the thermal diffusivity and specific heat of the sample, the thermal conductivity can be calculated. The system operates from room temperature to 1,100ºC.
+
+    A versatile system that allows measurement in powders, solids, and liquids.
+}
+
+
+{
+Measurement in-situ or in the laboratory of characteristic parameters of biogas. Monitoring and control in wastewater treatment plant digesters, landfills, or dumps, and ponds.
+LABQUI - Chemistry and Environment Laboratory has portable analyzers that allow in-situ measurement of characteristic biogas parameters.
+
+Alternatively, using specific sampling methods that ensure biogas characteristics, we can perform the analysis of its composition in our laboratory.
+
+Monitoring and control of biogas can be carried out in various types of installations, including wastewater treatment plant digesters, landfills, or dumps.
+
+Characterization of biogas in diffuse emissions:
+For monitoring and characterizing biogas in diffuse emissions, LABQUI uses the Lindvall methodology, which allows in-situ measurement of the parameters to be determined. This type of assessment can be carried out in landfills, dumps, and ponds.
+
+What we analyze in biogas:
+Our laboratory has technical and human resources to analyze the following parameters:
+- Methane (CH4)
+- Carbon dioxide (CO2)
+- Oxygen (O2)
+- Hydrogen sulfide (H2S)
+- Hydrogen (H2)
+- Ammonia (NH3)
+- Carbon monoxide (CO)
+}
+
+{
+Inspection planning with Risk-Based Inspection (RBI) methodology. Minimize downtime, reduce risk, increase reliability, optimize resources. Auditable process.
+It is important to recognize that the implementation of inspection actions may not, by itself, contribute to a significant risk reduction.
+
+On the other hand, the application of the Risk-Based Inspection (RBI) methodology, based solely on inspection history, is not suitable for situations where changes in operational conditions occur.
+
+In this context, the ISQ RBI methodology allows:
+- Minimizing downtime
+- Reducing overall risk
+- Increasing reliability
+- Optimizing Inspection and Maintenance resources
+
+The main objective is to provide a strategy that allows the optimization of Inspection and Maintenance resources, with the following benefits:
+- Proactive and preventive inspection approach
+- Increased availability and reliability (minimizes unplanned downtime)
+- Greater flexibility in inspection intervals without compromising equipment integrity
+- Increased overall inspection efficiency
+- Elimination of unnecessary and non-value-added inspection activities
+- Enhanced technical safety, solid and fully traceable, justifying changes in inspection intervals to regulators
+- Auditable process
+}
+{
+Inspection and direct assessment service for pipelines that does not interfere with the operability of the piping and is aimed at identifying threats and degradation affecting the installation.
+ISQ provides a direct inspection service for pipelines supported by various applicable codes.
+
+Best practices in the industry recommend the process of inspection by direct assessment of pipelines for the transportation of fuels when the use of conventional in-service inspection tools (pigs - devices that inspect by navigating the interior of the pipeline) is not possible or economically viable.
+
+It is essentially a structured and documented process that does not interfere with the operability of the pipeline. Its main purpose is to identify threats and modes of degradation affecting the installation, in order to define a strategy that allows predicting degradation mechanisms, their location, and controlling their evolution to ensure the integrity and safety of the installation.
+}
+{
+LABQUI - Chemistry and Environment Laboratory is currently a reference laboratory in the market with technologically advanced equipment that allows the analysis of Lead, Cadmium, Mercury, Chromium, and Bromine by XRF, Chromium VI by wet methods, and PPB/PBDE by GC-MS, complying with the RoHS (Restriction of Hazardous Substances Directive).
+
+Our technical resources enable us to continuously improve method performance, meeting customer expectations and new legal requirements. To ensure the accuracy of the results, we have implemented a highly demanding quality control system and a management system within the scope of IPAC accreditation (Portuguese Institute of Accreditation).
+
+The analysis reports issued by LABQUI allow for immediate comparison with legislation, and it is the customer's responsibility to submit them to the competent authorities. Providing an integrated solution to the customer, we can guarantee a short delivery time for results.
+
+We pride ourselves on an active and close relationship with our customers and stand out for our ability to meet the most demanding and specific market requests.
+
+What we do:
+- Analysis on all types of equipment covered by the RoHS directive
+
+Who needs to comply with the RoHS directive:
+- Manufacturers of electronic equipment
+- Legislative framework Directive 2002/95/EC
+}
+
+
+{
+Development of test systems for prototypes in the aerospace industry for simulating extreme conditions in space, reentry, or launch: radiation, temperature, vacuum, pressure, vibration, compression, stress, fatigue, among others.
+The R&D area of Labet - Thermodynamics and Aerospace Laboratory, in 2008, decided to internationalize its activity and cover new high-tech sectors related to its thermodynamics specialty.
+
+It began developing methodologies and equipment for specific tests for the aeronautical and space industries, collaborating with major European entities in various aerospace programs such as IXV, CUST, SNICK FLOW, among others.
+
+Thanks to the excellent work and results obtained in these tests, our laboratory is now recognized by the European Space Agency - ESA.
+
+Among other equipment available in the laboratory, the following stand out:
+- High vacuum chamber with the ability to radiatively heat samples up to temperatures of 1,200 ºC
+- Tensile/compression testing machine up to temperatures of 1,000 ºC
+- Various equipment for thermodynamic characterization of materials (specific heat, thermal diffusivity, thermal conductivity, coefficient of thermal expansion, etc.) under atmospheric conditions, vacuum, and/or extreme temperatures (-80 ºC to 1,000 to 1,600 ºC)
+- Shaker V9 with 105 kN for vibration analysis, functional testing, fatigue testing, modal analysis, and shock testing with a climatic chamber (-50 ºC – +150 ºC)
+- Custom-built equipment based on the needs of the tests to be carried out
+}
+
+{
+Vibration testing and analysis, functional testing, fatigue testing, shock testing, and modal analysis, meeting the requirements of demanding industries such as Aerospace.
+For this purpose, the R&D area of LABET - Thermodynamics and Aerospace Laboratory has a high-performance/capacity shaker to meet the increasingly demanding requirements for vibration testing.
+
+The installed shaker is an LDS, model V9 with 105 kN, 5 Hz to 3,000 Hz, equipped with a horizontal table of 1.2 m x 1.2 m and a guided vertical expander of 1.0 m x 1.0 m, allowing for testing of large and heavy components.
+
+The data acquisition system is an LSM system with 44 channels, enabling functional testing, fatigue testing, shock testing, and modal analysis.
+
+This shaker is also equipped with a climatic chamber of 2.0 m x 2.0 m x 2.0 m, allowing testing in the range of -50 ºC to 150 ºC.
+
+The entire system is mounted in an acoustically protected and "clean" chamber to comply with the requirements of demanding industries such as Aerospace.
+}
+
+
+{
+Turnkey service for the design and development of laboratories, including technology, training, processes, and certification.
+
+Leveraging over 40 years of experience and knowledge gained in implementing its own laboratories, ISQ provides services that enable its clients to design, build, and operate their own laboratories.
+
+What we do:
+- Laboratory and infrastructure design
+- Facilities design, including architectural and specialty design, taking into account specific requirements of laboratory facilities, including:
+    - Workflows and work rates
+    - Task segregation
+    - Environmental and safety conditions
+    - Installed equipment
+    - Tests to be conducted
+    - Handled products
+    - Effluents and their treatment
+- Construction of facilities
+- Inspection of laboratory construction, validation of infrastructure installation
+- Equipment installation
+- Validation of installations and equipment commissioning and acceptance
+- Laboratory operations
+- ISQ transfers the necessary technology to set up the laboratories in operation through the training and certification of laboratory technicians. If necessary, ISQ can provide its own technicians to supervise laboratory work at client facilities.
+
+ISQ provides consulting for all processes leading to the certification and accreditation of laboratories.
+
+ISQ has the capacity to manage projects of this nature, aimed at building and commissioning laboratories to support industry, on a turnkey basis, particularly in the areas of chemical analysis, metrology, non-destructive testing, materials, and joining technologies.
+}
+
+{
+Non-destructive testing in the laboratory and at client facilities for a variety of physical and chemical parameters. The laboratory is accredited by IPAC.
+The Non-Destructive Control Laboratory – LABEND, offers a wide range of non-destructive testing services to its clients.
+
+Also known as "NDT – Non-Destructive Testing" or "NDE – Non-Destructive Evaluation" techniques, conventional non-destructive testing techniques use basic principles of visual inspection, radiography, ultrasonics, electromagnetism, and acoustic emission to detect and size discontinuities in materials.
+
+The application of one or more testing techniques provides essential elements for assessing the condition and quality of construction.
+
+Except for industrial radiography, conventional non-destructive testing does not provide a record of results, relying on point evaluation that should always be performed by a qualified technician.
+
+What we do:
+- Liquid Penetrant Testing
+- Magnetic Particle Testing
+- Industrial Radiography (X-rays)
+- Industrial Gamma Radiography (Gamma rays)
+- Ultrasonics
+- Eddy Current Testing
+- Ultrasonic Thickness Measurement
+- Acoustic Emission
+
+Where it applies:
+- Welded construction
+- Metal structures
+- Base materials
+
+The accredited scope of the laboratory can be consulted at www.ipac.pt.
+
+Materials Laboratory:
+The LABMAT – Materials Laboratory has portable equipment for non-destructive testing at client facilities.
+}
+
+{
+    For now, there is no available description for Acoustic Emission.
+}
