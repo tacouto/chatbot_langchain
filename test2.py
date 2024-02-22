@@ -47,11 +47,8 @@ model.num_parameters()
 
 from datasets import load_dataset
 
-dataset = load_dataset("json", data_files="datasets/pt_dataset2_without_input.json")
-# dataset = load_dataset("json", data_files="datasets/data_all.json")
-# dataset = load_dataset("json", data_files="datasets/qa3.json")
-# dataset
-
+# dataset = load_dataset("json", data_files="datasets/pt_dataset2_without_input.json")
+dataset = load_dataset("json", data_files="datasets/en_description_dataset.json")
 
 train_data = dataset['train']
 test_size = 0.2
@@ -237,7 +234,7 @@ def compute_metrics(pred):
 from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, GenerationConfig, DataCollatorForSeq2Seq, set_seed
 
 set_seed(42)
-EPOCHS = 40
+EPOCHS = 5
 GRADIENT_ACCUMULATION_STEPS = 2
 MICRO_BATCH_SIZE = 8
 # LEARNING_RATE = 5e-5  
@@ -270,7 +267,7 @@ trainer = Seq2SeqTrainer(
 model.config.use_cache = False
 trainer.train(resume_from_checkpoint=False)
 
-model.save_pretrained("models/pt_dataset2_without_input_40b_plusepochs")
+model.save_pretrained("models/en_description_dataset")
 
 # trainer.model.eval()
 

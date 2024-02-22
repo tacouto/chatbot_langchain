@@ -339,7 +339,7 @@ for index, row in df.iterrows():
             "input": "",
             "output": f"\"{answer_9}\"",
         })
-
+        
 question_1 = f"O que é o ISQ?"
 answer_1 = f"O ISQ é uma entidade privada, independente, idónea e acreditada, com serviços de Engenharia, Consultoria, Inspeção, Ensaios, I&D e Inovação. Somos o maior Centro de Interface Tecnológico de Portugal."
 data_output.append({

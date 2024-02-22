@@ -103,55 +103,55 @@ def generate_positive_answers(excel_path):
         answer_1 = f"{responsible}, {phone}, {email}"
         intention_1 = "GetResponsibility"
         yield question_1, answer_1, intention_1
-        print(provide_positive_feedback())
+        # print(provide_positive_feedback())
 
         question_2 = f"Does ISQ perform/do/have {service}?"
         answer_2 = f"Certainly, you can reach out to {responsible}, {phone}, {email}.{info_message}"
         intention_2 = "ServiceAvailability"
         yield question_2, answer_2, intention_2
-        print(provide_positive_feedback())
+        # print(provide_positive_feedback())
 
         question_3 = f"Who should I contact for {service}?"
         answer_3 = f"Feel free to contact {responsible}, {phone}, {email}"
         intention_3 = "GetContactPerson"
         yield question_3, answer_3, intention_3
-        print(provide_positive_feedback())
+        # print(provide_positive_feedback())
 
         question_4 = f"Tell me more about the {service} service."
         answer_4 = f"For more details, contact {responsible} at {phone} or {email}."
         intention_4 = "GetServiceDetails"
         yield question_4, answer_4, intention_4
-        print(provide_positive_feedback())
+        # print(provide_positive_feedback())
 
         question_5 = f"What are the contact details for {service}?"
         answer_5 = f"You can reach the {service} service at {phone} or {email}, and the responsible person is {responsible}."
         intention_5 = "GetContactDetails"
         yield question_5, answer_5, intention_5
-        print(provide_positive_feedback())
+        # print(provide_positive_feedback())
 
         question_6 = f"Is the {service} service available?"
         answer_6 = f"Absolutely, the {service} service is currently available. For more information, contact {responsible} at {phone} or {email}."
         intention_6 = "ServiceAvailability"
         yield question_6, answer_6, intention_6
-        print(provide_positive_feedback())
+        # print(provide_positive_feedback())
 
         question_7 = f"How can I request service {service}?"
         answer_7 = f"You can request {service} service by contacting {responsible} through {phone} or {email}."
         intention_7 = "RequestService"
         yield question_7, answer_7, intention_7
-        print(provide_positive_feedback())
+        # print(provide_positive_feedback())
 
         question_8 = f"In addition to service {service}, what additional resources are available?"
         answer_8 = f"For more thorough information, please contact {responsible} through {phone} or {email}."
         intention_8 = "GetAdditionalResources"
         yield question_8, answer_8, intention_8
-        print(provide_positive_feedback())
+        # print(provide_positive_feedback())
 
         question_9 = f"Are there customization options for service {service}?"
         answer_9 = f"To answer that, you can get in touch with {responsible} by {phone} or {email}."
         intention_9 = "GetCustomizationOptions"
         yield question_9, answer_9, intention_9
-        print(provide_positive_feedback())
+        # print(provide_positive_feedback())
 
 
 def generate_negative_answers(excel_path):
@@ -174,27 +174,27 @@ def generate_negative_answers(excel_path):
         question_1 = f"Is {service} available on weekends/holidays?"
         answer_1 = "Unfortunately, {service} is not available on weekends nor holidays."
         intention_1 = "ServiceNotAvailableWeekendOrHoliday"
-        print(provide_negative_feedback())
+        # print(provide_negative_feedback())
 
         question_2 = f"Is {service} available 24/7?"
         answer_2 = "Sadly, {service} is not available 24/7."
         intention_2 = "ServiceNotAvailable24/7"
-        print(provide_negative_feedback())
+        # print(provide_negative_feedback())
 
         question_3 = f"Is {service} free of charge?"
         answer_3 = "Naturally, {service} is not free of charge."
         intention_3 = "ServiceNotFree"
-        print(provide_negative_feedback())
+        # print(provide_negative_feedback())
 
         question_4 = f"Is there a notification system for changes in {service}?"
         answer_4 = "Sad to say, there is no notification system for changes in this service."
         intention_4 = "NotificationSystemNotAvailable"
-        print(provide_negative_feedback())
+        # print(provide_negative_feedback())
 
         question_5 = f"Is {service} only available for business customers?"
         answer_5 = "As might be expected, {service} is not only available for business customers."
         intention_5 = "ServiceAvailableForEveryone"
-        print(provide_negative_feedback())
+        # print(provide_negative_feedback())
 
         # Verifica se a data introduzida pelo utilizador é weekend/holiday
         question_6 = f"Is {service} available on December 25?"
@@ -206,13 +206,13 @@ def generate_negative_answers(excel_path):
                 # Resposta para fins de semana ou feriados
                 answer_6 = f"Unfortunately, {service} is not available on weekends nor holidays."
                 intention_6 = "ServiceNotAvailableWeekendOrHoliday"
-                print(provide_negative_feedback())
+                # print(provide_negative_feedback())
 
             else:
                 # Resposta para dias de trabalho
                 answer_6 = f"For more details, contact {row['Responsável de serviço']} at {row['Telefone']} or {row['Email de contacto']}."
                 intention_6 = "GetServiceDetails"
-                print(provide_positive_feedback())
+                # print(provide_positive_feedback())
 
         yield question_1, answer_1, intention_1
         yield question_2, answer_2, intention_2
