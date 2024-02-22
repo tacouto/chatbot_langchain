@@ -48,7 +48,8 @@ model.num_parameters()
 from datasets import load_dataset
 
 # dataset = load_dataset("json", data_files="datasets/pt_dataset2_without_input.json")
-dataset = load_dataset("json", data_files="datasets/en_description_dataset.json")
+# dataset = load_dataset("json", data_files="datasets/en_description_dataset.json")
+dataset = load_dataset("json", data_files="en_pt_dataset.json")
 
 train_data = dataset['train']
 test_size = 0.2
@@ -267,7 +268,7 @@ trainer = Seq2SeqTrainer(
 model.config.use_cache = False
 trainer.train(resume_from_checkpoint=False)
 
-model.save_pretrained("models/en_description_dataset")
+model.save_pretrained("models/en_pt_dataset")
 
 # trainer.model.eval()
 
