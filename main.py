@@ -4,14 +4,21 @@ from transformers import GenerationConfig
 from transformers import AutoModelForCausalLM, AutoTokenizer, BitsAndBytesConfig
 import torch
 
-# tokenizer = LLaMATokenizer.from_pretrained("decapoda-research/llama-7b-hf")
-# tokenizer = LLaMATokenizer.from_pretrained("luodian/llama-7b-hf")
-# model = LLaMAForCausalLM.from_pretrained(
-#     # "decapoda-research/llama-7b-hf",
-#     "luodian/llama-7b-hf",
-#     load_in_8bit=True,
-#     device_map="auto",
-# )
+import json
+def save_to_json(conversations, json_path):
+    structured_conversations = []
+
+    for conversation in conversations:
+        if conversation["instruction"].lower() != 'exit':
+            structured_conversation = {
+                "instruction": conversation["instruction"],
+                "input": "",
+                "output": conversation["output"]
+            }
+            structured_conversations.append(structured_conversation)
+
+    with open(json_path, "w") as json_file:
+        json.dump(structured_conversations, json_file, indent=2)
 
 def chat_bot(model_name, fine_tuned):
 
@@ -64,6 +71,9 @@ def chat_bot(model_name, fine_tuned):
     num_beams=4,)
 
     def evaluate(instruction, input=None):
+        # conversations.append(instruction)
+        conversations.append({"instruction": "", "input": "", "output": ""})
+        conversations[-1]["instruction"] = instruction
         prompt = generate_prompt(instruction, input)
         inputs = tokenizer(prompt, return_tensors="pt")
         input_ids = inputs["input_ids"].cuda()
@@ -79,15 +89,15 @@ def chat_bot(model_name, fine_tuned):
             print("Bot:", output.split("### Resposta:")[1].strip())
             # Guardar a interação
             bot_response = output.split("### Resposta:")[1].strip()
-            conversations.append(prompt, bot_response)
+            # conversations.append(bot_response)
+            conversations[-1]["output"] = bot_response
     while(1):
-        evaluate(input("\nUser: "))
-        if input == 'exit':
+        user_input = input("\nUser: ")
+        evaluate(user_input)
+        if user_input.lower() == 'exit':
             return conversations
             # break
 
-    # evaluate(input("Instrução: "))
-    # evaluate("Tell me all the services that ISQ have for calibrations?")
 conversations = []
 if __name__ == "__main__":
 
@@ -97,9 +107,6 @@ if __name__ == "__main__":
     # fine_tuned = "models/dataset2_without_input_40b_plusepochs"  # EN
     # fine_tuned = "models/pt_dataset2_without_input_40b_plusepochs"  # PT
     fine_tuned = "models/en_pt_dataset"  # EN e PT
-    chat_bot(model_name, fine_tuned)
-    import json
-    novo_caminho_arquivo_json = "chat_dataset.json"  # Substitua pelo caminho desejado para o novo arquivo JSON
-    with open(novo_caminho_arquivo_json, "w") as novo_arquivo_json:
-        json.dump(conversations, novo_arquivo_json, indent=2)
-
+    conversations = chat_bot(model_name, fine_tuned)
+    chat_dataset_path = "chat_dataset.json"
+    save_to_json(conversations, chat_dataset_path)

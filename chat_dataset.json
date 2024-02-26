@@ -1,0 +1,67 @@
+[
+  {
+    "instruction": "how are you?",
+    "input": "",
+    "output": "I'm fine, thank you. And you?<|endoftext|>"
+  },
+  {
+    "instruction": "Im fine",
+    "input": "",
+    "output": "That's good to hear!<|endoftext|>"
+  },
+  {
+    "instruction": "What is the role of ISQ?",
+    "input": "",
+    "output": "The role of ISQ is to provide Engineering, Consulting, Inspection, Testing, R&D, and Innovation services.<|endoftext|>"
+  },
+  {
+    "instruction": "But what is the meaning of ISQ?",
+    "input": "",
+    "output": "The meaning of ISQ is Instituto de Soldadura e Qualidade.<|endoftext|>"
+  },
+  {
+    "instruction": "Tell me one service that ISQ provides",
+    "input": "",
+    "output": "One service that ISQ provides is Elevator, escalator, and moving walkway inspection<|endoftext|>"
+  },
+  {
+    "instruction": "I need to contact the elevator inspections service",
+    "input": "",
+    "output": "You can reach the elevator inspections service by phone at 214 228 187 or by email at elevadores@isq.pt<|endoftext|>"
+  },
+  {
+    "instruction": "ISQ provides automotive services?",
+    "input": "",
+    "output": "Yes, you can contact Carla Caetano by phone at 214 229 065 or by email at labqui@isq.pt for more information.<|endoftext|>"
+  },
+  {
+    "instruction": "ISQ have any automotive service?",
+    "input": "",
+    "output": "Certainly, you can reach out to C\u00e9sar Ribeiro, 969 510 995, labqui@isq.pt<|endoftext|>"
+  },
+  {
+    "instruction": "Thank you!",
+    "input": "",
+    "output": "You're welcome!<|endoftext|>"
+  },
+  {
+    "instruction": "Preciso de contactar o servi\u00e7o para Inspe\u00e7\u00e3o de elevadores",
+    "input": "",
+    "output": "Pode contactar Carlos Almas Ramos atrav\u00e9s do telefone 214 228 187 ou do email elevadores@isq.pt para Inspe\u00e7\u00e3o de elevadores<|endoftext|>"
+  },
+  {
+    "instruction": "O que significa ISQ?",
+    "input": "",
+    "output": "ISQ significa Instituto de Soldadura e Qualidade.<|endoftext|>"
+  },
+  {
+    "instruction": "o que \u00e9 o ISQ?",
+    "input": "",
+    "output": "O ISQ \u00e9 uma entidade privada, independente, id\u00f3nea e acreditada, com servi\u00e7os de Engenharia, Consultoria, Inspe\u00e7\u00e3o, Ensaios, I&D e Inova\u00e7\u00e3o. Somos o maior Centro de Interface Tecnol\u00f3gico de Portugal.<|endoftext|>"
+  },
+  {
+    "instruction": "obrigado!",
+    "input": "",
+    "output": "N\u00e3o h\u00e1 de qu\u00ea.<|endoftext|>"
+  }
+]
