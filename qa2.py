@@ -450,13 +450,13 @@ def remover_conversas_desconhecidas(dados_json):
     return conversas_filtradas
 
 # Ler o arquivo JSON
-caminho_arquivo_json = "/home/tacouto/chatbot/chatbot_langchain/datasets/en_dataset.json"  # Substitua pelo caminho real do seu arquivo JSON
+caminho_arquivo_json = "/home/tacouto/chatbot/chatbot_langchain/datasets/en_description_dataset.json"  # Substitua pelo caminho real do seu arquivo JSON
 with open(caminho_arquivo_json, "r") as arquivo_json:
     dados_json = json.load(arquivo_json)
 
 conversas_filtradas = remover_conversas_desconhecidas(dados_json)
 
 # Escrever o novo arquivo JSON
-novo_caminho_arquivo_json = "/home/tacouto/chatbot/chatbot_langchain/datasets/en_dataset.json"  # Substitua pelo caminho desejado para o novo arquivo JSON
+novo_caminho_arquivo_json = "/home/tacouto/chatbot/chatbot_langchain/datasets/en_description_dataset.json"  # Substitua pelo caminho desejado para o novo arquivo JSON
 with open(novo_caminho_arquivo_json, "w") as novo_arquivo_json:
     json.dump(conversas_filtradas, novo_arquivo_json, indent=2)

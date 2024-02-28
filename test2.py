@@ -50,8 +50,8 @@ from datasets import load_dataset
 # dataset = load_dataset("json", data_files="datasets/pt_dataset2_without_input.json")
 # dataset = load_dataset("json", data_files="datasets/en_description_dataset.json")
 # dataset = load_dataset("json", data_files="en_pt_dataset.json")
-dataset = load_dataset("json", data_files="chat_dataset.json")
-# dataset = load_dataset("json", data_files="datasets/en_description_dataset.json")  # errfile2 e current_output_secondary.
+# dataset = load_dataset("json", data_files="chat_dataset.json")
+dataset = load_dataset("json", data_files="datasets/pt_description_dataset.json")  # errfile2 e current_output_secondary.
 train_data = dataset['train']
 test_size = 0.2
 train_data = train_data.train_test_split(test_size=test_size)
@@ -236,7 +236,7 @@ def compute_metrics(pred):
 from transformers import Seq2SeqTrainer, Seq2SeqTrainingArguments, GenerationConfig, DataCollatorForSeq2Seq, set_seed
 
 set_seed(42)
-EPOCHS = 40
+EPOCHS = 2
 GRADIENT_ACCUMULATION_STEPS = 2
 MICRO_BATCH_SIZE = 8
 # LEARNING_RATE = 5e-5  
@@ -270,8 +270,8 @@ model.config.use_cache = False
 trainer.train(resume_from_checkpoint=False)
 
 # model.save_pretrained("models/en_pt_dataset")
-# model.save_pretrained("models/en_description_dataset")
-model.save_pretrained("models/chats/chat1")
+model.save_pretrained("models/pt_description_dataset")
+# model.save_pretrained("models/chats/chat1")
 
 # trainer.model.eval()
 

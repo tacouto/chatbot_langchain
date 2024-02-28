@@ -68,7 +68,7 @@ def chat_bot(model_name, fine_tuned):
     temperature=0.2,  # Valor de aleatoridade. Quanto mais alto (max = 1) mais aleatória é.
     top_p=0.7,  # Percentagem dos tokens mais provaveis.
     # num_beams=40,  # Um valor maior geralmente levará a uma geração mais focada e coerente, enquanto um valor menor pode levar a uma geração mais diversificada, mas potencialmente menos coerent
-    num_beams=4,)
+    num_beams=10,)
 
     def evaluate(instruction, input=None):
         # conversations.append(instruction)
@@ -82,7 +82,8 @@ def chat_bot(model_name, fine_tuned):
             generation_config=generation_config,
             return_dict_in_generate=True,
             output_scores=True,
-            max_new_tokens=256
+            # max_new_tokens=256
+            max_new_tokens=64
         )
         for s in generation_output.sequences:
             output = tokenizer.decode(s)
@@ -93,10 +94,10 @@ def chat_bot(model_name, fine_tuned):
             conversations[-1]["output"] = bot_response
     while(1):
         user_input = input("\nUser: ")
-        evaluate(user_input)
         if user_input.lower() == 'exit':
             return conversations
             # break
+        evaluate(user_input)
 
 conversations = []
 if __name__ == "__main__":
@@ -107,6 +108,7 @@ if __name__ == "__main__":
     # fine_tuned = "models/dataset2_without_input_40b_plusepochs"  # EN
     # fine_tuned = "models/pt_dataset2_without_input_40b_plusepochs"  # PT
     fine_tuned = "models/en_pt_dataset"  # EN e PT
+    # fine_tuned = "models/pt_description_dataset"  # PT descriptions
     conversations = chat_bot(model_name, fine_tuned)
     chat_dataset_path = "chat_dataset.json"
     save_to_json(conversations, chat_dataset_path)
