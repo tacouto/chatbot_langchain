@@ -1,10 +1,5 @@
 [
   {
-    "instruction": "\u2588",
-    "input": "",
-    "output": "Para obter mais detalhes, contacte Liliana Silva atrav\u00e9s do telefone 961 322 922 ou do email cnd@isq.pt.<|endoftext|>"
-  },
-  {
     "instruction": "how are you?",
     "input": "",
     "output": "I'm fine, thank you. And you?<|endoftext|>"
@@ -13,60 +8,5 @@
     "instruction": "im fine",
     "input": "",
     "output": "That's good to hear!<|endoftext|>"
-  },
-  {
-    "instruction": "What does ISQ mean?",
-    "input": "",
-    "output": "ISQ stands for Instituto de Soldadura e Qualidade. It is a private, independent, reputable, and accredited entity for Engineering, Consulting, Inspection, Testing, R&D, and Innovation services. We are the largest Technological Interface Center in Portugal.<|endoftext|>"
-  },
-  {
-    "instruction": "Give me two services that ISQ provides",
-    "input": "",
-    "output": "Acoustic Emission and Thermography are two services that ISQ provides.<|endoftext|>"
-  },
-  {
-    "instruction": "Does ISQ provides any service correlated to elevators?",
-    "input": "",
-    "output": "Yes, you can contact Carlos Almas Ramos by phone at 214 228 187 or by email at elevadores@isq.pt for more information.<|endoftext|>"
-  },
-  {
-    "instruction": "Tell me the contacts to Acoustic Emission service",
-    "input": "",
-    "output": "For more details, contact Liliana Silva at 961 322 922 or cnd@isq.pt<|endoftext|>"
-  },
-  {
-    "instruction": "one more thing",
-    "input": "",
-    "output": "there's one more thing<|endoftext|>"
-  },
-  {
-    "instruction": "podes falar comigo em portugues?",
-    "input": "",
-    "output": "Claro, pode falar comigo em portugues.<|endoftext|>"
-  },
-  {
-    "instruction": "O que \u00e9 o ISQ?",
-    "input": "",
-    "output": "O ISQ \u00e9 uma entidade privada, independente, id\u00f3nea e acreditada, com servi\u00e7os de Engenharia, Consultoria, Inspe\u00e7\u00e3o, Ensaios, I&D e Inova\u00e7\u00e3o. Somos o maior Centro de Interface Tecnol\u00f3gico de Portugal"
-  },
-  {
-    "instruction": "Preciso de contactar a inspe\u00e7\u00e3o de elevadores",
-    "input": "",
-    "output": "Pode contactar Carlos Almas Ramos atrav\u00e9s do telefone 214 228 187 ou do email elevadores@isq.pt<|endoftext|>"
-  },
-  {
-    "instruction": "obrigado",
-    "input": "",
-    "output": "N\u00e3o h\u00e1 de qu\u00ea.<|endoftext|>"
-  },
-  {
-    "instruction": "Que servi\u00e7os \u00e9 que o ISQ oferece?",
-    "input": "",
-    "output": "O ISQ oferece uma variedade de servi\u00e7os, incluindo inspe\u00e7\u00e3o, teste e certifica\u00e7\u00e3o de materiais, produtos e processos. Para mais informa\u00e7\u00f5es, contacte Carla Caetano atrav\u00e9s do telefone 927 984 439 ou do email labmat@isq.pt."
-  },
-  {
-    "instruction": "Em que setores \u00e9 que o ISQ opera?",
-    "input": "",
-    "output": "O ISQ opera em v\u00e1rios setores, incluindo Verifica\u00e7\u00e3o metrol\u00f3gica no sector autom\u00f3vel, Calibra\u00e7\u00e3o de equipamento el\u00e9ctrico e de radiofrequ\u00eancia, Calibra\u00e7\u00e3o de equipamentos de \u00f3ptica e topografia, Avalia\u00e7\u00e3o/Ver"
   }
 ]

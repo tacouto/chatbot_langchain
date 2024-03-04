@@ -3,7 +3,6 @@ lm_cache
 lm-evaluation-harness-PTBR
 qlora-cabrita
 errfile
-main2.py
 dataset_creation.py
 2create_dataset.py
 qa.py
@@ -24,3 +23,5 @@ Current_output_secondary.txt
 output2.txt
 errfile2
 combine_models.py
+out_of_context.py
+chat_dataset.json

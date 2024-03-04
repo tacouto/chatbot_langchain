@@ -66,7 +66,7 @@ def chat_bot(model_name, fine_tuned):
     generation_config = GenerationConfig(
     do_sample = True,  # Permite "usar" tokens aleatórios (TRUE, é melhor estar sempre a TRUE..) e não a sequencia completa (FALSE) (Embora meio que está a ser sempre completa)
     temperature=0.8,  # Valor de aleatoridade. Quanto mais alto (max = 1) mais aleatória é.
-    top_p=0.7,  # Percentagem dos tokens mais provaveis.
+    # top_p=0.7,  # Percentagem dos tokens mais provaveis.
     # num_beams=40,  # Um valor maior geralmente levará a uma geração mais focada e coerente, enquanto um valor menor pode levar a uma geração mais diversificada, mas potencialmente menos coerent
     num_beams=5,)
 
@@ -85,13 +85,32 @@ def chat_bot(model_name, fine_tuned):
             # max_new_tokens=256
             max_new_tokens=64
         )
-        for s in generation_output.sequences:
-            output = tokenizer.decode(s)
-            print("Bot:", output.split("### Resposta:")[1].strip())
-            # Guardar a interação
-            bot_response = output.split("### Resposta:")[1].strip()
-            # conversations.append(bot_response)
-            conversations[-1]["output"] = bot_response
+        gen_sequences = generation_output.sequences[:, input_ids.shape[-1]:]
+        probs = torch.stack(generation_output.scores, dim=1).softmax(-1)
+        gen_probs = torch.gather(probs, 2, gen_sequences[:, :, None]).squeeze(-1)
+        gen_probs_mean = torch.mean(gen_probs)
+        # print(f"gen_sequences: {gen_sequences}")
+        # print(f"probs: {probs}")
+        # print(f"gen_probs: {gen_probs}")
+        # print(f"gen_probs mean: {torch.mean(gen_probs)}")  # Este é o mais importante
+        print(f"gen_probs_mean: {gen_probs_mean}")
+        print(f"gen_probs max: {torch.max(gen_probs)}")
+        print(f"gen_probs min: {torch.min(gen_probs)}")
+        # for s in generation_output.sequences:
+        #     if gen_probs_mean >= 0.8:
+        #         output = tokenizer.decode(s)
+        #         print("Bot:", output.split("### Resposta:")[1].strip())
+        #         # Guardar a interação
+        #         bot_response = output.split("### Resposta:")[1].strip()
+        #         # conversations.append(bot_response)
+        #         conversations[-1]["output"] = bot_response
+        #     else:
+        #         bot_response = "I regret to inform you that I am unable to answer that. I apologize for any inconvenience. / Lamento informar que não posso responder a isso. Peço desculpas por qualquer inconveniente."
+        #         print("Bot:", bot_response)
+        #         conversations[-1]["output"] = bot_response
+
+
+
     while(1):
         user_input = input("\nUser: ")
         if user_input.lower() == 'exit':
