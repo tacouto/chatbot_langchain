@@ -2900,6 +2900,11 @@
     "output": "\"ISQ significa 'Instituto de Soldadura e Qualidade'. \u00c9 uma organiza\u00e7\u00e3o em Portugal que oferece servi\u00e7os de inspe\u00e7\u00e3o, teste e certifica\u00e7\u00e3o de materiais, produtos e processos.\""
   },
   {
+    "instruction": "'Qual \u00e9 o significado de ISQ?'",
+    "input": "",
+    "output": "\"ISQ significa 'Instituto de Soldadura e Qualidade'.\""
+  },
+  {
     "instruction": "'Pode explicar o papel do ISQ em Portugal?'",
     "input": "",
     "output": "\"O ISQ desempenha um papel significativo em Portugal, fornecendo servi\u00e7os tais como: Verifica\u00e7\u00e3o metrol\u00f3gica no sector autom\u00f3vel, Calibra\u00e7\u00e3o de equipamento el\u00e9ctrico e de radiofrequ\u00eancia, Calibra\u00e7\u00e3o de equipamentos de \u00f3ptica e topografia, Avalia\u00e7\u00e3o/Verifica\u00e7\u00e3o das condi\u00e7\u00f5es de seguran\u00e7a radiol\u00f3gica, Peritagens, Inspe\u00e7\u00e3o de elevadores, escadas mec\u00e2nicas e tapetes rolantes, An\u00e1lise e verifica\u00e7\u00e3o de projectos de sistemas de seguran\u00e7a contra inc\u00eandio, An\u00e1lise da qualidade do ar exterior - D.L. n\u00ba 102/2010, Ensaios mec\u00e2nicos, Inspe\u00e7\u00e3o a equipamentos de divers\u00e3o, Ensaios termodin\u00e2micos, Avalia\u00e7\u00e3o de conformidade no com\u00e9rcio de m\u00e1quinas em 2\u00aa m\u00e3o, Ensaios de fiabilidade de componentes, Ensaios de v\u00e1lvulas de seguran\u00e7a, Caracteriza\u00e7\u00e3o termodin\u00e2mica de materiais (calor especif\u00edco, conductividade t\u00e9rmica, dilatometria), An\u00e1lise de biog\u00e1s - D.L. n\u00ba 183/2009, Planeamento de inspec\u00e7\u00e3o, Avalia\u00e7\u00e3o directa de pipelines, Directiva RoHs - D.L. n\u00ba 230/2004, Desenvolvimento de sistemas de ensaio para prot\u00f3tipos da ind\u00fastria aeroespacial, An\u00e1lise de vibra\u00e7\u00f5es (Modal), Concep\u00e7\u00e3o e desenvolvimento de projectos de laborat\u00f3rios, Ensaios n\u00e3o destrutivos convencionais, Emiss\u00e3o Acustica\""
@@ -2913,5 +2918,100 @@
     "instruction": "'Que servi\u00e7os oferece o ISQ?'",
     "input": "",
     "output": "\"O ISQ oferece uma variedade de servi\u00e7os, incluindo inspe\u00e7\u00e3o, teste e certifica\u00e7\u00e3o de materiais, produtos e processos. Entre eles: Verifica\u00e7\u00e3o metrol\u00f3gica no sector autom\u00f3vel, Calibra\u00e7\u00e3o de equipamento el\u00e9ctrico e de radiofrequ\u00eancia, Calibra\u00e7\u00e3o de equipamentos de \u00f3ptica e topografia, Avalia\u00e7\u00e3o/Verifica\u00e7\u00e3o das condi\u00e7\u00f5es de seguran\u00e7a radiol\u00f3gica, Peritagens, Inspe\u00e7\u00e3o de elevadores, escadas mec\u00e2nicas e tapetes rolantes, An\u00e1lise e verifica\u00e7\u00e3o de projectos de sistemas de seguran\u00e7a contra inc\u00eandio, An\u00e1lise da qualidade do ar exterior - D.L. n\u00ba 102/2010, Ensaios mec\u00e2nicos, Inspe\u00e7\u00e3o a equipamentos de divers\u00e3o, Ensaios termodin\u00e2micos, Avalia\u00e7\u00e3o de conformidade no com\u00e9rcio de m\u00e1quinas em 2\u00aa m\u00e3o, Ensaios de fiabilidade de componentes, Ensaios de v\u00e1lvulas de seguran\u00e7a, Caracteriza\u00e7\u00e3o termodin\u00e2mica de materiais (calor especif\u00edco, conductividade t\u00e9rmica, dilatometria), An\u00e1lise de biog\u00e1s - D.L. n\u00ba 183/2009, Planeamento de inspec\u00e7\u00e3o, Avalia\u00e7\u00e3o directa de pipelines, Directiva RoHs - D.L. n\u00ba 230/2004, Desenvolvimento de sistemas de ensaio para prot\u00f3tipos da ind\u00fastria aeroespacial, An\u00e1lise de vibra\u00e7\u00f5es (Modal), Concep\u00e7\u00e3o e desenvolvimento de projectos de laborat\u00f3rios, Ensaios n\u00e3o destrutivos convencionais, Emiss\u00e3o Acustica\""
+  },
+  {
+    "instruction": "'Ol\u00e1!'",
+    "input": "",
+    "output": "\"Ol\u00e1! Tudo bem?\""
+  },
+  {
+    "instruction": "'Ol\u00e1, como est\u00e1s?'",
+    "input": "",
+    "output": "\"Ol\u00e1! Eu estou bem e tu?\""
+  },
+  {
+    "instruction": "'Bom dia!'",
+    "input": "",
+    "output": "\"Bom dia! Como est\u00e1 a correr o teu dia?\""
+  },
+  {
+    "instruction": "'Tudo bem?'",
+    "input": "",
+    "output": "\"Tudo bem! E contigo?\""
+  },
+  {
+    "instruction": "'Ol\u00e1, como tens estado?'",
+    "input": "",
+    "output": "\"Ol\u00e1! Bem! E contigo?\""
+  },
+  {
+    "instruction": "'Boa tarde!'",
+    "input": "",
+    "output": "\"Boa tarde! Como tem sido o teu dia at\u00e9 agora?\""
+  },
+  {
+    "instruction": "'Mais uma coisa'",
+    "input": "",
+    "output": "\"Claro! Em que posso mais posso ajudar?\""
+  },
+  {
+    "instruction": "'A prop\u00f3sito'",
+    "input": "",
+    "output": "\"Ah, claro! Sobre o que gostarias de falar?\""
+  },
+  {
+    "instruction": "'Outra coisa importante'",
+    "input": "",
+    "output": "\"Com certeza! Estou \u00e0 disposi\u00e7\u00e3o para abordar qualquer outro t\u00f3pico importante.\""
+  },
+  {
+    "instruction": "'Antes que eu me esque\u00e7a'",
+    "input": "",
+    "output": "\"Claro! Qual era o assunto que querias discutir antes que eu me esque\u00e7a?\""
+  },
+  {
+    "instruction": "'A prop\u00f3sito, lembrei-me'",
+    "input": "",
+    "output": "\"Ah, lembrei-me de algo! Em que posso ajudar agora?\""
+  },
+  {
+    "instruction": "'S\u00f3 mais uma coisa'",
+    "input": "",
+    "output": "\"Claro! O que mais precisas saber ou discutir?\""
+  },
+  {
+    "instruction": "'Obrigado'",
+    "input": "",
+    "output": "\"Foi um prazer ajudar!\""
+  },
+  {
+    "instruction": "'At\u00e9 logo!'",
+    "input": "",
+    "output": "\"At\u00e9 logo! Se precisares de mais alguma coisa, estou por aqui.\""
+  },
+  {
+    "instruction": "'Obrigado pela ajuda'",
+    "input": "",
+    "output": "\"N\u00e3o h\u00e1 de qu\u00ea! Se precisares novamente, estou \u00e0 disposi\u00e7\u00e3o!\""
+  },
+  {
+    "instruction": "'Agrade\u00e7o a aten\u00e7\u00e3o'",
+    "input": "",
+    "output": "\"Foi um prazer ajudar! Se tiveres mais perguntas no futuro, estou aqui.\""
+  },
+  {
+    "instruction": "'At\u00e9 \u00e0 pr\u00f3xima'",
+    "input": "",
+    "output": "\"At\u00e9 \u00e0 pr\u00f3xima! Se precisares de assist\u00eancia, n\u00e3o hesites em entrar em contato.\""
+  },
+  {
+    "instruction": "'Tenho que ir agora'",
+    "input": "",
+    "output": "\"Entendo. Se precisares de algo mais no futuro, estou aqui!\""
+  },
+  {
+    "instruction": "'At\u00e9 breve!'",
+    "input": "",
+    "output": "\"At\u00e9 breve! Se precisares de alguma coisa, n\u00e3o hesites em chamar.\""
   }
 ]

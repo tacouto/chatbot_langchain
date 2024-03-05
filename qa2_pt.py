@@ -372,7 +372,13 @@ data_output.append({
     "input": "",
     "output": f"\"{answer_2}\"",
 })
-
+question_2 = "Qual é o significado de ISQ?"
+answer_2 = "ISQ significa 'Instituto de Soldadura e Qualidade'."
+data_output.append({
+    "instruction": f"'{question_2}'",
+    "input": "",
+    "output": f"\"{answer_2}\"",
+})
 question_3 = "Pode explicar o papel do ISQ em Portugal?"
 answer_3 = f"O ISQ desempenha um papel significativo em Portugal, fornecendo serviços tais como: {', '.join(services)}"
 data_output.append({
@@ -396,6 +402,148 @@ data_output.append({
     "input": "",
     "output": f"\"{answer_5}\"",
 })
+
+
+# Saudação
+question_6 = "Olá!"
+answer_6 = f"Olá! Tudo bem?"
+data_output.append({
+    "instruction": f"'{question_6}'",
+    "input": "",
+    "output": f"\"{answer_6}\"",
+})
+question_1 = "Olá, como estás?"
+answer_1 = f"Olá! Eu estou bem e tu?"
+data_output.append({
+    "instruction": f"'{question_1}'",
+    "input": "",
+    "output": f"\"{answer_1}\"",
+})
+question_2 = "Bom dia!"
+answer_2 = f"Bom dia! Como está a correr o teu dia?"
+data_output.append({
+    "instruction": f"'{question_2}'",
+    "input": "",
+    "output": f"\"{answer_2}\"",
+})
+question_3 = "Tudo bem?"
+answer_3 = f"Tudo bem! E contigo?"
+data_output.append({
+    "instruction": f"'{question_3}'",
+    "input": "",
+    "output": f"\"{answer_3}\"",
+})
+question_4 = "Olá, como tens estado?"
+answer_4 = f"Olá! Bem! E contigo?"
+data_output.append({
+    "instruction": f"'{question_4}'",
+    "input": "",
+    "output": f"\"{answer_4}\"",
+})
+question_5 = "Boa tarde!"
+answer_5 = f"Boa tarde! Como tem sido o teu dia até agora?"
+data_output.append({
+    "instruction": f"'{question_5}'",
+    "input": "",
+    "output": f"\"{answer_5}\"",
+})
+
+# Transição
+question_5 = "Mais uma coisa"
+answer_5 = f"Claro! Em que posso mais posso ajudar?"
+data_output.append({
+    "instruction": f"'{question_5}'",
+    "input": "",
+    "output": f"\"{answer_5}\"",
+})
+transition_question_1 = "A propósito"
+transition_answer_1 = f"Ah, claro! Sobre o que gostarias de falar?"
+data_output.append({
+    "instruction": f"'{transition_question_1}'",
+    "input": "",
+    "output": f"\"{transition_answer_1}\"",
+})
+transition_question_4 = "Outra coisa importante"
+transition_answer_4 = f"Com certeza! Estou à disposição para abordar qualquer outro tópico importante."
+data_output.append({
+    "instruction": f"'{transition_question_4}'",
+    "input": "",
+    "output": f"\"{transition_answer_4}\"",
+})
+transition_question_5 = "Antes que eu me esqueça"
+transition_answer_5 = f"Claro! Qual era o assunto que querias discutir antes que eu me esqueça?"
+data_output.append({
+    "instruction": f"'{transition_question_5}'",
+    "input": "",
+    "output": f"\"{transition_answer_5}\"",
+})
+transition_question_7 = "A propósito, lembrei-me"
+transition_answer_7 = f"Ah, lembrei-me de algo! Em que posso ajudar agora?"
+data_output.append({
+    "instruction": f"'{transition_question_7}'",
+    "input": "",
+    "output": f"\"{transition_answer_7}\"",
+})
+transition_question_6 = "Só mais uma coisa"
+transition_answer_6 = f"Claro! O que mais precisas saber ou discutir?"
+data_output.append({
+    "instruction": f"'{transition_question_6}'",
+    "input": "",
+    "output": f"\"{transition_answer_6}\"",
+})
+
+# Despedida
+question_4 = "Obrigado"
+answer_4 = f"Foi um prazer ajudar!"
+data_output.append({
+    "instruction": f"'{question_4}'",
+    "input": "",
+    "output": f"\"{answer_4}\"",
+})
+farewell_1 = "Até logo!"
+response_1 = f"Até logo! Se precisares de mais alguma coisa, estou por aqui."
+data_output.append({
+    "instruction": f"'{farewell_1}'",
+    "input": "",
+    "output": f"\"{response_1}\"",
+})
+farewell_2 = "Obrigado pela ajuda"
+response_2 = f"Não há de quê! Se precisares novamente, estou à disposição!"
+data_output.append({
+    "instruction": f"'{farewell_2}'",
+    "input": "",
+    "output": f"\"{response_2}\"",
+})
+farewell_3 = "Agradeço a atenção"
+response_3 = f"Foi um prazer ajudar! Se tiveres mais perguntas no futuro, estou aqui."
+data_output.append({
+    "instruction": f"'{farewell_3}'",
+    "input": "",
+    "output": f"\"{response_3}\"",
+})
+farewell_4 = "Até à próxima"
+response_4 = f"Até à próxima! Se precisares de assistência, não hesites em entrar em contato."
+data_output.append({
+    "instruction": f"'{farewell_4}'",
+    "input": "",
+    "output": f"\"{response_4}\"",
+})
+farewell_5 = "Tenho que ir agora"
+response_5 = f"Entendo. Se precisares de algo mais no futuro, estou aqui!"
+data_output.append({
+    "instruction": f"'{farewell_5}'",
+    "input": "",
+    "output": f"\"{response_5}\"",
+})
+farewell_6 = "Até breve!"
+response_6 = f"Até breve! Se precisares de alguma coisa, não hesites em chamar."
+data_output.append({
+    "instruction": f"'{farewell_6}'",
+    "input": "",
+    "output": f"\"{response_6}\"",
+})
+
+
 
 print(services)
 with open(output_json_path, 'w') as json_file:

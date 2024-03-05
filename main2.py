@@ -30,14 +30,18 @@ def chat_bot(model_name, fine_tuned):
         bnb_4bit_compute_dtype=torch.float16  
     )
 
-    model = AutoModelForCausalLM.from_pretrained(model_name,
+    # model = AutoModelForCausalLM.from_pretrained(model_name,
+    #                                             device_map = "auto",
+    #                                             quantization_config=nf4_config)
+    #                                             #  trust_remote_code=True)
+
+
+    # model = PeftModel.from_pretrained(model, fine_tuned)
+    
+    model = AutoModelForCausalLM.from_pretrained(fine_tuned,
                                                 device_map = "auto",
                                                 quantization_config=nf4_config)
                                                 #  trust_remote_code=True)
-
-
-    model = PeftModel.from_pretrained(model, fine_tuned)
-
 
     tokenizer = AutoTokenizer.from_pretrained(model_name)
 
@@ -89,25 +93,22 @@ def chat_bot(model_name, fine_tuned):
         probs = torch.stack(generation_output.scores, dim=1).softmax(-1)
         gen_probs = torch.gather(probs, 2, gen_sequences[:, :, None]).squeeze(-1)
         gen_probs_mean = torch.mean(gen_probs)
-        # print(f"gen_sequences: {gen_sequences}")
-        # print(f"probs: {probs}")
-        # print(f"gen_probs: {gen_probs}")
-        # print(f"gen_probs mean: {torch.mean(gen_probs)}")  # Este é o mais importante
         print(f"gen_probs_mean: {gen_probs_mean}")
-        print(f"gen_probs max: {torch.max(gen_probs)}")
-        print(f"gen_probs min: {torch.min(gen_probs)}")
-        # for s in generation_output.sequences:
-        #     if gen_probs_mean >= 0.8:
-        #         output = tokenizer.decode(s)
-        #         print("Bot:", output.split("### Resposta:")[1].strip())
-        #         # Guardar a interação
-        #         bot_response = output.split("### Resposta:")[1].strip()
-        #         # conversations.append(bot_response)
-        #         conversations[-1]["output"] = bot_response
-        #     else:
-        #         bot_response = "I regret to inform you that I am unable to answer that. I apologize for any inconvenience. / Lamento informar que não posso responder a isso. Peço desculpas por qualquer inconveniente."
-        #         print("Bot:", bot_response)
-        #         conversations[-1]["output"] = bot_response
+        print(f"gen_probs_min: {torch.min(gen_probs)}")
+        print(f"STD: {torch.std(gen_probs)}")
+        
+        for s in generation_output.sequences:
+            if gen_probs_mean >= 0.1:
+                output = tokenizer.decode(s)
+                print("Bot:", output.split("### Resposta:")[1].strip())
+                # Guardar a interação
+                bot_response = output.split("### Resposta:")[1].strip()
+                # conversations.append(bot_response)
+                conversations[-1]["output"] = bot_response
+            else:
+                bot_response = "I regret to inform you that I am unable to answer that. I apologize for any inconvenience. / Lamento informar que não posso responder a isso. Peço desculpas por qualquer inconveniente."
+                print("Bot:", bot_response)
+                conversations[-1]["output"] = bot_response
 
 
 
