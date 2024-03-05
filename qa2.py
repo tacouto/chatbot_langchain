@@ -550,7 +550,7 @@ df_filtrado = df[~df['Responsável de serviço'].isin(['João Pombo', 'Maria Man
                            'Frazão Guerreiro', 'Alexandre Levy', 'Rui A. Louro', 'Carlos Martins', 'Pedro Pinto', 'Luís Ferreira', 'Maria João Franco', 'Januário da Torre', 'Tânia Farinha', \
                            'Elsa Maria Cantiga', 'André Ramalho', 'Cristina Leão', 'Rogério Magalhães', 'Liliana P. Silva', 'Sara Leonardo', 'Luis Conde Santos', \
                             'Vasco Mendes Pires', 'João Paulo Figueiredo', 'Elsa Cantiga', 'José Azevedo'])]
-csv_filtrado_out_path = "aproveitado_pt.csv"
+csv_filtrado_out_path = "aproveitado_en.csv"
 
 df_filtrado.to_csv(csv_filtrado_out_path, index=False)
 

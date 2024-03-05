@@ -93,12 +93,14 @@ def chat_bot(model_name, fine_tuned):
         probs = torch.stack(generation_output.scores, dim=1).softmax(-1)
         gen_probs = torch.gather(probs, 2, gen_sequences[:, :, None]).squeeze(-1)
         gen_probs_mean = torch.mean(gen_probs)
+        gen_probs_min = torch.min(gen_probs)
+        gen_probs_std = torch.std(gen_probs)
         print(f"gen_probs_mean: {gen_probs_mean}")
-        print(f"gen_probs_min: {torch.min(gen_probs)}")
-        print(f"STD: {torch.std(gen_probs)}")
+        print(f"gen_probs_min: {gen_probs_min}")
+        print(f"STD: {gen_probs_std}")
         
         for s in generation_output.sequences:
-            if gen_probs_mean >= 0.1:
+            if gen_probs_std <= 0.15 and gen_probs_mean >= 0.8:
                 output = tokenizer.decode(s)
                 print("Bot:", output.split("### Resposta:")[1].strip())
                 # Guardar a interação
